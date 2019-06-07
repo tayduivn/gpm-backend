@@ -1,0 +1,38 @@
+GET {{host}}/api/public/categories
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST {{host}}/api/categories/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "product_id": "5",
+  "category_id": "2"
+}
+
+###
+
+PUT {{host}}/api/categories/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "product_id": "3",
+  "category_id": "26"
+}
+
+###
+
+DELETE {{host}}/api/categories/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "product_id": "26",
+  "category_id": "1"
+}
+
+###

@@ -1,0 +1,59 @@
+GET {{host}}/api/images?id=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/images?order=DESC
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST {{host}}/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="not-found-image.png"
+Content-Type: image/jpeg
+
+< ./../image/not-found-image.png
+--WebAppBoundary--
+
+###
+
+POST {{host}}/api/images/update
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+26
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="not-found-image.png"
+Content-Type: image/jpeg
+
+< ./../image/fuki_two.jpeg
+--WebAppBoundary--
+
+###
+
+###
+
+DELETE {{host}}/api/images/delete
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "1"
+}
+
+###

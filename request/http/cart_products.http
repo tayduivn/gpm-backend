@@ -1,0 +1,55 @@
+GET {{host}}/api/carts/products?cartId=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/carts/products
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST {{host}}/api/carts/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+###
+
+PUT {{host}}/api/carts/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "products": [
+    {
+      "cart_product_id": "17",
+      "product_id": "1",
+      "quantity": 3
+    },
+    {
+      "cart_product_id": "6",
+      "product_id": "3",
+      "quantity": 1
+    }
+  ]
+}
+
+###
+
+DELETE {{host}}/api/carts/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "3"
+}
+
+###

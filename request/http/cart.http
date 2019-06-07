@@ -1,0 +1,66 @@
+GET {{host}}/api/carts?id=2
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/carts
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/carts?orderByUser=true
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/carts?userId=2
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/carts/getStatus/Todo
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST {{host}}/api/carts
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "user_id": "1"
+}
+
+###
+
+PUT {{host}}/api/admin/carts/update
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "2",
+  "status": "checkout"
+}
+
+###
+
+DELETE {{host}}/api/carts/delete
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "3"
+}
+
+###

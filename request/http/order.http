@@ -1,0 +1,58 @@
+GET {{host}}/api/orders?id=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+GET {{host}}/api/orders?userId=2&cartId=1&status=enviando
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+GET {{host}}/api/orders?userId=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+GET {{host}}/api/orders?status=Pending
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+GET {{host}}/api/orders
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+POST {{host}}/api/orders
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "subtotal": "2200",
+  "total": "2500",
+  "user_id": "1",
+  "cart_id": "3"
+}
+
+###
+PUT {{host}}/api/orders
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "2",
+  "subtotal": "2700",
+  "total": "2700",
+  "status": "Enviando"
+}
+
+###
+DELETE {{host}}/api/orders
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "4"
+}
+
+###
