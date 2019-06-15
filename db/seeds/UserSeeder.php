@@ -28,8 +28,8 @@ class UserSeeder extends AbstractSeed {
         'role_id' => "1",
       ],
       [
-        'email'    => 'goa@gmail.com',
-        'first_name'     => 'goa',
+        'email'    => 'client@gmail.com',
+        'first_name'     => 'client',
         'last_name'     => 'last',
         'password' => "$2y$10$/C90fWobQk6mUz8UZfb73Oo900vXXM.BZAXKppwnnfgkQNN1BWPjG",
         'address' => "1234 Main St.",

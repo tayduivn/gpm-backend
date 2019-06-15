@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use mysql_xdevapi\Exception;
 use Psr\Container\ContainerInterface as ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -31,11 +32,15 @@ class TransactionController extends HandleRequest {
       $statement = $this->db->prepare("SELECT * FROM `transaction` WHERE id = :id AND active != '0' ORDER BY " . $order);
       $statement->execute(['id' => $id]);
     } else if ($payment === 'Paypal') {
-      $paypalClient = $this->gateWayPaypal($this->db)->clientToken()->generate();
-      $statement = $this->db->prepare("SELECT * FROM payment");
-      $statement->execute();
-      $result = $statement->fetchAll();
-      return $this->handleRequest($response, 200, '', ['paypal_client' => $paypalClient, 'production_paypal' => $result[0]['production_paypal']]);
+      try {
+        $paypalClient = $this->gateWayPaypal($this->db)->clientToken()->generate();
+        $statement    = $this->db->prepare("SELECT * FROM payment");
+        $statement->execute();
+        $result = $statement->fetchAll();
+        return $this->handleRequest($response, 200, '', ['paypal_client' => $paypalClient, 'production_paypal' => $result[0]['production_paypal']]);
+      } catch (\Exception $e) {
+        return $this->handleRequest($response, 500);
+      }
     } else {
       $statement = $this->db->prepare("SELECT * FROM `transaction` WHERE active != '0'");
       $statement->execute();

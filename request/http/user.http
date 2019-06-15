@@ -2,17 +2,17 @@ POST {{host}}/api/public/users/login
 Content-Type: application/json
 
 {
-  "email": "pedro46@gmail.com",
-  "password": "12345678"
+  "email"   : "admin@gmail.com",
+  "password": "123456"
 }
 
 > {% client.global.set("auth_token", response.body.data.token); %}
 
 ###
 
-GET {{host}}/api/users
+GET {{host}}/api/users?type=admin
 Accept: application/json
-Authorization: {{auth_token}}
+Authorization: Bearer {{auth_token}}
 
 ###
 
@@ -29,7 +29,7 @@ Accept: application/json
 
 GET {{host}}/api/users?id=2
 Accept: application/json
-Authorization: {{auth_token}}
+Authorization: Bearer {{auth_token}}
 
 ###
 
@@ -37,42 +37,32 @@ POST {{host}}/api/public/users/register
 Content-Type: application/json
 
 {
-  "id": "",
-  "email": "pedro46@gmail.com",
-  "first_name": "Pedro",
-  "last_name": "Rodriguez",
-  "password": "12345678",
-  "address": "Calle Santa Rita",
-  "phone": "4164318061",
-  "city": "Maracay",
-  "state": "Aragua",
-  "country": "Venezuela",
-  "country_code": "",
-  "postal_code": "2120",
-  "role_id": 2
+  "email"      : "ivans1041@gmail.com",
+  "pass_repeat": "123456",
+  "password"   : "123456"
 }
 
 ###
 
 PUT {{host}}/api/users
 Content-Type: application/json
-Authorization: {{auth_token}}
+Authorization: Bearer {{auth_token}}
 
 {
-  "id": "17",
+  "id"        : "17",
   "first_name": "ivans",
-  "role_id": 2
+  "role_id"   : 2
 }
 
 ###
 
 PUT {{host}}/api/users/password
 Content-Type: application/json
-Authorization: {{auth_token}}
+Authorization: Bearer {{auth_token}}
 
 {
-  "id": "17",
-  "email": "pedro46@gmail.com",
+  "id"      : "17",
+  "email"   : "pedro46@gmail.com",
   "password": "12345678"
 }
 
@@ -80,7 +70,7 @@ Authorization: {{auth_token}}
 
 DELETE {{host}}/api/users
 Content-Type: application/json
-Authorization: {{auth_token}}
+Authorization: Bearer {{auth_token}}
 
 {
   "id": "1"

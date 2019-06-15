@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class Goa extends AbstractMigration {
+class Appgpm extends AbstractMigration {
   /**
    * Change Method.
    *

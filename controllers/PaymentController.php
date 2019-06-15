@@ -54,8 +54,7 @@ class PaymentController extends HandleRequest {
                                   'paypal_token'             => $paypalToken,
                                   'production_paypal'        => $productionPaypal,
                                 ]);
-
-    return $this->postSendResponse($response, $result, 'Data updated');
+    return $result ? $this->handleRequest($response, 204) : $this->handleRequest($response, 500);
   }
 
 }

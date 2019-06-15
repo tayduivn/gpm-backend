@@ -21,7 +21,14 @@ class ProductReviewSeeder extends AbstractSeed {
   public function run() {
     $data = [
       [
-        'title' => 'Hi Goa',
+        'title' => 'Hi',
+        'message' => 'My message',
+        'stars'  => 5,
+        'user_id'  => 1,
+        'product_id'  => 1,
+      ],
+      [
+        'title' => 'Hi',
         'message' => 'My message',
         'stars'  => 5,
         'user_id'  => 1,

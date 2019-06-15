@@ -28,10 +28,9 @@ class UserController extends HandleRequest {
     $id    = $request->getQueryParam('id', $default = false);
 
     if ($type) {
-      $statement = $this->db->prepare("SELECT user.id, user.email, user.password, user.first_name, user.last_name, user.city, user.country, user.state,
-                                        user.country_code, user.postal_code, user.address, user.phone, user.active, user.role_id, user.state,
-                                        user.inserted_at AS user_inserted_at, user.updated_at AS user_updated_at, 
-                                        r.id, r.name, r.active, r.inserted_at, r.updated_at
+      $statement = $this->db->prepare("SELECT user.id AS user_id, user.email, user.first_name, user.last_name, user.password, 
+                                        user.address, user.phone, user.active, user.role_id, 
+                                        user.inserted_at, user.updated_at, r.id, r.name, r.active, r.inserted_at, r.updated_at
                                         FROM user INNER JOIN role r on user.role_id = r.id 
                                         WHERE user.active != '0' AND r.name = :type");
       $statement->execute(['type' => $type]);

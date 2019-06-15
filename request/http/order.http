@@ -3,7 +3,7 @@ Accept: application/json
 Authorization: Bearer {{auth_token}}
 
 ###
-GET {{host}}/api/orders?userId=2&cartId=1&status=enviando
+GET {{host}}/api/orders?userId=2&cartId=1&status=pending
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
