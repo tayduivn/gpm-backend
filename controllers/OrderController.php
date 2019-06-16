@@ -33,7 +33,7 @@ class OrderController extends HandleRequest {
       $query     = "SELECT `order`.id AS order_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
                     `order`.inserted_at AS order_inserted_at, `order`.updated_at AS order_updated_at, `order`.user_id, `order`.cart_id, 
                     u.id, u.email, u.first_name, u.last_name, u.password, u.address, u.phone, u.active, 
-                    u.city, u.country, u.state, u.country_code, u.postal_code, u.state,
+                    u.city, u.country, u.state, u.country_code, u.postal_code, u.state, u.photo,
                     u.role_id, u.inserted_at, u.updated_at 
                     FROM `order` INNER JOIN user u on `order`.user_id = u.id 
                     WHERE `order`.id = :id AND `order`.active != '0' ORDER BY `order`.inserted_at ASC";
@@ -54,7 +54,7 @@ class OrderController extends HandleRequest {
                     `order`.inserted_at, `order`.updated_at, `order`.user_id, `order`.cart_id, 
                     c.id, c.status, c.active, c.inserted_at, c.updated_at, c.user_id, 
                     u.id, u.email, u.first_name, u.last_name, u.password, u.address, u.phone, u.active, 
-                    u.city, u.country, u.state, u.country_code, u.postal_code, u.state,
+                    u.city, u.country, u.state, u.country_code, u.postal_code, u.state, u.photo,
                     u.role_id, u.inserted_at, u.updated_at 
                     FROM `order` INNER JOIN cart c on `order`.cart_id = c.id INNER JOIN user u on `order`.user_id = u.id
                     WHERE `order`.active != '0' AND `order`.status = :status AND `order`.user_id = :userId AND `order`.cart_id = :cartId";
@@ -72,7 +72,7 @@ class OrderController extends HandleRequest {
       $query     = "SELECT `order`.id AS order_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
                     `order`.inserted_at AS order_inserted_at, `order`.updated_at AS order_updated_at, `order`.user_id, `order`.cart_id, 
                     u.id, u.email, u.first_name, u.last_name, u.password, u.address, u.phone, u.active, 
-                    u.city, u.country, u.state, u.country_code, u.postal_code, u.state,
+                    u.city, u.country, u.state, u.country_code, u.postal_code, u.state, u.photo,
                     u.role_id, u.inserted_at, u.updated_at 
                     FROM `order` INNER JOIN user u on `order`.user_id = u.id
                     WHERE `order`.active != '0' AND status = :status";

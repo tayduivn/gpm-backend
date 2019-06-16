@@ -59,6 +59,7 @@ class Appgpm extends AbstractMigration {
     }
     $this->table('user')
       ->addColumn('email', 'string', ['limit' => 255])
+      ->addColumn('photo', 'string', ['limit' => 255, 'default' => 'https://image.flaticon.com/icons/png/512/55/55089.png']) /* Image in host */
       ->addColumn('first_name', 'string', ['limit' => 255])
       ->addColumn('last_name', 'string', ['limit' => 255])
       ->addColumn('password', 'string', ['limit' => 255])

@@ -29,21 +29,21 @@ class UserController extends HandleRequest {
 
     if ($type) {
       $statement = $this->db->prepare("SELECT user.id AS user_id, user.email, user.first_name, user.last_name, user.password, 
-                                        user.address, user.phone, user.active, user.role_id, 
+                                        user.address, user.phone, user.active, user.role_id, user.photo,
                                         user.inserted_at, user.updated_at, r.id, r.name, r.active, r.inserted_at, r.updated_at
                                         FROM user INNER JOIN role r on user.role_id = r.id 
                                         WHERE user.active != '0' AND r.name = :type");
       $statement->execute(['type' => $type]);
     } else if ($id) {
       $statement = $this->db->prepare("SELECT user.id AS user_id, user.email, user.first_name, user.last_name, user.password, 
-                                        user.address, user.phone, user.active, user.role_id, 
+                                        user.address, user.phone, user.active, user.role_id, user.photo,
                                         user.inserted_at, user.updated_at, r.id, r.name, r.active, r.inserted_at, r.updated_at
                                         FROM user INNER JOIN role r on user.role_id = r.id 
                                         WHERE user.active != '0' AND user.id = :id");
       $statement->execute(['id' => $id]);
     } else {
       $statement = $this->db->prepare("SELECT user.id AS user_id, user.email, user.first_name, user.last_name, user.password, 
-                                        user.address, user.phone, user.active, user.role_id, 
+                                        user.address, user.phone, user.active, user.role_id, user.photo,
                                         user.inserted_at, user.updated_at, r.id, r.name, r.active, r.inserted_at, r.updated_at
                                         FROM user INNER JOIN role r on user.role_id = r.id 
                                         WHERE user.active != '0'");
@@ -60,7 +60,7 @@ class UserController extends HandleRequest {
     $request_body = $request->getParsedBody();
     $statement    = $this->db->prepare("SELECT user.id, user.email, user.password, user.first_name, user.last_name, user.city, user.country, user.state,
                                         user.country_code, user.postal_code, user.address, user.phone, user.active, user.role_id, user.state,
-                                        user.inserted_at, user.updated_at, 
+                                        user.inserted_at, user.updated_at, user.photo,
                                         r.id AS role_id, r.name, r.active, r.inserted_at AS role_inserted, r.updated_at AS role_updated 
                                         FROM user INNER JOIN role r on user.role_id = r.id WHERE email= :email AND user.active != 0");
     $statement->bindParam("email", $request_body['email']);
@@ -196,6 +196,33 @@ class UserController extends HandleRequest {
                                  ]);
     return $result ? $this->handleRequest($response, 201, "Data updated") : $this->handleRequest($response, 500);
   }
+
+  public function updatePhoto(Request $request, Response $response, $args) {
+    $request_body = $request->getParsedBody();
+    $idimage      = $request_body['id'];
+
+    $uploadedFiles = $request->getUploadedFiles();
+
+    $uploadedFile = $uploadedFiles['image'];
+    if (isset($uploadedFile) && $uploadedFile !== null && $uploadedFile->getError() === UPLOAD_ERR_OK) {
+      $filename = $this->moveUploadedFile($this->upload, $uploadedFile);
+    } else {
+      return $this->handleRequest($response, 400, 'No upload image');
+    }
+
+    if (!isset($idimage)) {
+      return $this->handleRequest($response, 400, 'Datos incorrectos');
+    }
+
+    $prepare = $this->db->prepare("UPDATE user SET photo = :image WHERE id = :idimage");
+    $result  = $prepare->execute([
+                                   'idimage' => $idimage,
+                                   'image'   => $this->getBaseURL() . "/src/uploads/" . $filename,
+                                 ]);
+
+    return $this->postSendResponse($response, $result, 'Update data');
+  }
+
 
   public function updatePassword(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
