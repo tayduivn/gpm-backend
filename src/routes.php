@@ -55,6 +55,7 @@ $app->group('/api', function () use ($app) {
 
     $app->post('/users/forgot', 'App\Controller\UserController:forgot');
     $app->post('/users/login', 'App\Controller\UserController:login');
+    $app->get('/users/email', 'App\Controller\UserController:getEmail');
     $app->post('/users/register', 'App\Controller\UserController:register');
     $app->post('/emails', 'App\Controller\SingUpEmailController:register');
 

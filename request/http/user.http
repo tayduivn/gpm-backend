@@ -16,6 +16,11 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
+GET {{host}}/api/public/users/email?email=ivans1041@gmail.com
+Accept: application/json
+
+###
+
 ### TODO: how to public folder in express
 GET {{host}}/public/images/not-found-image.png
 Accept: application/json
