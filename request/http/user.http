@@ -33,6 +33,25 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
+POST {{host}}/api/users/photo
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="id"
+Content-Type: text/plain
+
+1
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="not-found-image.png"
+Content-Type: image/jpeg
+
+< ./../image/not-found-image.png
+--WebAppBoundary--
+
+###
+
 POST {{host}}/api/public/users/register
 Content-Type: application/json
 

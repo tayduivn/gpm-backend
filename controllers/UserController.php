@@ -13,12 +13,14 @@ class UserController extends HandleRequest {
   private $logger   = null;
   private $settings = null;
   private $session  = null;
+  private $upload   = null;
 
   public function __construct(ContainerInterface $container) {
     $this->db       = $container->get('db');
     $this->logger   = $container->get('logger');
     $this->settings = $container->get('settings');
     $this->session  = $container->get('session');
+    $this->upload   = $container->get('upload_directory');
   }
 
   public function getAll(Request $request, Response $response, $args) {
