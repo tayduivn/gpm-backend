@@ -27,11 +27,6 @@ Accept: application/json
 
 ###
 
-GET {{host}}/api/public/info
-Accept: application/json
-
-###
-
 GET {{host}}/api/users?id=2
 Accept: application/json
 Authorization: Bearer {{auth_token}}

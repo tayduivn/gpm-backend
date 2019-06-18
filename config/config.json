@@ -12,9 +12,9 @@
     "dbname": "5Jtq5PbmJz"
   },
   "prod"       : {
-    "host"  : "remotemysql.com",
-    "user"  : "5Jtq5PbmJz",
-    "pass"  : "krZkYWmfsI",
-    "dbname": "5Jtq5PbmJz"
+    "host"  : "localhost",
+    "user"  : "appgpm_ivans",
+    "pass"  : "Y?Up7*?eCAtH",
+    "dbname": "appgpm_gpm"
   }
 }
