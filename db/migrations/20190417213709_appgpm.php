@@ -72,6 +72,7 @@ class Appgpm extends AbstractMigration {
       ->addColumn('phone', 'string', ['limit' => 255, 'null' => true])
       ->addColumn('active', 'boolean', ['default' => true])
       ->addColumn('role_id', 'integer')
+      ->addColumn('firebase_id', 'string', ['limit' => 255])
       ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->addIndex(['email'], ['unique' => true])

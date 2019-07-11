@@ -307,7 +307,7 @@ class UserController extends HandleRequest {
   public function getEmailQuery($email) {
     $statement = $this->db->prepare("SELECT user.id, user.email, user.password, user.first_name, user.last_name, user.city, user.country, user.state,
                                         user.country_code, user.postal_code, user.address, user.phone, user.active, user.role_id, user.state,
-                                        user.inserted_at, user.updated_at, user.photo,
+                                        user.inserted_at, user.updated_at, user.photo, user.firebase_id,
                                         r.id AS role_id, r.name, r.active, r.inserted_at AS role_inserted, r.updated_at AS role_updated 
                                         FROM user INNER JOIN role r on user.role_id = r.id WHERE email= :email AND user.active != 0");
     $statement->execute(['email' => $email]);
