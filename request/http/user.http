@@ -2,7 +2,7 @@ POST {{host}}/api/public/users/login
 Content-Type: application/json
 
 {
-  "email"   : "client@gmail.com",
+  "email"   : "admin@gmail.com",
   "password": "123456"
 }
 
@@ -10,13 +10,13 @@ Content-Type: application/json
 
 ###
 
-GET {{host}}/api/users?type=admin
+GET {{host}}/api/users?type=client
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
 ###
 
-GET {{host}}/api/public/users/email?email=ivans1041@gmail.com
+GET {{host}}/api/public/users/email?email=client2@gmail.com
 Accept: application/json
 
 ###

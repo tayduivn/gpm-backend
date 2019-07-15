@@ -1,0 +1,33 @@
+POST {{host}}/api/tags/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "product_id": "1",
+  "tag_id": "2"
+}
+
+###
+
+PUT {{host}}/api/tags/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "1",
+  "product_id": "1",
+  "tag_id": "1"
+}
+
+###
+
+DELETE {{host}}/api/tags/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "product_id": "1",
+  "tag_id": "1"
+}
+
+###

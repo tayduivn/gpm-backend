@@ -98,6 +98,7 @@ class UserController extends HandleRequest {
     $request_body = $request->getParsedBody();
     $email        = $request_body['email'];
     $role_id      = $request_body['role_id'];
+    $firebase_id  = $request_body['firebase_id'];
     $password     = isset($request_body['password']) ? $request_body['password'] : '';
     $address      = isset($request_body['address']) ? $request_body['address'] : '';
     $phone        = isset($request_body['phone']) ? $request_body['phone'] : '';
@@ -110,15 +111,15 @@ class UserController extends HandleRequest {
     $country_code = isset($request_body['country_code']) ? $request_body['country_code'] : '';
     $postal_code  = isset($request_body['postal_code']) ? $request_body['postal_code'] : '';
 
-    if (!isset($password) && !isset($email) && !isset($role_id)) {
+    if (!isset($password) && !isset($email) && !isset($role_id) && !isset($firebase_id)) {
       return $this->handleRequest($response, 400, 'Data incorrect');
     }
 
     if ($this->validateUser($email)) {
       return $this->handleRequest($response, 409, "Email already exist");
     } else {
-      $query   = "INSERT INTO user (email, first_name, last_name, password, address, city, state, country, country_code, postal_code, phone, role_id, photo) 
-                  VALUES (:email, :first_name, :last_name, :password, :address, :city, :state, :country, :country_code, :postal_code, :phone, :role_id, :photo)";
+      $query   = "INSERT INTO user (email, first_name, last_name, password, address, city, state, country, country_code, postal_code, phone, role_id, firebase_id, photo) 
+                  VALUES (:email, :first_name, :last_name, :password, :address, :city, :state, :country, :country_code, :postal_code, :phone, :role_id, :firebase_id, :photo)";
       $prepare = $this->db->prepare($query);
 
       $result = $prepare->execute([
@@ -134,6 +135,7 @@ class UserController extends HandleRequest {
                                     'postal_code'  => $postal_code,
                                     'phone'        => $phone,
                                     'role_id'      => $role_id,
+                                    'firebase_id'  => $firebase_id,
                                     'photo'        => $photo,
                                   ]);
 

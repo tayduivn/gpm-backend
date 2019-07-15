@@ -1,9 +1,3 @@
-GET {{host}}/api/public/categories
-Accept: application/json
-Authorization: Bearer {{auth_token}}
-
-###
-
 POST {{host}}/api/categories/products
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}

@@ -1,0 +1,41 @@
+GET {{host}}/api/public/tags
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/public/tags?id=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST {{host}}/api/tags
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "testing"
+}
+
+###
+
+PUT {{host}}/api/tags
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 2,
+  "name": "testing2"
+}
+
+###
+
+DELETE {{host}}/api/tags
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 2
+}
+###

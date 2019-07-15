@@ -66,6 +66,31 @@ class Utils {
   }
 
   /**
+   * @param       $db
+   * @param       $product
+   * @param array $result
+   * @param       $index
+   * @return array
+   */
+  function getSubProducts($db, $product, array $result, $index) {
+    $query     = "SELECT product_sub.id as id_sub_product, product_sub.sku, product_sub.name, product_sub.description_short, 
+                  product_sub.description_one, product_sub.description_two, product_sub.regular_price, 
+                  product_sub.quantity, product_sub.active, product_sub.inserted_at, product_sub.updated_at, 
+                  product_sub.user_id, product_sub.product_id
+                  FROM product_sub
+                  INNER JOIN product p on product_sub.product_id = p.id
+                  WHERE product_sub.active != 0 AND product_sub.product_id = :id";
+    $statement = $db->prepare($query);
+    $statement->execute(['id' => $product['id']]);
+    $resultSubProduct = $statement->fetchAll();
+
+    if (is_array($resultSubProduct) and !empty($resultSubProduct)) {
+      $result[$index]['sub_products'] = $resultSubProduct;
+    }
+    return $result;
+  }
+
+  /**
    * @param $db
    * @param $product
    * @param $result
@@ -88,6 +113,27 @@ class Utils {
 
   /**
    * @param $db
+   * @param $product
+   * @param $result
+   * @param $index
+   * @return mixed
+   */
+  function getTagsProducts($db, $product, $result, $index) {
+    $query     = "SELECT tag.id, tag.name FROM tag
+                  INNER JOIN product_tag pc on tag.id = pc.tag_id
+                  WHERE tag.active != 0 AND pc.product_id = :id";
+    $statement = $db->prepare($query);
+    $statement->execute(['id' => $product['id']]);
+    $resultCategory = $statement->fetchAll();
+
+    if (is_array($resultCategory) and !empty($resultCategory)) {
+      $result[$index]['tags'] = $resultCategory;
+    }
+    return $result;
+  }
+
+  /**
+   * @param $db
    * @param $cart_id
    * @param $result
    * @param $index
@@ -96,8 +142,7 @@ class Utils {
   function getCartsProducts($db, $cart_id, $result, $index) {
     $query     = "SELECT 
                   cp.id AS cart_product_id, cp.quantity AS cart_quantity, cp.inserted_at, cp.updated_at, cp.cart_id, cp.product_id, 
-                  p.id, p.sku, p.name, p.description_short, p.description_one, p.description_two, p.preparation, 
-                  p.regular_price, p.quantity, p.active, p.inserted_at, p.updated_at, p.user_id
+                  p.id, p.sku, p.name, p.active, p.inserted_at, p.updated_at, p.user_id
                   FROM cart_products cp INNER JOIN product p on cp.product_id = p.id
                   WHERE p.active != '0' AND cp.cart_id = :id";
     $statement = $db->prepare($query);

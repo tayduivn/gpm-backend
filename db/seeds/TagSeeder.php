@@ -2,7 +2,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class CategorySeeder extends AbstractSeed {
+class TagSeeder extends AbstractSeed {
   /**
    * Run Method.
    *
@@ -14,10 +14,10 @@ class CategorySeeder extends AbstractSeed {
   public function run() {
     $data = [
       [
-        'name' => 'Granos',
+        'name' => 'Orgánicos',
       ]
     ];
-    $this->table('category')->insert($data)->save();
+    $this->table('tag')->insert($data)->save();
 
   }
 }

@@ -63,7 +63,9 @@ $app->group('/api', function () use ($app) {
 
     $app->get('/categories', 'App\Controller\CategoryController:getAll');
 
-    $app->get('/images', 'App\Controller\ProductImageController.php:getAll');
+    $app->get('/tags', 'App\Controller\TagController:getAll');
+
+    $app->get('/images', 'App\Controller\ProductImageController:getAll');
 
     $app->get('/reviews', 'App\Controller\ReviewController:getAll');
   });
@@ -91,13 +93,26 @@ $app->group('/api', function () use ($app) {
   $app->put('/categories', 'App\Controller\CategoryController:update');
   $app->delete('/categories', 'App\Controller\CategoryController:delete');
 
+  $app->post('/tags', 'App\Controller\TagController:register');
+  $app->put('/tags', 'App\Controller\TagController:update');
+  $app->delete('/tags', 'App\Controller\TagController:delete');
+
   $app->post('/categories/products', 'App\Controller\ProductCategoryController:register');
   $app->put('/categories/products', 'App\Controller\ProductCategoryController:update');
   $app->delete('/categories/products', 'App\Controller\ProductCategoryController:delete');
 
-  $app->post('/images/reg', 'App\Controller\ProductImageController.php:register');
-  $app->post('/images/update', 'App\Controller\ProductImageController.php:update');
-  $app->delete('/images', 'App\Controller\ProductImageController.php:delete');
+  $app->post('/tags/products', 'App\Controller\ProductTagController:register');
+  $app->put('/tags/products', 'App\Controller\ProductTagController:update');
+  $app->delete('/tags/products', 'App\Controller\ProductTagController:delete');
+
+  $app->post('/images/reg', 'App\Controller\ProductImageController:register');
+  $app->post('/images/update', 'App\Controller\ProductImageController:update');
+  $app->delete('/images', 'App\Controller\ProductImageController:delete');
+
+  $app->get('/sub/products', 'App\Controller\ProductSubController:getAll');
+  $app->post('/sub/products/reg', 'App\Controller\ProductSubController:register');
+  $app->post('/sub/products/update', 'App\Controller\ProductSubController:update');
+  $app->delete('/sub/products', 'App\Controller\ProductSubController:delete');
 
   $app->post('/reviews', 'App\Controller\ReviewController:register');
   $app->put('/reviews', 'App\Controller\ReviewController:update');

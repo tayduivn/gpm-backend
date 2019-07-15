@@ -1,0 +1,148 @@
+GET {{host}}/api/sub/products
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST {{host}}/api/sub/products/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Granos
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+
+###
+
+POST {{host}}/api/sub/products/update
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="id"
+Content-Type: text/plain
+
+5
+
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short 2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="not-found-image.png"
+Content-Type: image/jpeg
+
+< ./../image/not-found-image.png
+--WebAppBoundary--
+
+###
+
+DELETE {{host}}/api/sub/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 6
+}
+
+###
