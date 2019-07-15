@@ -128,6 +128,7 @@ class Appgpm extends AbstractMigration {
     }
     $this->table('product_image')
       ->addColumn('image', 'string')
+      ->addColumn('size', 'string', ['default' => 'Unspecified'])
       ->addColumn('active', 'boolean', ['default' => true])
       ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])

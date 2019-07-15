@@ -39,6 +39,7 @@ class ProductImageController extends HandleRequest {
   public function register(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
     $product_id   = $request_body['product_id'];
+    $size         = $request_body['size'];
 
     $uploadedFiles = $request->getUploadedFiles();
 
@@ -56,6 +57,7 @@ class ProductImageController extends HandleRequest {
     $prepare = $this->db->prepare("INSERT INTO product_image (`image`, `product_id`) VALUES (:image, :product_id)");
     $result  = $prepare->execute([
                                    'product_id' => $product_id,
+                                   'size'       => $size,
                                    'image'      => $this->getBaseURL() . "/src/uploads/" . $filename
                                  ]);
 
@@ -65,6 +67,7 @@ class ProductImageController extends HandleRequest {
   public function update(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
     $idimage      = $request_body['id'];
+    $size         = $request_body['size'];
 
     $uploadedFiles = $request->getUploadedFiles();
 
@@ -82,6 +85,7 @@ class ProductImageController extends HandleRequest {
     $prepare = $this->db->prepare("UPDATE product_image SET image = :image WHERE id = :idimage");
     $result  = $prepare->execute([
                                    'idimage' => $idimage,
+                                   'size'    => $size,
                                    'image'   => $this->getBaseURL() . "/src/uploads/" . $filename,
                                  ]);
 
