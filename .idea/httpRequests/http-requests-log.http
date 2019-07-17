@@ -1,3 +1,85 @@
+GET http://gpm-backend/api/public/products?id=5
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-07-17T014513.200.json
+
+###
+
+GET http://gpm-backend/api/public/products?id=5
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-07-17T014438.200.json
+
+###
+
+GET http://gpm-backend/api/public/products?id=5
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-07-17T014421.200.json
+
+###
+
+POST http://gpm-backend/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="size"
+Content-Type: text/plain
+
+4mm x 4mm
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="not-found-image.png"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\gpm-backend\request\image\not-found-image.png
+--WebAppBoundary--
+
+<> 2019-07-17T094859.201.json
+
+###
+
+POST http://gpm-backend/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="size"
+Content-Type: text/plain
+
+4mm x 4mm
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="not-found-image.png"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\gpm-backend\request\image\not-found-image.png
+--WebAppBoundary--
+
+<> 2019-07-17T094801.500.html
+
+###
+
+GET http://gpm-backend/api/public/products?id=5
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-07-17T094140.200.json
+
+###
+
 GET http://gpm-backend/api/public/products
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
@@ -623,70 +705,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
 
 <> 2019-07-15T041625.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?id=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-15T041355.200.json
-
-###
-
-POST http://gpm-backend/api/tags/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "product_id": "1",
-  "tag_id": "2"
-}
-
-<> 2019-07-15T041351.201.json
-
-###
-
-GET http://gpm-backend/api/public/products?id=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-15T041225.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?id=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-15T041132.500.json
-
-###
-
-DELETE http://gpm-backend/api/tags/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "product_id": "1",
-  "tag_id": "1"
-}
-
-<> 2019-07-15T041107.201.json
-
-###
-
-PUT http://gpm-backend/api/tags/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "id": "1",
-  "product_id": "1",
-  "tag_id": "1"
-}
-
-<> 2019-07-15T041037.201.json
 
 ###
 

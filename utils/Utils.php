@@ -109,6 +109,29 @@ class Utils {
 
   /**
    * @param $db
+   * @param $product
+   * @param $result
+   * @param $index
+   * @return mixed
+   */
+  function getUserProducts($db, $product, $result, $index) {
+    $query     = "SELECT u.id, u.email, u.photo, u.first_name, u.last_name, u.address, u.city, 
+                u.state, u.country, u.country_code, u.postal_code, u.phone, u.firebase_id, u.inserted_at, u.updated_at 
+                FROM product
+                INNER JOIN user u on product.user_id = u.id
+                WHERE u.active != 0 AND product.id = :id";
+    $statement = $db->prepare($query);
+    $statement->execute(['id' => $product['id']]);
+    $resultCategory = $statement->fetchAll();
+
+    if (is_array($resultCategory) and !empty($resultCategory)) {
+      $result[$index]['user'] = $resultCategory;
+    }
+    return $result;
+  }
+
+  /**
+   * @param $db
    * @param $cart_id
    * @param $result
    * @param $index

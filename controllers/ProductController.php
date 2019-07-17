@@ -422,6 +422,7 @@ class ProductController extends HandleRequest {
         $result = $this->getCategoriesProducts($this->db, $product, $result, $index);
         $result = $this->getTagsProducts($this->db, $product, $result, $index);
         $result = $this->getReviewsProducts($this->db, $product, $result, $index);
+        $result = $this->getUserProducts($this->db, $product, $result, $index);
       }
       $pagination = ['count' => (int)$count, 'limit' => (int)$limit, 'lastPage' => $lastPage, 'page' => (int)$page];
       return $this->handleRequest($response, 200, '', $result, $pagination);
