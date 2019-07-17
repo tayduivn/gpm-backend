@@ -1,0 +1,22 @@
+{
+  "status"    : 200,
+  "data"      : [
+    {
+      "id"               : "1",
+      "sku"              : "001",
+      "name"             : "Granos Uno",
+      "description_short": "Producto para el bienestar",
+      "description_one"  : "Producto para el bienestar one",
+      "description_two"  : "Producto para el bienestar two",
+      "regular_price"    : "250.25",
+      "quantity"         : "50",
+      "active"           : "1",
+      "inserted_at"      : "2019-07-15 10:18:43",
+      "updated_at"       : "2019-07-15 10:18:43",
+      "user_id"          : "2",
+      "product_id"       : "1"
+    }
+  ],
+  "pagination": "",
+  "message"   : "Success"
+}

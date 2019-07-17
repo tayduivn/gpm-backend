@@ -27,6 +27,7 @@ class ProductController extends HandleRequest {
     $limit        = $request->getQueryParam('limit', $default = '12');
     $page         = $request->getQueryParam('page', $page = '1');
     $id           = $request->getQueryParam('id', $default = false);
+    $idUser       = $request->getQueryParam('idUser', $default = false);
     $favorite     = $request->getQueryParam('favorite', $default = false);
     $new          = $request->getQueryParam('new', $default = false);
     $shopped      = $request->getQueryParam('shopped', $default = false);
@@ -38,7 +39,7 @@ class ProductController extends HandleRequest {
     $lastPage = 0;
     $count    = 0;
 
-    $all = $new || $favorite || $shopped || $id || $categoryName || $productName ? false : true;
+    $all = $new || $favorite || $shopped || $id || $categoryName || $productName || $idUser ? false : true;
 
     if ($favorite) {
       switch ($order) {
@@ -359,6 +360,40 @@ class ProductController extends HandleRequest {
       }
     }
 
+    if ($idUser) {
+      switch ($order) {
+        case 'ASC':
+          $count     = $this->getCountProducts("SELECT count(product.id) FROM product WHERE product.active != '0'");
+          $query     = "SELECT * FROM product 
+                        WHERE product.active != '0' AND product.user_id = :idUser 
+                        ORDER BY product.inserted_at LIMIT " . $limit;
+          $statement = $this->db->prepare($query);
+          $statement->execute(['idUser' => $idUser]);
+          $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
+          break;
+
+        case 'RAND':
+          $count     = $this->getCountProducts("SELECT count(product.id) FROM product WHERE product.active != '0'");
+          $query     = "SELECT * FROM product 
+                        WHERE product.active != '0' AND product.user_id = :idUser
+                        ORDER BY RAND() LIMIT " . $limit;
+          $statement = $this->db->prepare($query);
+          $statement->execute(['idUser' => $idUser]);
+          $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
+          break;
+
+        default:
+          $count     = $this->getCountProducts("SELECT count(product.id) FROM product WHERE product.active != '0'");
+          $query     = "SELECT * FROM product 
+                        WHERE product.active != '0' AND product.user_id = :idUser
+                        ORDER BY product.inserted_at DESC LIMIT " . $skip . "," . $limit;
+          $statement = $this->db->prepare($query);
+          $statement->execute(['idUser' => $idUser]);
+          $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
+          break;
+      }
+    }
+
     $result = $statement->fetchAll();
 
     if (is_array($result)) {
@@ -404,10 +439,10 @@ class ProductController extends HandleRequest {
   }
 
   public function update(Request $request, Response $response, $args) {
-    $request_body      = $request->getParsedBody();
-    $id                = $request_body['id'];
-    $name              = $request_body['name'];
-    $user_id           = $request_body['user_id'];
+    $request_body = $request->getParsedBody();
+    $id           = $request_body['id'];
+    $name         = $request_body['name'];
+    $user_id      = $request_body['user_id'];
 
     if (!isset($id) && !isset($name) && !isset($user_id)) {
       return $this->handleRequest($response, 400, 'Data incorrect');

@@ -24,14 +24,12 @@ class ProductSubController extends HandleRequest {
 
   public function getAll(Request $request, Response $response, $args) {
     $id    = $request->getQueryParam('id');
-    $order = $request->getQueryParam('order', $default = 'ASC');
 
     if ($id !== null) {
-      $statement = $this->db->prepare("SELECT * FROM product_sub WHERE id = :id AND active != '0' ORDER BY " . $order);
+      $statement = $this->db->prepare("SELECT * FROM product_sub WHERE id = :id AND active != '0'");
       $statement->execute(['id' => $id]);
     } else {
-      $statement = $this->db->prepare("SELECT * FROM product_sub WHERE active != '0'");
-      $statement->execute();
+      return $this->handleRequest($response, 404, 'Not found');
     }
     return $this->getSendResponse($response, $statement);
   }

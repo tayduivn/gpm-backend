@@ -1,4 +1,4 @@
-GET {{host}}/api/sub/products
+GET {{host}}/api/sub/products?id=1
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 

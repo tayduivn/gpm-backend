@@ -34,6 +34,12 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
+GET {{host}}/api/public/products?idUser=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
 GET {{host}}/api/public/products
 Accept: application/json
 Authorization: Bearer {{auth_token}}
