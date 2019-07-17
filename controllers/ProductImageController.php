@@ -54,7 +54,7 @@ class ProductImageController extends HandleRequest {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $prepare = $this->db->prepare("INSERT INTO product_image (`image`, `product_id`) VALUES (:image, :product_id)");
+    $prepare = $this->db->prepare("INSERT INTO product_image (`image`, `size`, `product_id`) VALUES (:image, :size, :product_id)");
     $result  = $prepare->execute([
                                    'product_id' => $product_id,
                                    'size'       => $size,
@@ -82,7 +82,7 @@ class ProductImageController extends HandleRequest {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $prepare = $this->db->prepare("UPDATE product_image SET image = :image WHERE id = :idimage");
+    $prepare = $this->db->prepare("UPDATE product_image SET image = :image, size = :size WHERE id = :idimage");
     $result  = $prepare->execute([
                                    'idimage' => $idimage,
                                    'size'    => $size,

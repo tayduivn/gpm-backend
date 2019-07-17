@@ -16,7 +16,13 @@ Authorization: Bearer {{auth_token}}
 Content-Disposition: form-data; name="product_id"
 Content-Type: text/plain
 
-1
+5
+
+--WebAppBoundary
+Content-Disposition: form-data; name="size"
+Content-Type: text/plain
+
+4mm x 4mm
 
 --WebAppBoundary
 Content-Disposition: form-data; name="image"; filename="not-found-image.png"

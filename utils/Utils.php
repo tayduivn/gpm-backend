@@ -50,7 +50,7 @@ class Utils {
    * @return array
    */
   function getImagesProducts($db, $product, array $result, $index) {
-    $query     = "SELECT product_image.id AS id_image, image FROM product_image
+    $query     = "SELECT product_image.id AS id_image, image, size FROM product_image
                   INNER JOIN product p on product_image.product_id = p.id
                   WHERE product_image.active != 0 AND product_image.product_id = :id";
     $statement = $db->prepare($query);
@@ -61,31 +61,6 @@ class Utils {
       $result[$index]['images'] = $resultImage;
     } else {
       $result[$index]['images'] = [['id_image' => '0', 'image' => $this->getBaseURL() . '/src/uploads/no-image.png']];
-    }
-    return $result;
-  }
-
-  /**
-   * @param       $db
-   * @param       $product
-   * @param array $result
-   * @param       $index
-   * @return array
-   */
-  function getSubProducts($db, $product, array $result, $index) {
-    $query     = "SELECT product_sub.id as id_sub_product, product_sub.sku, product_sub.name, product_sub.description_short, 
-                  product_sub.description_one, product_sub.description_two, product_sub.regular_price, 
-                  product_sub.quantity, product_sub.active, product_sub.inserted_at, product_sub.updated_at, 
-                  product_sub.user_id, product_sub.product_id
-                  FROM product_sub
-                  INNER JOIN product p on product_sub.product_id = p.id
-                  WHERE product_sub.active != 0 AND product_sub.product_id = :id";
-    $statement = $db->prepare($query);
-    $statement->execute(['id' => $product['id']]);
-    $resultSubProduct = $statement->fetchAll();
-
-    if (is_array($resultSubProduct) and !empty($resultSubProduct)) {
-      $result[$index]['sub_products'] = $resultSubProduct;
     }
     return $result;
   }
