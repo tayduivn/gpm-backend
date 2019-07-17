@@ -28,7 +28,6 @@ class Appgpm extends AbstractMigration {
     $this->tableRole();
     $this->tableUser();
     $this->tableProduct();
-    $this->tableSubProduct();
     $this->tableProductImage();
     $this->tableProductReview();
     $this->tableCart();
@@ -90,22 +89,6 @@ class Appgpm extends AbstractMigration {
     $this->table('product')
       ->addColumn('sku', 'string', ['limit' => 255])
       ->addColumn('name', 'string', ['limit' => 255])
-      ->addColumn('active', 'boolean', ['default' => true])
-      ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-      ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-      ->addColumn('user_id', 'integer')
-      ->addIndex(['name'], ['unique' => true])
-      ->addForeignKey('user_id', 'user', 'id', ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
-      ->save();
-  }
-
-  public function tableSubProduct() {
-    if ($this->hasTable('product_sub')) {
-      $this->table('product_sub')->drop()->save();
-    }
-    $this->table('product_sub')
-      ->addColumn('sku', 'string', ['limit' => 255])
-      ->addColumn('name', 'string', ['limit' => 255])
       ->addColumn('description_short', 'string')
       ->addColumn('description_one', 'string', ['limit' => 255])
       ->addColumn('description_two', 'string')
@@ -115,10 +98,8 @@ class Appgpm extends AbstractMigration {
       ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->addColumn('user_id', 'integer')
-      ->addColumn('product_id', 'integer')
       ->addIndex(['name'], ['unique' => true])
       ->addForeignKey('user_id', 'user', 'id', ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
-      ->addForeignKey('product_id', 'product', 'id', ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
       ->save();
   }
 

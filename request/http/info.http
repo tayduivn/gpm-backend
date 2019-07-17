@@ -7,3 +7,7 @@ GET {{host}}/api/public/base
 Accept: application/
 
 ###
+GET {{host}}/src/uploads/granos-1.jpg
+Accept: application/
+
+###

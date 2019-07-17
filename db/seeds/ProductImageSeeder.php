@@ -20,9 +20,21 @@ class ProductImageSeeder extends AbstractSeed {
   public function run() {
     $data = [
       [
-        'image'      => 'http://gpm-backend/src/uploads/no-image.png',
+        'image'      => 'http://backend.appgpm.com/src/uploads/granos-1.jpg',
         'product_id' => 1,
-      ]
+      ],
+      [
+        'image'      => 'http://backend.appgpm.com/src/uploads/granos-2.jpg',
+        'product_id' => 2,
+      ],
+      [
+        'image'      => 'http://backend.appgpm.com/src/uploads/granos-3.jpg',
+        'product_id' => 3,
+      ],
+      [
+        'image'      => 'http://backend.appgpm.com/src/uploads/granos-4.jpg',
+        'product_id' => 4,
+      ],
     ];
     $this->table('product_image')->insert($data)->save();
   }

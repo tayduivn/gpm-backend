@@ -21,23 +21,39 @@ class ProductSeeder extends AbstractSeed {
   public function run() {
     $data = [
       [
-        'sku'               => '001',
         'name'              => 'Granos Uno',
+        'description_short' => 'Producto para el bienestar',
+        'description_one'   => 'Producto para el bienestar one',
+        'description_two'   => 'Producto para el bienestar two',
+        'regular_price'     => 250.25,
+        'quantity'          => 50,
         'user_id'           => '2',
       ],
       [
-        'sku'               => '002',
         'name'              => 'Granos Dos',
+        'description_short' => 'Producto para el bienestar',
+        'description_one'   => 'Producto para el bienestar one',
+        'description_two'   => 'Producto para el bienestar two',
+        'regular_price'     => 350.25,
+        'quantity'          => 20,
         'user_id'           => '2',
       ],
       [
-        'sku'               => '003',
         'name'              => 'Granos Tres',
+        'description_short' => 'Producto para el bienestar',
+        'description_one'   => 'Producto para el bienestar one',
+        'description_two'   => 'Producto para el bienestar two',
+        'regular_price'     => 150.25,
+        'quantity'          => 30,
         'user_id'           => '2',
       ],
       [
-        'sku'               => '004',
         'name'              => 'Granos Cuatro',
+        'description_short' => 'Producto para el bienestar',
+        'description_one'   => 'Producto para el bienestar one',
+        'description_two'   => 'Producto para el bienestar two',
+        'regular_price'     => 550.25,
+        'quantity'          => 40,
         'user_id'           => '2',
       ],
     ];
