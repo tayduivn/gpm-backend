@@ -1,3 +1,27 @@
+POST https://gpmbackend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-07-18T055543.500.html
+
+###
+
+POST https://gpmbackend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-07-18T055109.500.html
+
+###
+
 POST https://backend.appgpm.com/api/public/users/login
 Content-Type: application/json
 
@@ -656,30 +680,6 @@ GET http://gpm-backend/api/sub/products
 Accept: application/json
 
 <> 2019-07-15T091404.401.json
-
-###
-
-DELETE http://gpm-backend/sub/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "id": "1"
-}
-
-<> 2019-07-15T091244.405.json
-
-###
-
-POST http://gpm-backend/api/tags
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "name": "testing"
-}
-
-<> 2019-07-15T091232.201.json
 
 ###
 
