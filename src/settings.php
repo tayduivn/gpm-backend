@@ -20,10 +20,10 @@ return [
     ],
 
     'db'  => [
-      'user'   => $config['dev']['user'],
-      'host'   => $config['dev']['host'],
-      'pass'   => $config['dev']['pass'],
-      'dbname' => $config['dev']['dbname']
+      'user'   => $config['prod']['user'],
+      'host'   => $config['prod']['host'],
+      'pass'   => $config['prod']['pass'],
+      'dbname' => $config['prod']['dbname']
     ],
 
     // jwt settings
