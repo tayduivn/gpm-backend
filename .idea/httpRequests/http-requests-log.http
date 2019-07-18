@@ -1,3 +1,51 @@
+POST https://backend.appgpm.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-07-18T054824.404.html
+
+###
+
+POST https://backend.appgpm.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-07-18T051253.404.html
+
+###
+
+POST http://backend.appgpm.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-07-18T051237.200.json
+
+###
+
+POST http://backend.appgpm.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-07-18T050407.200.json
+
+###
+
 GET http://gpm-backend/api/public/products?id=5
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
@@ -632,79 +680,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpb
 }
 
 <> 2019-07-15T091232.201.json
-
-###
-
-GET http://gpm-backend/api/public/tags
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-15T091211.200.json
-
-###
-
-DELETE http://gpm-backend/sub/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "id": "1"
-}
-
-<> 2019-07-15T091105.405.json
-
-###
-
-POST http://gpm-backend/sub/products/reg
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Granos
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-12.036
---WebAppBoundary--
-
-<> 2019-07-15T042134.405.json
-
-###
-
-GET http://gpm-backend/api/public/products?id=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-15T041625.200.json
 
 ###
 
