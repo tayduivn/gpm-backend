@@ -1,685 +1,400 @@
-POST https://gpmbackend.herokuapp.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-07-18T055543.500.html
-
-###
-
-POST https://gpmbackend.herokuapp.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-07-18T055109.500.html
-
-###
-
-POST https://backend.appgpm.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-07-18T054824.404.html
-
-###
-
-POST https://backend.appgpm.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-07-18T051253.404.html
-
-###
-
-POST http://backend.appgpm.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-07-18T051237.200.json
-
-###
-
-POST http://backend.appgpm.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-07-18T050407.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?id=5
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T014513.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?id=5
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T014438.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?id=5
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T014421.200.json
-
-###
-
-POST http://gpm-backend/api/images/reg
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-5
---WebAppBoundary
-Content-Disposition: form-data; name="size"
-Content-Type: text/plain
-
-4mm x 4mm
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="not-found-image.png"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\gpm-backend\request\image\not-found-image.png
---WebAppBoundary--
-
-<> 2019-07-17T094859.201.json
-
-###
-
-POST http://gpm-backend/api/images/reg
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-5
---WebAppBoundary
-Content-Disposition: form-data; name="size"
-Content-Type: text/plain
-
-4mm x 4mm
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="not-found-image.png"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\gpm-backend\request\image\not-found-image.png
---WebAppBoundary--
-
-<> 2019-07-17T094801.500.html
-
-###
-
-GET http://gpm-backend/api/public/products?id=5
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T094140.200.json
-
-###
-
-GET http://gpm-backend/api/public/products
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T090852.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T090848.200.json
-
-###
-
-GET http://gpm-backend/src/uploads/granos-1.jpg
-Accept: application/
-
-<> 2019-07-17T082301.200.txt
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T073125.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=2
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T073113.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=2
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T073002.500.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=2
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T072550.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T072537.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T072457.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T072434.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T072409.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T072239.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T072131.200.json
-
-###
-
-GET http://gpm-backend/api/public/products?idUser=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T072112.500.json
-
-###
-
-GET http://gpm-backend/api/public/products
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T070604.200.json
-
-###
-
-GET http://gpm-backend/api/sub/products?id=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T070544.200.json
-
-###
-
-GET http://backend.appgpm.com/api/sub/products?id=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T070526.500.json
-
-###
-
-GET http://backend.appgpm.com/api/sub/products?id=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-07-17T070456.500.json
-
-###
-
-POST http://backend.appgpm.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "admin@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-07-17T070451.200.json
-
-###
-
-GET http://backend.appgpm.com/api/sub/products?id=1
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=150-260
 Accept: application/json
 Authorization: Bearer
 
-<> 2019-07-17T070441.401.json
+<> 2019-07-20T064654.200.json
 
 ###
 
-GET http://backend.appgpm.com/api/public/products?id=1
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=180-260
 Accept: application/json
 Authorization: Bearer
 
-<> 2019-07-15T053439.200.json
+<> 2019-07-20T064644.200.json
 
 ###
 
-GET http://backend.appgpm.com/api/public/products?id=1
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=180-260
 Accept: application/json
 Authorization: Bearer
 
-<> 2019-07-15T053335.500.json
+<> 2019-07-20T064536.500.json
 
 ###
 
-GET http://gpm-backend/api/carts
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=180-260
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+Authorization: Bearer
 
-<> 2019-07-15T092223.200.json
+<> 2019-07-20T064258.200.json
 
 ###
 
-GET http://gpm-backend/api/carts
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=180-260
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+Authorization: Bearer
 
-<> 2019-07-15T091937.200.json
+<> 2019-07-20T064108.200.json
 
 ###
 
-GET http://gpm-backend/api/sub/products
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+Authorization: Bearer
 
-<> 2019-07-15T091854.200.json
-
-###
-
-DELETE http://gpm-backend/api/sub/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "id": 6
-}
-
-<> 2019-07-15T091850.201.json
+<> 2019-07-20T064048.200.json
 
 ###
 
-GET http://gpm-backend/api/sub/products
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&categoryName=Granos
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+Authorization: Bearer
 
-<> 2019-07-15T091841.200.json
-
-###
-
-POST http://gpm-backend/api/sub/products/reg
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Granos
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-12.036
---WebAppBoundary--
-
-<> 2019-07-15T091838.201.json
+<> 2019-07-20T064021.200.json
 
 ###
 
-POST http://gpm-backend/api/sub/products/update
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
---WebAppBoundary
-Content-Disposition: form-data; name="id"
-Content-Type: text/plain
-
-5
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 2
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short 2
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-12.036
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="not-found-image.png"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\gpm-backend\request\image\not-found-image.png
---WebAppBoundary--
-
-###
-
-GET http://gpm-backend/api/sub/products
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&categoryName=Granos
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+Authorization: Bearer
 
-<> 2019-07-15T091810.200.json
-
-###
-
-POST http://gpm-backend/api/sub/products/reg
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Granos
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-12.036
---WebAppBoundary--
-
-<> 2019-07-15T091806.201.json
+<> 2019-07-20T063916.500.json
 
 ###
 
-POST http://gpm-backend/api/sub/products/reg
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Granos
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-12.036
---WebAppBoundary--
-
-<> 2019-07-15T091731.500.html
-
-###
-
-GET http://gpm-backend/api/sub/products
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&categoryName=Granos
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+Authorization: Bearer
 
-<> 2019-07-15T091726.200.json
-
-###
-
-POST http://gpm-backend/api/sub/products/reg
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Granos
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-12.036
---WebAppBoundary--
-
-<> 2019-07-15T091456.500.html
+<> 2019-07-20T063833.500.json
 
 ###
 
-GET http://gpm-backend/api/sub/products
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&categoryName=Granos
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+Authorization: Bearer
 
-<> 2019-07-15T091419.500.json
+<> 2019-07-20T063757.500.json
 
 ###
 
-GET http://gpm-backend/api/sub/products
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
 Accept: application/json
+Authorization: Bearer
 
-<> 2019-07-15T091412.401.json
-
-###
-
-POST http://gpm-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "admin@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-07-15T091410.200.json
+<> 2019-07-20T063715.200.json
 
 ###
 
-GET http://gpm-backend/api/sub/products
+GET http://gpm-backend/api/public/products/filter?orderBy=prices
 Accept: application/json
+Authorization: Bearer
 
-<> 2019-07-15T091404.401.json
+<> 2019-07-20T063651.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?orderBy=prices
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063622.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?orderBy=prices
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063519.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?orderBY=prices
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063504.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?order=DESC
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063433.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063354.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063345.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063247.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter&orderBy=evaluation
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063239.405.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063218.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=DESC
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063127.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063042.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T063021.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T062937.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T062900.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T062331.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T061932.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T061914.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T061835.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T040037.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T040027.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T040009.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T035859.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T035618.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T035425.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T035121.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T035115.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034842.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034833.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034637.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034624.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034611.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034605.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034545.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034511.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034456.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034445.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034246.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-19T034240.200.json
 
 ###
 

@@ -15,7 +15,7 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "name": "testing"
+  "name": "del hogar"
 }
 
 ###

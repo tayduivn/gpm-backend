@@ -60,6 +60,7 @@ $app->group('/api', function () use ($app) {
     $app->post('/emails', 'App\Controller\SingUpEmailController:register');
 
     $app->get('/products', 'App\Controller\ProductController:getAll');
+    $app->get('/products/filter', 'App\Controller\ProductController:getFilter');
 
     $app->get('/categories', 'App\Controller\CategoryController:getAll');
 

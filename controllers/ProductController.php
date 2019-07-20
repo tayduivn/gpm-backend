@@ -22,24 +22,173 @@ class ProductController extends HandleRequest {
     $this->upload   = $container->get('upload_directory');
   }
 
-  public function getAll(Request $request, Response $response, $args) {
+  /**
+   * Queries
+   * ?categoryName=${name}&tagName=${name}&orderBy={12}&quantity{1-100}&rangeDate{04-29-2019|03-28-2019}&order=RAND&limit=12&page=${1}
+   * @param Request  $request
+   * @param Response $response
+   * @param          $args
+   * @return array
+   */
+  public function getFilter(Request $request, Response $response, $args) {
+    $inCategory   = '';
+    $inTag        = '';
     $order        = $request->getQueryParam('order', $default = 'DESC');
     $limit        = $request->getQueryParam('limit', $default = '12');
     $page         = $request->getQueryParam('page', $page = '1');
-    $id           = $request->getQueryParam('id', $default = false);
-    $idUser       = $request->getQueryParam('idUser', $default = false);
-    $favorite     = $request->getQueryParam('favorite', $default = false);
-    $new          = $request->getQueryParam('new', $default = false);
-    $shopped      = $request->getQueryParam('shopped', $default = false);
-    $category     = $request->getQueryParam('category', $category = false);
-    $categoryName = $request->getQueryParam('categoryName');
-    $productName  = $request->getQueryParam('productName');
+    $categoryName = $request->getQueryParam('categoryName', $default = false);
+    $tagName      = $request->getQueryParam('tagName', $default = false);
+    $orderBy      = $request->getQueryParam('orderBy', $default = false);
+    $quantity     = $request->getQueryParam('quantity', $default = false);
+    $rangeDate    = $request->getQueryParam('rangeDate', $default = false);
 
     $skip     = ($page - 1) * $limit;
     $lastPage = 0;
     $count    = 0;
 
-    $all = $new || $favorite || $shopped || $id || $categoryName || $productName || $idUser ? false : true;
+    if ($categoryName) {
+      $categoryName = explode(",", $categoryName);
+      $inCategory   = str_repeat('?,', count($categoryName) - 1) . '?';
+    }
+
+    if ($tagName) {
+      $tagName = explode(",", $tagName);
+      $inTag   = str_repeat('?,', count($tagName) - 1) . '?';
+    }
+
+    if ($quantity) {
+      $quantity = explode("-", $quantity);
+    }
+
+    if ($rangeDate) {
+      $rangeDate = explode("|", $rangeDate);
+    }
+
+    if (!$categoryName and !$tagName and !$rangeDate and !$quantity and !$orderBy !== 'prices' and !$orderBy !== 'evaluation') {
+      $query = sprintf(/** @lang text */
+        "SELECT product.id,
+                   product.sku,
+                   product.name,
+                   product.description_short,
+                   product.description_one,
+                   product.description_two,
+                   product.regular_price,
+                   product.quantity,
+                   product.active,
+                   product.inserted_at,
+                   product.updated_at,
+                   product.user_id
+            FROM product
+                     %s
+            GROUP BY product.id
+            %s
+            %s
+            %s",
+        $orderBy === 'evaluation' ? 'INNER JOIN product_review pr on product.id = pr.product_id' : null,
+        !$orderBy ? "ORDER BY product.inserted_at " . $order . " LIMIT " . $skip . ", " . $limit : null,
+        $orderBy === 'prices' ? "ORDER BY product.regular_price " . $order . " LIMIT " . $skip . ", " . $limit : null,
+        $orderBy === 'evaluation' ? "ORDER BY pr.stars " . $order . " LIMIT " . $skip . ", " . $limit : null
+      );
+    } else {
+      $query = sprintf(/** @lang text */
+        "SELECT product.id,
+                   product.sku,
+                   product.name,
+                   product.description_short,
+                   product.description_one,
+                   product.description_two,
+                   product.regular_price,
+                   product.quantity,
+                   product.active,
+                   product.inserted_at,
+                   product.updated_at,
+                   product.user_id
+            FROM product
+                     %s
+                     %s
+                     %s
+            WHERE %s
+              %s
+              %s
+              %s
+            GROUP BY product.id
+            %s
+            %s
+            %s",
+        $categoryName ? 'INNER JOIN product_category pc on product.id = pc.product_id INNER JOIN category c on pc.category_id = c.id' : null,
+        $tagName ? 'INNER JOIN product_tag pt on product.id = pt.product_id INNER JOIN tag t on pt.tag_id = t.id' : null,
+        $orderBy === 'evaluation' ? 'INNER JOIN product_review pr on product.id = pr.product_id' : null,
+        $categoryName ? "c.name IN (" . $inCategory . ")" : null,
+        $tagName ? "AND t.name IN (" . $inTag . ")" : null,
+        $rangeDate ? "AND product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[0] : null,
+        $quantity ? "AND product.regular_price BETWEEN " . $quantity[0] . " AND " . $quantity[1] : null,
+        !$orderBy ? "ORDER BY product.inserted_at " . $order . " LIMIT " . $skip . ", " . $limit : null,
+        $orderBy === 'prices' ? "ORDER BY product.regular_price " . $order . " LIMIT " . $skip . ", " . $limit : null,
+        $orderBy === 'evaluation' ? "ORDER BY pr.stars " . $order . " LIMIT " . $skip . ", " . $limit : null
+      );
+    }
+
+    $statement = $this->db->prepare($query);
+
+    $params = array();
+
+    if ($categoryName) {
+      $params = array_merge($params, $categoryName);
+    }
+    if ($tagName) {
+      $params = array_merge($params, $tagName);
+    }
+    if ($quantity) {
+      $params = array_merge($params, $quantity);
+    }
+    if ($rangeDate) {
+      $params = array_merge($params, [$rangeDate]);
+    }
+
+    var_dump($params);
+    var_dump($query);
+
+    $statement->execute($params);
+
+    $result = $statement->fetchAll();
+
+    $pagination = ['count' => (int)$count, 'limit' => (int)$limit, 'lastPage' => $lastPage, 'page' => (int)$page];
+    return $this->handleRequest($response, 200, '', $result, $pagination);
+
+    /*$result = $statement->fetchAll();
+
+    if (is_array($result)) {
+      foreach ($result as $index => $product) {
+        $result = $this->getImagesProducts($this->db, $product, $result, $index);
+        $result = $this->getCategoriesProducts($this->db, $product, $result, $index);
+        $result = $this->getTagsProducts($this->db, $product, $result, $index);
+        $result = $this->getReviewsProducts($this->db, $product, $result, $index);
+        $result = $this->getUserProducts($this->db, $product, $result, $index);
+      }
+      $pagination = ['count' => (int)$count, 'limit' => (int)$limit, 'lastPage' => $lastPage, 'page' => (int)$page];
+      return $this->handleRequest($response, 200, '', $result, $pagination);
+    } else {
+      return $this->handleRequest($response, 204, '', []);
+    }*/
+  }
+
+  public function getAll(Request $request, Response $response, $args) {
+    $order       = $request->getQueryParam('order', $default = 'DESC');
+    $limit       = $request->getQueryParam('limit', $default = '12');
+    $page        = $request->getQueryParam('page', $page = '1');
+    $id          = $request->getQueryParam('id', $default = false);
+    $idUser      = $request->getQueryParam('idUser', $default = false);
+    $favorite    = $request->getQueryParam('favorite', $default = false);
+    $new         = $request->getQueryParam('new', $default = false);
+    $shopped     = $request->getQueryParam('shopped', $default = false);
+    $category    = $request->getQueryParam('category', $category = false);
+    $productName = $request->getQueryParam('productName');
+
+    $skip     = ($page - 1) * $limit;
+    $lastPage = 0;
+    $count    = 0;
+
+    $all = $new || $favorite || $shopped || $id || $productName || $idUser ? false : true;
 
     if ($favorite) {
       switch ($order) {
@@ -85,56 +234,6 @@ class ProductController extends HandleRequest {
           $statement->execute();
           break;
       }
-    }
-
-    if ($categoryName) {
-      var_dump($categoryName);
-
-      $categoryName = explode(",", $categoryName);
-      $in           = str_repeat('?,', count($categoryName) - 1) . '?';
-
-      var_dump($categoryName);
-      var_dump($in);
-
-      switch ($order) {
-        case 'ASC':
-          $query     = "SELECT product.id, product.sku, product.name, product.description_short, 
-                        product.description_one, product.description_two, 
-                        product.regular_price, product.quantity, product.active, 
-                        product.inserted_at, product.updated_at, product.user_id, 
-                        pc.id AS product_category_id, pc.active, pc.inserted_at, pc.updated_at, pc.category_id, pc.product_id
-                        FROM product INNER JOIN product_category pc on product.id = pc.product_id INNER JOIN category c on pc.category_id = c.id
-                        WHERE c.name IN ($in)
-                        ORDER BY product.inserted_at ASC LIMIT " . $limit;
-          $statement = $this->db->prepare($query);
-          break;
-
-        case 'RAND':
-          $query     = "SELECT product.id, product.sku, product.name, product.description_short, 
-                        product.description_one, product.description_two, 
-                        product.regular_price, product.quantity, product.active, 
-                        product.inserted_at, product.updated_at, product.user_id, 
-                        pc.id AS product_category_id, pc.active, pc.inserted_at, pc.updated_at, pc.category_id, pc.product_id
-                        FROM product INNER JOIN product_category pc on product.id = pc.product_id INNER JOIN category c on pc.category_id = c.id
-                        WHERE c.name IN ($in)
-                        ORDER BY RAND() LIMIT " . $limit;
-          $statement = $this->db->prepare($query);
-          break;
-
-        default:
-          $query     = "SELECT product.id, product.sku, product.name, product.description_short, 
-                        product.description_one, product.description_two, 
-                        product.regular_price, product.quantity, product.active, 
-                        product.inserted_at, product.updated_at, product.user_id, 
-                        pc.id AS product_category_id, pc.active, pc.inserted_at, pc.updated_at, pc.category_id, pc.product_id
-                        FROM product INNER JOIN product_category pc on product.id = pc.product_id
-                        INNER JOIN category c on pc.category_id = c.id
-                        WHERE c.name IN ($in)
-                        ORDER BY product.inserted_at DESC LIMIT " . $limit;
-          $statement = $this->db->prepare($query);
-          break;
-      }
-      $statement->execute($categoryName);
     }
 
     if ($new) {
@@ -319,7 +418,7 @@ class ProductController extends HandleRequest {
           $count     = $this->getCountProducts($query1);
           $query     = "SELECT * FROM product 
                         WHERE product.active != '0' AND product.name LIKE '%$productName%'
-                        ORDER BY product.inserted_at ASC LIMIT " . $limit;
+                        ORDER BY product.inserted_at LIMIT " . $skip . "," . $limit;
           $statement = $this->db->prepare($query);
           $statement->execute(['limit' => $limit, 'skip' => $skip]);
           $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
@@ -330,7 +429,7 @@ class ProductController extends HandleRequest {
           $count     = $this->getCountProducts($query1);
           $query     = "SELECT * FROM product 
                         WHERE product.active != '0' AND product.name LIKE '%$productName%' 
-                        ORDER BY RAND() LIMIT " . $limit;
+                        ORDER BY RAND() LIMIT " . $skip . "," . $limit;
           $statement = $this->db->prepare($query);
           $statement->execute(['limit' => $limit, 'skip' => $skip]);
           $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
@@ -354,7 +453,7 @@ class ProductController extends HandleRequest {
         case 'ASC':
           $count     = $this->getCountProducts("SELECT count(product.id) FROM product WHERE product.active != '0'");
           $query     = "SELECT * FROM product 
-                        WHERE product.active != '0' ORDER BY product.inserted_at ASC LIMIT " . $limit;
+                        WHERE product.active != '0' ORDER BY product.inserted_at ASC LIMIT " . $skip . "," . $limit;
           $statement = $this->db->prepare($query);
           $statement->execute(['limit' => $limit, 'skip' => $skip]);
           $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
@@ -363,7 +462,7 @@ class ProductController extends HandleRequest {
         case 'RAND':
           $count     = $this->getCountProducts("SELECT count(product.id) FROM product WHERE product.active != '0'");
           $query     = "SELECT * FROM product 
-                        WHERE product.active != '0' ORDER BY RAND() LIMIT " . $limit;
+                        WHERE product.active != '0' ORDER BY RAND() LIMIT " . $skip . "," . $limit;
           $statement = $this->db->prepare($query);
           $statement->execute(['limit' => $limit, 'skip' => $skip]);
           $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
@@ -386,7 +485,7 @@ class ProductController extends HandleRequest {
           $count     = $this->getCountProducts("SELECT count(product.id) FROM product WHERE product.active != '0'");
           $query     = "SELECT * FROM product 
                         WHERE product.active != '0' AND product.user_id = :idUser 
-                        ORDER BY product.inserted_at LIMIT " . $limit;
+                        ORDER BY product.inserted_at LIMIT " . $skip . "," . $limit;
           $statement = $this->db->prepare($query);
           $statement->execute(['idUser' => $idUser]);
           $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
@@ -396,7 +495,7 @@ class ProductController extends HandleRequest {
           $count     = $this->getCountProducts("SELECT count(product.id) FROM product WHERE product.active != '0'");
           $query     = "SELECT * FROM product 
                         WHERE product.active != '0' AND product.user_id = :idUser
-                        ORDER BY RAND() LIMIT " . $limit;
+                        ORDER BY RAND() LIMIT " . $skip . "," . $limit;
           $statement = $this->db->prepare($query);
           $statement->execute(['idUser' => $idUser]);
           $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));

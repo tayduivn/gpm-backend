@@ -46,6 +46,18 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
+GET {{host}}/api/public/products/filter?orderBy=evaluation&quantity=150-260
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/public/products/filter?categoryName=1,2&tagName=1&orderBy=prices&quantity1-100&rangeDate04-29-2019|03-28-2019&order=RAND&limit=12&page=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
 POST {{host}}/api/products
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 Authorization: Bearer {{auth_token}}
