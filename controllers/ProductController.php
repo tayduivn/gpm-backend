@@ -66,8 +66,6 @@ class ProductController extends HandleRequest {
 
     $statement = $this->db->prepare($query);
     $params    = $this->getParams($categoryName, $tagName, $quantity, $rangeDate);
-    var_dump($params);
-    var_dump($query);
     $statement->execute($params);
     $result = $statement->fetchAll();
 
