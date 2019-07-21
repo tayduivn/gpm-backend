@@ -31,8 +31,6 @@ class ProductController extends HandleRequest {
    * @return array
    */
   public function getFilter(Request $request, Response $response, $args) {
-    $inCategory   = '';
-    $inTag        = '';
     $order        = $request->getQueryParam('order', $default = 'DESC');
     $limit        = $request->getQueryParam('limit', $default = '12');
     $page         = $request->getQueryParam('page', $page = '1');
@@ -45,6 +43,59 @@ class ProductController extends HandleRequest {
     $skip     = ($page - 1) * $limit;
     $lastPage = 0;
     $count    = 0;
+
+    list($categoryName, $tagName, $quantity, $rangeDate, $valuesWhere) = $this->getValues($categoryName, $tagName, $quantity, $rangeDate);
+
+    $query = sprintf(/** @lang text */
+      "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
+               product.description_two, product.regular_price, product.quantity, product.active, product.inserted_at, product.updated_at, product.user_id
+               FROM product %s %s %s
+               %s %s %s %s
+               GROUP BY product.id %s %s %s",
+      $categoryName ? 'INNER JOIN product_category pc on product.id = pc.product_id INNER JOIN category c on pc.category_id = c.id' : null,
+      $tagName ? 'INNER JOIN product_tag pt on product.id = pt.product_id INNER JOIN tag t on pt.tag_id = t.id' : null,
+      $orderBy === 'evaluation' ? 'INNER JOIN product_review pr on product.id = pr.product_id' : null,
+      $valuesWhere[0],
+      $valuesWhere[1],
+      $valuesWhere[2],
+      $valuesWhere[3],
+      !$orderBy ? "ORDER BY product.inserted_at " . $order . " LIMIT " . $skip . ", " . $limit : null,
+      $orderBy === 'prices' ? "ORDER BY product.regular_price " . $order . " LIMIT " . $skip . ", " . $limit : null,
+      $orderBy === 'evaluation' ? "ORDER BY pr.stars " . $order . " LIMIT " . $skip . ", " . $limit : null
+    );
+
+    $statement = $this->db->prepare($query);
+    $params    = $this->getParams($categoryName, $tagName, $quantity, $rangeDate);
+    var_dump($params);
+    var_dump($query);
+    $statement->execute($params);
+    $result = $statement->fetchAll();
+
+    if (is_array($result)) {
+      foreach ($result as $index => $product) {
+        $result = $this->getImagesProducts($this->db, $product, $result, $index);
+        $result = $this->getCategoriesProducts($this->db, $product, $result, $index);
+        $result = $this->getTagsProducts($this->db, $product, $result, $index);
+        $result = $this->getReviewsProducts($this->db, $product, $result, $index);
+        $result = $this->getUserProducts($this->db, $product, $result, $index);
+      }
+      $pagination = ['count' => (int)$count, 'limit' => (int)$limit, 'lastPage' => $lastPage, 'page' => (int)$page];
+      return $this->handleRequest($response, 200, '', $result, $pagination);
+    } else {
+      return $this->handleRequest($response, 204, '', []);
+    }
+  }
+
+  /**
+   * @param $categoryName
+   * @param $tagName
+   * @param $quantity
+   * @param $rangeDate
+   * @return array
+   */
+  public function getValues($categoryName, $tagName, $quantity, $rangeDate) {
+    $inCategory = '';
+    $inTag      = '';
 
     if ($categoryName) {
       $categoryName = explode(",", $categoryName);
@@ -84,9 +135,9 @@ class ProductController extends HandleRequest {
 
     if ($rangeDate) {
       if ($valuesWhere[0] === null and $valuesWhere[1] === null) {
-        array_push($valuesWhere, "WHERE product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[0]);
+        array_push($valuesWhere, "WHERE product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[1]);
       } else {
-        array_push($valuesWhere, "AND product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[0]);
+        array_push($valuesWhere, "AND product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[1]);
       }
     } else {
       array_push($valuesWhere, null);
@@ -101,46 +152,17 @@ class ProductController extends HandleRequest {
     } else {
       array_push($valuesWhere, null);
     }
+    return array($categoryName, $tagName, $quantity, $rangeDate, $valuesWhere);
+  }
 
-    $query = sprintf(/** @lang text */
-      "SELECT product.id,
-                   product.sku,
-                   product.name,
-                   product.description_short,
-                   product.description_one,
-                   product.description_two,
-                   product.regular_price,
-                   product.quantity,
-                   product.active,
-                   product.inserted_at,
-                   product.updated_at,
-                   product.user_id
-            FROM product
-                     %s
-                     %s
-                     %s
-              %s
-              %s
-              %s
-              %s
-            GROUP BY product.id
-            %s
-            %s
-            %s",
-      $categoryName ? 'INNER JOIN product_category pc on product.id = pc.product_id INNER JOIN category c on pc.category_id = c.id' : null,
-      $tagName ? 'INNER JOIN product_tag pt on product.id = pt.product_id INNER JOIN tag t on pt.tag_id = t.id' : null,
-      $orderBy === 'evaluation' ? 'INNER JOIN product_review pr on product.id = pr.product_id' : null,
-      $valuesWhere[0],
-      $valuesWhere[1],
-      $valuesWhere[2],
-      $valuesWhere[3],
-      !$orderBy ? "ORDER BY product.inserted_at " . $order . " LIMIT " . $skip . ", " . $limit : null,
-      $orderBy === 'prices' ? "ORDER BY product.regular_price " . $order . " LIMIT " . $skip . ", " . $limit : null,
-      $orderBy === 'evaluation' ? "ORDER BY pr.stars " . $order . " LIMIT " . $skip . ", " . $limit : null
-    );
-
-    $statement = $this->db->prepare($query);
-
+  /**
+   * @param $categoryName
+   * @param $tagName
+   * @param $quantity
+   * @param $rangeDate
+   * @return array
+   */
+  public function getParams($categoryName, $tagName, $quantity, $rangeDate) {
     $params = array();
 
     if ($categoryName) {
@@ -149,30 +171,7 @@ class ProductController extends HandleRequest {
     if ($tagName) {
       $params = array_merge($params, $tagName);
     }
-    if ($quantity) {
-      $params = array_merge($params, $quantity);
-    }
-    if ($rangeDate) {
-      $params = array_merge($params, [$rangeDate]);
-    }
-
-    $statement->execute($params);
-
-    $result = $statement->fetchAll();
-
-    if (is_array($result)) {
-      foreach ($result as $index => $product) {
-        $result = $this->getImagesProducts($this->db, $product, $result, $index);
-        $result = $this->getCategoriesProducts($this->db, $product, $result, $index);
-        $result = $this->getTagsProducts($this->db, $product, $result, $index);
-        $result = $this->getReviewsProducts($this->db, $product, $result, $index);
-        $result = $this->getUserProducts($this->db, $product, $result, $index);
-      }
-      $pagination = ['count' => (int)$count, 'limit' => (int)$limit, 'lastPage' => $lastPage, 'page' => (int)$page];
-      return $this->handleRequest($response, 200, '', $result, $pagination);
-    } else {
-      return $this->handleRequest($response, 204, '', []);
-    }
+    return $params;
   }
 
   public function getAll(Request $request, Response $response, $args) {

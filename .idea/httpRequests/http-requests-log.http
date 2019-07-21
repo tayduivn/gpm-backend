@@ -1,3 +1,147 @@
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=100-500
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T062613.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=1-100
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T062553.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=1-100
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T062241.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=1-100
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T062223.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=1-100
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T062204.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=prices
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T061952.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=artificiales
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T060043.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=artificiales
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T055843.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=artificiales
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T055816.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=artificiales
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T055742.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=artificiales
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T055715.500.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&orderBy=prices
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T082835.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=testing&orderBy=prices
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T082730.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&orderBy=prices
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T082717.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tag=Orgánicos&orderBy=prices
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T082631.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tag=Orgánicos&quantity=150-260
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T082613.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=150-260
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T082548.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=150-260
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-20T082523.500.json
+
+###
+
 GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=150-260
 Accept: application/json
 Authorization: Bearer
@@ -251,150 +395,6 @@ Accept: application/json
 Authorization: Bearer
 
 <> 2019-07-19T040027.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T040009.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T035859.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T035618.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T035425.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T035121.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T035115.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034842.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034833.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034637.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034624.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034611.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034605.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034545.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034511.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034456.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034445.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034246.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T034240.200.json
 
 ###
 
