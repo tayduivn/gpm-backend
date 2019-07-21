@@ -72,6 +72,19 @@ class CartProductsController extends HandleRequest {
     return $this->postSendResponse($response, $result, 'Datos registrados');
   }
 
+  /**
+   * @param $cart_id
+   * @param $product_id
+   * @return string
+   */
+  public function isAlreadyProduct($cart_id, $product_id) {
+    $query     = "SELECT * FROM cart_products LEFT JOIN cart c on cart_products.cart_id = c.id
+                  WHERE cart_id = :cartId AND product_id = :product_id AND status = 'current'";
+    $statement = $this->db->prepare($query);
+    $statement->execute(['cartId' => $cart_id, 'product_id' => $product_id]);
+    return !empty($statement->fetchAll());
+  }
+
   public function updateQuantity(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
     $products     = $request_body['products'];
@@ -100,6 +113,19 @@ class CartProductsController extends HandleRequest {
     }
   }
 
+  /**
+   * @param $productID
+   * @param $productQuantity
+   * @return bool
+   */
+  public function validateQuantityProduct($productID, $productQuantity) {
+    $queryProduct = "SELECT quantity FROM product WHERE product.id = :id";
+    $prepare      = $this->db->prepare($queryProduct);
+    $prepare->execute(['id' => $productID]);
+    $result = $prepare->fetchObject();
+    return is_object($result) AND $productQuantity < (int)$result->quantity;
+  }
+
   public function delete(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
     $id           = $request_body['id'];
@@ -118,32 +144,6 @@ class CartProductsController extends HandleRequest {
     } else {
       return $this->handleRequest($response, 404, "Información no encontrada");
     }
-  }
-
-  /**
-   * @param $cart_id
-   * @param $product_id
-   * @return string
-   */
-  public function isAlreadyProduct($cart_id, $product_id) {
-    $query     = "SELECT * FROM cart_products LEFT JOIN cart c on cart_products.cart_id = c.id
-                  WHERE cart_id = :cartId AND product_id = :product_id AND status = 'current'";
-    $statement = $this->db->prepare($query);
-    $statement->execute(['cartId' => $cart_id, 'product_id' => $product_id]);
-    return !empty($statement->fetchAll());
-  }
-
-  /**
-   * @param $productID
-   * @param $productQuantity
-   * @return bool
-   */
-  public function validateQuantityProduct($productID, $productQuantity) {
-    $queryProduct = "SELECT quantity FROM product WHERE product.id = :id";
-    $prepare      = $this->db->prepare($queryProduct);
-    $prepare->execute(['id' => $productID]);
-    $result = $prepare->fetchObject();
-    return is_object($result) AND $productQuantity > (int)$result->quantity;
   }
 
 }

@@ -139,16 +139,18 @@ class Utils {
    */
   function getCartsProducts($db, $cart_id, $result, $index) {
     $query     = "SELECT 
-                  cp.id AS cart_product_id, cp.quantity AS cart_quantity, cp.inserted_at, cp.updated_at, cp.cart_id, cp.product_id, 
-                  p.id, p.sku, p.name, p.active, p.inserted_at, p.updated_at, p.user_id
-                  FROM cart_products cp INNER JOIN product p on cp.product_id = p.id
-                  WHERE p.active != '0' AND cp.cart_id = :id";
+                    cp.id AS cart_product_id, cp.quantity AS cart_quantity, cp.inserted_at, cp.updated_at, cp.cart_id, cp.product_id,
+                    p.id, sku, name AS product_name, p.description_short, p.description_one, p.description_two, 
+                    p.regular_price, p.quantity AS product_quantity, p.inserted_at AS product_inserted_ad, 
+                    p.updated_at AS product_updated_at, p.user_id
+                    FROM cart_products cp INNER JOIN product p on cp.product_id = p.id
+                    WHERE p.active != '0' AND cp.cart_id = :id";
     $statement = $db->prepare($query);
     $statement->execute(['id' => $cart_id]);
-    $resultImage = $statement->fetchAll();
+    $resultProduct = $statement->fetchAll();
 
-    if (is_array($resultImage) and !empty($resultImage)) {
-      $result[$index]['products'] = $resultImage;
+    if (is_array($resultProduct) and !empty($resultProduct)) {
+      $result[$index]['products'] = $resultProduct;
     }
     return $result;
   }

@@ -1,3 +1,275 @@
+PUT http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "products": [
+    {
+      "cart_product_id": "11",
+      "product_id"     : "1",
+      "quantity"       : 1
+    },
+    {
+      "cart_product_id": "12",
+      "product_id"     : "2",
+      "quantity"       : 4
+    },
+    {
+      "cart_product_id": "13",
+      "product_id"     : "4",
+      "quantity"       : 1
+    },
+    {
+      "cart_product_id": "10",
+      "product_id"     : "5",
+      "quantity"       : 1
+    }
+  ]
+}
+
+<> 2019-07-21T101154.201.json
+
+###
+
+PUT http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "products": [
+    {
+      "cart_product_id": "11",
+      "product_id"     : "1",
+      "quantity"       : 1
+    },
+    {
+      "cart_product_id": "12",
+      "product_id"     : "2",
+      "quantity"       : 2
+    },
+    {
+      "cart_product_id": "13",
+      "product_id"     : "4",
+      "quantity"       : 1
+    },
+    {
+      "cart_product_id": "10",
+      "product_id"     : "5",
+      "quantity"       : 1
+    }
+  ]
+}
+
+<> 2019-07-21T101117.201.json
+
+###
+
+PUT http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "products": [
+    {
+      "cart_product_id": "11",
+      "product_id"     : "1",
+      "quantity"       : 1
+    },
+    {
+      "cart_product_id": "12",
+      "product_id"     : "2",
+      "quantity"       : 2
+    },
+    {
+      "cart_product_id": "13",
+      "product_id"     : "4",
+      "quantity"       : 1
+    },
+    {
+      "cart_product_id": "10",
+      "product_id"     : "5",
+      "quantity"       : 1
+    }
+  ]
+}
+
+<> 2019-07-21T101026.409.json
+
+###
+
+PUT http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "products": [
+    {
+      "cart_product_id": "11",
+      "product_id"     : "1",
+      "quantity"       : 1
+    },
+    {
+      "cart_product_id": "12",
+      "product_id"     : "2",
+      "quantity"       : 2
+    },
+    {
+      "cart_product_id": "13",
+      "product_id"     : "4",
+      "quantity"       : 1
+    },
+    {
+      "cart_product_id": "10",
+      "product_id"     : "5",
+      "quantity"       : 1
+    }
+  ]
+}
+
+<> 2019-07-21T100734.409.json
+
+###
+
+GET http://gpm-backend/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-07-21T094244.200.json
+
+###
+
+GET http://gpm-backend/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-07-21T094216.200.json
+
+###
+
+GET http://gpm-backend/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-07-21T085924.500.json
+
+###
+
+POST http://gpm-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-07-21T085920.200.json
+
+###
+
+GET http://gpm-backend/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T085912.401.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T071607.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T071552.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T071530.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T071448.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T071403.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T071345.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T071246.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T071203.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T064438.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&rangeDate=2019-07-11|2019-07-27
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T063840.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&rangeDate=2019-07-11|2019-07-27
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T063603.200.json
+
+###
+
+GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&rangeDate=2019-07-11|2019-07-27
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-07-21T063547.200.json
+
+###
+
 GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=100-500
 Accept: application/json
 Authorization: Bearer
@@ -227,174 +499,6 @@ Accept: application/json
 Authorization: Bearer
 
 <> 2019-07-20T063715.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=prices
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063651.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=prices
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063622.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=prices
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063519.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBY=prices
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063504.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?order=DESC
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063433.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063354.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063345.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063247.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter&orderBy=evaluation
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063239.405.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063218.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=DESC
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063127.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063042.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063021.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T062937.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T062900.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T062331.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos&order=ASC
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T061932.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&tagName=Orgánicos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T061914.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T061835.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing&id=5
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T040037.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?categoryName=Granos,testing
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-19T040027.200.json
 
 ###
 

@@ -88,10 +88,11 @@ class CartController extends HandleRequest {
         if (isset($result[$indexCart]['products']) AND is_array($result[$indexCart]['products'])) {
           $products = $result[$indexCart]['products'];
           foreach ($products as $index => $product) {
-            $products = $this->getSubProducts($this->db, $product, $products, $index);
             $products = $this->getImagesProducts($this->db, $product, $products, $index);
             $products = $this->getCategoriesProducts($this->db, $product, $products, $index);
-            $products = $this->getReviewsProducts($this->db, $product, $products, $index);
+            $result   = $this->getTagsProducts($this->db, $product, $result, $index);
+            $result   = $this->getReviewsProducts($this->db, $product, $result, $index);
+            $result   = $this->getUserProducts($this->db, $product, $result, $index);
           }
           $result[$indexCart]['products'] = $products;
         } else {
