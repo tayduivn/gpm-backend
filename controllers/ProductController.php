@@ -64,34 +64,46 @@ class ProductController extends HandleRequest {
       $rangeDate = explode("|", $rangeDate);
     }
 
-    if (!$categoryName and !$tagName and !$rangeDate and !$quantity and !$orderBy !== 'prices' and !$orderBy !== 'evaluation') {
-      $query = sprintf(/** @lang text */
-        "SELECT product.id,
-                   product.sku,
-                   product.name,
-                   product.description_short,
-                   product.description_one,
-                   product.description_two,
-                   product.regular_price,
-                   product.quantity,
-                   product.active,
-                   product.inserted_at,
-                   product.updated_at,
-                   product.user_id
-            FROM product
-                     %s
-            GROUP BY product.id
-            %s
-            %s
-            %s",
-        $orderBy === 'evaluation' ? 'INNER JOIN product_review pr on product.id = pr.product_id' : null,
-        !$orderBy ? "ORDER BY product.inserted_at " . $order . " LIMIT " . $skip . ", " . $limit : null,
-        $orderBy === 'prices' ? "ORDER BY product.regular_price " . $order . " LIMIT " . $skip . ", " . $limit : null,
-        $orderBy === 'evaluation' ? "ORDER BY pr.stars " . $order . " LIMIT " . $skip . ", " . $limit : null
-      );
+    $valuesWhere = array();
+
+    if ($categoryName) {
+      array_push($valuesWhere, "WHERE c.name IN (" . $inCategory . ")");
     } else {
-      $query = sprintf(/** @lang text */
-        "SELECT product.id,
+      array_push($valuesWhere, null);
+    }
+
+    if ($tagName) {
+      if ($valuesWhere[0] === null) {
+        array_push($valuesWhere, "WHERE t.name IN (" . $inTag . ")");
+      } else {
+        array_push($valuesWhere, "AND t.name IN (" . $inTag . ")");
+      }
+    } else {
+      array_push($valuesWhere, null);
+    }
+
+    if ($rangeDate) {
+      if ($valuesWhere[0] === null and $valuesWhere[1] === null) {
+        array_push($valuesWhere, "WHERE product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[0]);
+      } else {
+        array_push($valuesWhere, "AND product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[0]);
+      }
+    } else {
+      array_push($valuesWhere, null);
+    }
+
+    if ($quantity) {
+      if ($valuesWhere[0] === null and $valuesWhere[1] === null and $valuesWhere[2] === null) {
+        array_push($valuesWhere, "WHERE product.regular_price BETWEEN " . $quantity[0] . " AND " . $quantity[1]);
+      } else {
+        array_push($valuesWhere, "AND product.regular_price BETWEEN " . $quantity[0] . " AND " . $quantity[1]);
+      }
+    } else {
+      array_push($valuesWhere, null);
+    }
+
+    $query = sprintf(/** @lang text */
+      "SELECT product.id,
                    product.sku,
                    product.name,
                    product.description_short,
@@ -107,7 +119,7 @@ class ProductController extends HandleRequest {
                      %s
                      %s
                      %s
-            WHERE %s
+              %s
               %s
               %s
               %s
@@ -115,18 +127,17 @@ class ProductController extends HandleRequest {
             %s
             %s
             %s",
-        $categoryName ? 'INNER JOIN product_category pc on product.id = pc.product_id INNER JOIN category c on pc.category_id = c.id' : null,
-        $tagName ? 'INNER JOIN product_tag pt on product.id = pt.product_id INNER JOIN tag t on pt.tag_id = t.id' : null,
-        $orderBy === 'evaluation' ? 'INNER JOIN product_review pr on product.id = pr.product_id' : null,
-        $categoryName ? "c.name IN (" . $inCategory . ")" : null,
-        $tagName ? "AND t.name IN (" . $inTag . ")" : null,
-        $rangeDate ? "AND product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[0] : null,
-        $quantity ? "AND product.regular_price BETWEEN " . $quantity[0] . " AND " . $quantity[1] : null,
-        !$orderBy ? "ORDER BY product.inserted_at " . $order . " LIMIT " . $skip . ", " . $limit : null,
-        $orderBy === 'prices' ? "ORDER BY product.regular_price " . $order . " LIMIT " . $skip . ", " . $limit : null,
-        $orderBy === 'evaluation' ? "ORDER BY pr.stars " . $order . " LIMIT " . $skip . ", " . $limit : null
-      );
-    }
+      $categoryName ? 'INNER JOIN product_category pc on product.id = pc.product_id INNER JOIN category c on pc.category_id = c.id' : null,
+      $tagName ? 'INNER JOIN product_tag pt on product.id = pt.product_id INNER JOIN tag t on pt.tag_id = t.id' : null,
+      $orderBy === 'evaluation' ? 'INNER JOIN product_review pr on product.id = pr.product_id' : null,
+      $valuesWhere[0],
+      $valuesWhere[1],
+      $valuesWhere[2],
+      $valuesWhere[3],
+      !$orderBy ? "ORDER BY product.inserted_at " . $order . " LIMIT " . $skip . ", " . $limit : null,
+      $orderBy === 'prices' ? "ORDER BY product.regular_price " . $order . " LIMIT " . $skip . ", " . $limit : null,
+      $orderBy === 'evaluation' ? "ORDER BY pr.stars " . $order . " LIMIT " . $skip . ", " . $limit : null
+    );
 
     $statement = $this->db->prepare($query);
 
@@ -145,17 +156,9 @@ class ProductController extends HandleRequest {
       $params = array_merge($params, [$rangeDate]);
     }
 
-    var_dump($params);
-    var_dump($query);
-
     $statement->execute($params);
 
     $result = $statement->fetchAll();
-
-    $pagination = ['count' => (int)$count, 'limit' => (int)$limit, 'lastPage' => $lastPage, 'page' => (int)$page];
-    return $this->handleRequest($response, 200, '', $result, $pagination);
-
-    /*$result = $statement->fetchAll();
 
     if (is_array($result)) {
       foreach ($result as $index => $product) {
@@ -169,7 +172,7 @@ class ProductController extends HandleRequest {
       return $this->handleRequest($response, 200, '', $result, $pagination);
     } else {
       return $this->handleRequest($response, 204, '', []);
-    }*/
+    }
   }
 
   public function getAll(Request $request, Response $response, $args) {

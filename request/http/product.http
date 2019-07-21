@@ -46,7 +46,7 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
-GET {{host}}/api/public/products/filter?orderBy=evaluation&quantity=150-260
+GET {{host}}/api/public/products/filter?tagName=Orgánicos&orderBy=prices
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
