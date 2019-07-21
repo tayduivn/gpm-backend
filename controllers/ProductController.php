@@ -39,18 +39,19 @@ class ProductController extends HandleRequest {
     $orderBy      = $request->getQueryParam('orderBy', $default = false);
     $quantity     = $request->getQueryParam('quantity', $default = false);
     $rangeDate    = $request->getQueryParam('rangeDate', $default = false);
+    $productName  = $request->getQueryParam('productName', $default = false);
 
     $skip     = ($page - 1) * $limit;
     $lastPage = 0;
     $count    = 0;
 
-    list($categoryName, $tagName, $quantity, $rangeDate, $valuesWhere) = $this->getValues($categoryName, $tagName, $quantity, $rangeDate);
+    list($categoryName, $tagName, $valuesWhere) = $this->getValues($categoryName, $tagName, $quantity, $rangeDate, $productName);
 
     $query = sprintf(/** @lang text */
       "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
                product.description_two, product.regular_price, product.quantity, product.active, product.inserted_at, product.updated_at, product.user_id
                FROM product %s %s %s
-               %s %s %s %s
+               %s %s %s %s %s
                GROUP BY product.id %s %s %s",
       $categoryName ? 'INNER JOIN product_category pc on product.id = pc.product_id INNER JOIN category c on pc.category_id = c.id' : null,
       $tagName ? 'INNER JOIN product_tag pt on product.id = pt.product_id INNER JOIN tag t on pt.tag_id = t.id' : null,
@@ -59,13 +60,14 @@ class ProductController extends HandleRequest {
       $valuesWhere[1],
       $valuesWhere[2],
       $valuesWhere[3],
+      $valuesWhere[4],
       !$orderBy ? "ORDER BY product.inserted_at " . $order . " LIMIT " . $skip . ", " . $limit : null,
       $orderBy === 'prices' ? "ORDER BY product.regular_price " . $order . " LIMIT " . $skip . ", " . $limit : null,
       $orderBy === 'evaluation' ? "ORDER BY pr.stars " . $order . " LIMIT " . $skip . ", " . $limit : null
     );
 
     $statement = $this->db->prepare($query);
-    $params    = $this->getParams($categoryName, $tagName, $quantity, $rangeDate);
+    $params    = $this->getParams($categoryName, $tagName);
     $statement->execute($params);
     $result = $statement->fetchAll();
 
@@ -89,9 +91,10 @@ class ProductController extends HandleRequest {
    * @param $tagName
    * @param $quantity
    * @param $rangeDate
+   * @param $productName
    * @return array
    */
-  public function getValues($categoryName, $tagName, $quantity, $rangeDate) {
+  public function getValues($categoryName, $tagName, $quantity, $rangeDate, $productName) {
     $inCategory = '';
     $inTag      = '';
 
@@ -133,9 +136,9 @@ class ProductController extends HandleRequest {
 
     if ($rangeDate) {
       if ($valuesWhere[0] === null and $valuesWhere[1] === null) {
-        array_push($valuesWhere, "WHERE product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[1]);
+        array_push($valuesWhere, "WHERE product.inserted_at BETWEEN '" . $rangeDate[0] . "' AND '" . $rangeDate[1] . "'");
       } else {
-        array_push($valuesWhere, "AND product.inserted_at BETWEEN " . $rangeDate[0] . " AND " . $rangeDate[1]);
+        array_push($valuesWhere, "AND product.inserted_at BETWEEN '" . $rangeDate[0] . "' AND '" . $rangeDate[1] . "'");
       }
     } else {
       array_push($valuesWhere, null);
@@ -150,17 +153,25 @@ class ProductController extends HandleRequest {
     } else {
       array_push($valuesWhere, null);
     }
-    return array($categoryName, $tagName, $quantity, $rangeDate, $valuesWhere);
+
+    if ($productName) {
+      if ($valuesWhere[0] === null and $valuesWhere[1] === null and $valuesWhere[2] === null and $valuesWhere[3] === null) {
+        array_push($valuesWhere, "WHERE product.name LIKE '%$productName%'");
+      } else {
+        array_push($valuesWhere, "AND product.name LIKE '%$productName%'");
+      }
+    } else {
+      array_push($valuesWhere, null);
+    }
+    return array($categoryName, $tagName, $valuesWhere);
   }
 
   /**
    * @param $categoryName
    * @param $tagName
-   * @param $quantity
-   * @param $rangeDate
    * @return array
    */
-  public function getParams($categoryName, $tagName, $quantity, $rangeDate) {
+  public function getParams($categoryName, $tagName) {
     $params = array();
 
     if ($categoryName) {
@@ -173,22 +184,21 @@ class ProductController extends HandleRequest {
   }
 
   public function getAll(Request $request, Response $response, $args) {
-    $order       = $request->getQueryParam('order', $default = 'DESC');
-    $limit       = $request->getQueryParam('limit', $default = '12');
-    $page        = $request->getQueryParam('page', $page = '1');
-    $id          = $request->getQueryParam('id', $default = false);
-    $idUser      = $request->getQueryParam('idUser', $default = false);
-    $favorite    = $request->getQueryParam('favorite', $default = false);
-    $new         = $request->getQueryParam('new', $default = false);
-    $shopped     = $request->getQueryParam('shopped', $default = false);
-    $category    = $request->getQueryParam('category', $category = false);
-    $productName = $request->getQueryParam('productName');
+    $order    = $request->getQueryParam('order', $default = 'DESC');
+    $limit    = $request->getQueryParam('limit', $default = '12');
+    $page     = $request->getQueryParam('page', $page = '1');
+    $id       = $request->getQueryParam('id', $default = false);
+    $idUser   = $request->getQueryParam('idUser', $default = false);
+    $favorite = $request->getQueryParam('favorite', $default = false);
+    $new      = $request->getQueryParam('new', $default = false);
+    $shopped  = $request->getQueryParam('shopped', $default = false);
+    $category = $request->getQueryParam('category', $category = false);
 
     $skip     = ($page - 1) * $limit;
     $lastPage = 0;
     $count    = 0;
 
-    $all = $new || $favorite || $shopped || $id || $productName || $idUser ? false : true;
+    $all = $new || $favorite || $shopped || $id || $idUser ? false : true;
 
     if ($favorite) {
       switch ($order) {
@@ -407,43 +417,6 @@ class ProductController extends HandleRequest {
                         ORDER BY product.id DESC LIMIT " . $limit;
           $statement = $this->db->prepare($query);
           $statement->execute(['id' => $id]);
-          break;
-      }
-    }
-
-    if ($productName) {
-      switch ($order) {
-        case 'ASC':
-          $query1    = "SELECT count(product.id) FROM product WHERE product.active != '0' AND product.name LIKE '%$productName%'";
-          $count     = $this->getCountProducts($query1);
-          $query     = "SELECT * FROM product 
-                        WHERE product.active != '0' AND product.name LIKE '%$productName%'
-                        ORDER BY product.inserted_at LIMIT " . $skip . "," . $limit;
-          $statement = $this->db->prepare($query);
-          $statement->execute(['limit' => $limit, 'skip' => $skip]);
-          $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
-          break;
-
-        case 'RAND':
-          $query1    = "SELECT count(product.id) FROM product WHERE product.active != '0' AND product.name LIKE '%$productName%'";
-          $count     = $this->getCountProducts($query1);
-          $query     = "SELECT * FROM product 
-                        WHERE product.active != '0' AND product.name LIKE '%$productName%' 
-                        ORDER BY RAND() LIMIT " . $skip . "," . $limit;
-          $statement = $this->db->prepare($query);
-          $statement->execute(['limit' => $limit, 'skip' => $skip]);
-          $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
-          break;
-
-        default:
-          $query1    = "SELECT count(product.id) FROM product WHERE product.active != '0' AND product.name LIKE '%$productName%'";
-          $count     = $this->getCountProducts($query1);
-          $query     = "SELECT * FROM product 
-                        WHERE product.active != '0' AND product.name LIKE '%$productName%' 
-                        ORDER BY product.inserted_at DESC LIMIT " . $skip . "," . $limit;
-          $statement = $this->db->prepare($query);
-          $statement->execute(['limit' => $limit, 'skip' => $skip]);
-          $lastPage = (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit));
           break;
       }
     }
