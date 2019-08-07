@@ -76,6 +76,7 @@ $app->group('/api', function () use ($app) {
   $app->get('/users', 'App\Controller\UserController:getAll');
   $app->put('/users', 'App\Controller\UserController:update');
   $app->put('/users/password', 'App\Controller\UserController:updatePassword');
+  $app->put('/users/bank', 'App\Controller\UserController:updateBank');
   $app->post('/users/photo', 'App\Controller\UserController:updatePhoto');
   $app->delete('/users', 'App\Controller\UserController:delete');
 

@@ -26,7 +26,7 @@ class UserSeeder extends AbstractSeed {
         'last_name'     => 'last',
         'password' => "$2y$10$/C90fWobQk6mUz8UZfb73Oo900vXXM.BZAXKppwnnfgkQNN1BWPjG",
         'role_id' => "1",
-        'firebase_id' => "1",
+        'firebase_id' => "nSaSLBOuVUKnRG56SoJa",
       ],
       [
         'email'    => 'client@gmail.com',
@@ -41,7 +41,7 @@ class UserSeeder extends AbstractSeed {
         'postal_code' => "60652",
         'phone' => "145645644",
         'role_id' => "2",
-        'firebase_id' => "2",
+        'firebase_id' => "fni7RiDeulm1win9uZIR",
       ],
     ];
     $this->table('user')->insert($data)->save();
