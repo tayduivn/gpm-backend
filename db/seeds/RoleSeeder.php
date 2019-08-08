@@ -18,7 +18,13 @@ class RoleSeeder extends AbstractSeed {
         'name'    => 'Admin',
       ],
       [
-        'name'    => 'Client',
+        'name'    => 'Seller',
+      ],
+      [
+        'name'    => 'Buyer',
+      ],
+      [
+        'name'    => 'Buyer/Seller',
       ],
     ];
     $this->table('role')->insert($data)->save();

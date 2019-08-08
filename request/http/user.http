@@ -80,9 +80,9 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "id"      : "17",
-  "email"   : "pedro46@gmail.com",
-  "password": "12345678"
+  "id"         : "2",
+  "newPassword": "123456",
+  "password"   : "1234567"
 }
 
 ###

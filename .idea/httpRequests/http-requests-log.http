@@ -1,3 +1,202 @@
+GET http://gpm-backend/api/public/roles
+Accept: application/json
+
+<> 2019-08-08T112712.200.json
+
+###
+
+PUT http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "products": [
+    {
+      "cart_product_id": 4,
+      "product_id"     : 1,
+      "quantity"       : 5
+    }
+  ]
+}
+
+<> 2019-08-07T054239.201.json
+
+###
+
+PUT http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "products": [
+    {
+      "cart_product_id": 4,
+      "product_id"     : 1,
+      "quantity"       : 5
+    }
+  ]
+}
+
+<> 2019-08-07T054154.409.json
+
+###
+
+PUT http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "products": [
+    {
+      "cart_product_id": 4,
+      "product_id"     : 1,
+      "quantity"       : 5
+    }
+  ]
+}
+
+<> 2019-08-07T054050.201.json
+
+###
+
+PUT http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "products": [
+    {
+      "cart_product_id": "4",
+      "product_id"     : "1",
+      "quantity"       : 5
+    }
+  ]
+}
+
+<> 2019-08-07T054023.201.json
+
+###
+
+GET http://gpm-backend/api/orders?status=Pending
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-07T053434.500.json
+
+###
+
+POST http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "id"        : "",
+  "quantity"  : 2,
+  "cart_id"   : 2,
+  "product_id": 1
+}
+
+<> 2019-08-07T053305.201.json
+
+###
+
+POST http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "id"        : "",
+  "quantity"  : 2,
+  "cart_id"   : 2,
+  "product_id": 1
+}
+
+<> 2019-08-07T053151.409.json
+
+###
+
+POST http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "id"        : "",
+  "quantity"  : 2,
+  "cart_id"   : 2,
+  "product_id": 1
+}
+
+<> 2019-08-07T052807.409.json
+
+###
+
+POST http://gpm-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "id"        : "",
+  "quantity"  : 2,
+  "cart_id"   : 2,
+  "product_id": 1
+}
+
+<> 2019-08-07T052659.409.json
+
+###
+
+POST http://gpm-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-08-07T052653.200.json
+
+###
+
+PUT http://gpm-backend/api/users/password
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "id"      : "2",
+  "newPassword"   : "123456",
+  "password": "1234567"
+}
+
+<> 2019-08-07T041652.201.json
+
+###
+
+POST http://gpm-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "1234567"
+}
+
+<> 2019-08-07T041647.200.json
+
+###
+
+PUT http://gpm-backend/api/users/password
+Content-Type: application/json
+Authorization: Bearer
+
+{
+  "id"      : "2",
+  "newPassword"   : "123456",
+  "password": "1234567"
+}
+
+<> 2019-08-07T041641.401.json
+
+###
+
 PUT http://gpm-backend/api/carts/products
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
@@ -387,118 +586,6 @@ Accept: application/json
 Authorization: Bearer
 
 <> 2019-07-20T082631.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tag=Orgánicos&quantity=150-260
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T082613.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=150-260
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T082548.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=150-260
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T082523.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=150-260
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T064654.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=180-260
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T064644.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=180-260
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T064536.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=180-260
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T064258.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&quantity=180-260
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T064108.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T064048.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&categoryName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T064021.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&categoryName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063916.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&categoryName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063833.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation&categoryName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063757.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?orderBy=evaluation
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T063715.200.json
 
 ###
 

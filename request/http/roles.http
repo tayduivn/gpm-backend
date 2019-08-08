@@ -1,0 +1,40 @@
+GET {{host}}/api/public/roles
+Accept: application/json
+
+###
+
+GET {{host}}/api/public/roles?id=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST {{host}}/api/roles
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "del hogar"
+}
+
+###
+
+PUT {{host}}/api/roles
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 2,
+  "name": "testing2"
+}
+
+###
+
+DELETE {{host}}/api/roles
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 2
+}
+###

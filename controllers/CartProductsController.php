@@ -98,12 +98,12 @@ class CartProductsController extends HandleRequest {
 
     foreach ($products as $index => $product) {
       if ($this->validateQuantityProduct($product['product_id'], $product['quantity'])) {
+        $success = false;
+        break;
+      } else {
         $query   = "UPDATE cart_products SET quantity = :quantity WHERE id = :id";
         $prepare = $this->db->prepare($query);
         $result  = $prepare->execute(['id' => $product['cart_product_id'], 'quantity' => $product['quantity'],]);
-      } else {
-        $success = false;
-        break;
       }
     }
     if ($success) {
@@ -123,7 +123,7 @@ class CartProductsController extends HandleRequest {
     $prepare      = $this->db->prepare($queryProduct);
     $prepare->execute(['id' => $productID]);
     $result = $prepare->fetchObject();
-    return is_object($result) AND $productQuantity < (int)$result->quantity;
+    return is_object($result) AND $productQuantity > (int)$result->quantity;
   }
 
   public function delete(Request $request, Response $response, $args) {

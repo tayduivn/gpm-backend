@@ -69,6 +69,8 @@ $app->group('/api', function () use ($app) {
     $app->get('/images', 'App\Controller\ProductImageController:getAll');
 
     $app->get('/reviews', 'App\Controller\ReviewController:getAll');
+
+    $app->get('/roles', 'App\Controller\RoleController:getAll');
   });
 
   $app->get('/emails', 'App\Controller\SingUpEmailController:getAll');
@@ -128,6 +130,10 @@ $app->group('/api', function () use ($app) {
   $app->post('/carts', 'App\Controller\CartController:register');
   $app->put('/carts', 'App\Controller\CartController:update');
   $app->delete('/carts', 'App\Controller\CartController:delete');
+
+  $app->post('/roles', 'App\Controller\RoleController:register');
+  $app->put('/roles', 'App\Controller\RoleController:update');
+  $app->delete('/roles', 'App\Controller\RoleController:delete');
 
   $app->get('/carts/products', 'App\Controller\CartProductsController:getAll');
   $app->post('/carts/products', 'App\Controller\CartProductsController:register');

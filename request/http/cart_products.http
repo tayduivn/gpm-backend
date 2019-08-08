@@ -17,8 +17,8 @@ Authorization: Bearer {{auth_token}}
 {
   "id"        : "",
   "quantity"  : 2,
-  "cart_id"   : 1,
-  "product_id": 4
+  "cart_id"   : 2,
+  "product_id": 1
 }
 
 ###
@@ -30,24 +30,9 @@ Authorization: Bearer {{auth_token}}
 {
   "products": [
     {
-      "cart_product_id": "11",
-      "product_id"     : "1",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "12",
-      "product_id"     : "2",
-      "quantity"       : 4
-    },
-    {
-      "cart_product_id": "13",
-      "product_id"     : "4",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "10",
-      "product_id"     : "5",
-      "quantity"       : 1
+      "cart_product_id": 4,
+      "product_id"     : 1,
+      "quantity"       : 5
     }
   ]
 }

@@ -44,7 +44,7 @@ class OrderController extends HandleRequest {
     if ($userId !== null && $cartId === null) {
       $query     = "SELECT * 
                     FROM `order`
-                    WHERE `order`.active != '0' AND user_id = :userId AND status = :status";
+                    WHERE `order`.active != '0' AND user_id = :userId AND `order`.status = :status";
       $statement = $this->db->prepare($query);
       $statement->execute(['status' => $status, 'userId' => $userId]);
     }
@@ -75,7 +75,7 @@ class OrderController extends HandleRequest {
                     u.city, u.country, u.state, u.country_code, u.postal_code, u.state, u.photo,
                     u.role_id, u.inserted_at, u.updated_at 
                     FROM `order` INNER JOIN user u on `order`.user_id = u.id
-                    WHERE `order`.active != '0' AND status = :status";
+                    WHERE `order`.active != '0' AND `order`.status = :status";
       $statement = $this->db->prepare($query);
       $statement->execute(['status' => $status]);
     }
@@ -118,7 +118,7 @@ class OrderController extends HandleRequest {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $prepare = $this->db->prepare("UPDATE `order` SET status = :status WHERE id = :id");
+    $prepare = $this->db->prepare("UPDATE `order` SET `order`.status = :status WHERE id = :id");
     $result  = $prepare->execute(['id' => $id, 'status' => $status,]);
 
     return $this->postSendResponse($response, $result, 'Datos actualizados');
@@ -136,7 +136,7 @@ class OrderController extends HandleRequest {
     $statement->execute(['id' => $id]);
     $result = $statement->fetch();
     if (is_array($result)) {
-      $prepare = $this->db->prepare("UPDATE `order` SET status = :active WHERE id = :id");
+      $prepare = $this->db->prepare("UPDATE `order` SET `order`.status = :active WHERE id = :id");
       $result  = $prepare->execute(['id' => $id, 'active' => 0]);
       return $this->postSendResponse($response, $result, 'Datos eliminados');
     } else {
