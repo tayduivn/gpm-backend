@@ -30,7 +30,8 @@ class OrderController extends HandleRequest {
     $status = $request->getQueryParam('status', $default = 'Pending');
 
     if ($id !== null) {
-      $query     = "SELECT `order`.id AS order_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
+      $query     = "SELECT `order`.id AS order_id, `order`.chat_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
+                    `order`.address, `order`.map_lng, `order`.map_lat, 
                     `order`.inserted_at AS order_inserted_at, `order`.updated_at AS order_updated_at, `order`.user_id, `order`.cart_id, 
                     u.id, u.email, u.first_name, u.last_name, u.password, u.address, u.phone, u.active, 
                     u.city, u.country, u.state, u.country_code, u.postal_code, u.state, u.photo,
@@ -50,7 +51,8 @@ class OrderController extends HandleRequest {
     }
 
     if ($userId !== null && $cartId !== null) {
-      $query     = "SELECT `order`.id AS order_id, `order`.subtotal, `order`.total, `order`.status AS order_status, `order`.active, 
+      $query     = "SELECT `order`.id AS order_id, `order`.chat_id, `order`.subtotal, `order`.total, `order`.status AS order_status, `order`.active,
+                    `order`.address, `order`.map_lng, `order`.map_lat,  
                     `order`.inserted_at, `order`.updated_at, `order`.user_id, `order`.cart_id, 
                     c.id, c.status, c.active, c.inserted_at, c.updated_at, c.user_id, 
                     u.id, u.email, u.first_name, u.last_name, u.password, u.address, u.phone, u.active, 
@@ -69,7 +71,8 @@ class OrderController extends HandleRequest {
         return $this->handleRequest($response, 204, '', []);
       }
     } else {
-      $query     = "SELECT `order`.id AS order_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
+      $query     = "SELECT `order`.id AS order_id, `order`.chat_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
+                    `order`.address, `order`.map_lng, `order`.map_lat, 
                     `order`.inserted_at AS order_inserted_at, `order`.updated_at AS order_updated_at, `order`.user_id, `order`.cart_id, 
                     u.id, u.email, u.first_name, u.last_name, u.password, u.address, u.phone, u.active, 
                     u.city, u.country, u.state, u.country_code, u.postal_code, u.state, u.photo,
@@ -84,10 +87,14 @@ class OrderController extends HandleRequest {
 
   public function register(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
-    $subtotal = $request_body['subtotal'];
-    $total    = $request_body['total'];
-    $user_id  = $request_body['user_id'];
-    $cart_id  = $request_body['cart_id'];
+    $chat_id      = $request_body['chat_id'];
+    $subtotal     = $request_body['subtotal'];
+    $total        = $request_body['total'];
+    $user_id      = $request_body['user_id'];
+    $cart_id      = $request_body['cart_id'];
+    $address      = $request_body['address'];
+    $map_lng      = $request_body['map_lng'];
+    $map_lat      = $request_body['map_lat'];
 
     if (!isset($subtotal) && !isset($total) && !isset($user_id) && !isset($cart_id)) {
       return $this->handleRequest($response, 400, 'Data incorrect');
@@ -96,9 +103,14 @@ class OrderController extends HandleRequest {
     if ($this->isAlreadyCartOrder($cart_id, $this->db)) {
       return $this->handleRequest($response, 409, 'Cart is already cart');
     } else {
-      $query   = "INSERT INTO `order` (`subtotal`, `total`, `user_id`, `cart_id`) VALUES(:subtotal, :total, :user_id, :cart_id)";
+      $query   = "INSERT INTO `order` (`chat_id`, `address`, `map_lng`, `map_lat`, `subtotal`, `total`, `user_id`, `cart_id`) 
+                    VALUES(:chat_id, :address, :map_lng, :map_lat, :subtotal, :total, :user_id, :cart_id)";
       $prepare = $this->db->prepare($query);
       $result  = $prepare->execute([
+                                     'address'  => $address,
+                                     'map_lng'  => $map_lng,
+                                     'map_lat'  => $map_lat,
+                                     'chat_id'  => $chat_id,
                                      'subtotal' => $subtotal,
                                      'total'    => $total,
                                      'user_id'  => $user_id,
@@ -113,13 +125,25 @@ class OrderController extends HandleRequest {
     $request_body = $request->getParsedBody();
     $id           = $request_body['id'];
     $status       = $request_body['status'];
+    $address      = $request_body['address'];
+    $map_lng      = $request_body['map_lng'];
+    $map_lat      = $request_body['map_lat'];
 
     if (!isset($id) && !isset($status)) {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $prepare = $this->db->prepare("UPDATE `order` SET `order`.status = :status WHERE id = :id");
-    $result  = $prepare->execute(['id' => $id, 'status' => $status,]);
+    $query   = "UPDATE `order` 
+                SET `order`.address = :address, `order`.map_lng = :map_lng, `order`.map_lat = :map_lat, `order`.status = :status 
+                WHERE id = :id";
+    $prepare = $this->db->prepare($query);
+    $result  = $prepare->execute([
+                                   'id'      => $id,
+                                   'status'  => $status,
+                                   'address' => $address,
+                                   'map_lng' => $map_lng,
+                                   'map_lat' => $map_lat,
+                                 ]);
 
     return $this->postSendResponse($response, $result, 'Datos actualizados');
   }

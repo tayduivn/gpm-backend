@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use mysql_xdevapi\Exception;
 use Psr\Container\ContainerInterface as ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -51,13 +50,16 @@ class TransactionController extends HandleRequest {
   public function register(Request $request, Response $response, $args) {
     $this->db->beginTransaction();
 
-    $request_body  = $request->getParsedBody();
+    $request_body = $request->getParsedBody();
+
+    $quantity   = (int)$request_body['quantity'];
+    $cart_id    = $request_body['cart_id'];
+    $product_id = $request_body['product_id'];
+
     $tokenStripe   = $request_body['token_stripe'];
     $payloadPaypal = $request_body['payload_paypal'];
 
-    $cart_id = $request_body['cart_id'];
-
-    $code               = $request_body['code'];
+    $code               = isset($request_body['code']) ? $request_body['code'] : '';
     $processor          = $request_body['processor'];
     $processor_trans_id = $request_body['processor_trans_id'];
 
@@ -65,74 +67,95 @@ class TransactionController extends HandleRequest {
     $total    = $request_body['total'];
     $user_id  = $request_body['user_id'];
 
-    try {
-      if (isset($processor)) {
-        switch ($processor) {
-          case 'Paypal':
-            $result = $this->postPaypal($this->db, $total, $processor, $payloadPaypal);
-            if ($result->success) {
-              $processor_trans_id = $result->transaction->id;
-            } else {
-              return $this->handleRequest($response, 400, "Error Message: " . $result->message);
-            }
-            break;
-          case 'Credit card':
-            if (isset($tokenStripe)) {
-              $this->postStripe($this->db, $tokenStripe, $total);
-            } else {
-              return $this->handleRequest($response, 400, 'Incorrect data stripe');
-            }
-            break;
-          case 'Amazon':
-            /*$this->getOrderPaypal($typePayment->orderId);*/
-            break;
-          default:
-            return $this->handleRequest($response, 400, 'Incorrect data');
-            break;
-        }
-      } else {
-        return $this->handleRequest($response, 400, 'Incorrect processor');
-      }
-
-      if (!isset($cart_id) AND !isset($subtotal) AND !isset($total) AND !isset($user_id) AND !isset($code)
-        AND !isset($processor) AND !isset($processor_trans_id)) {
-        return $this->handleRequest($response, 400, 'Incorrect data');
-      }
-
-      $query   = "INSERT INTO transaction (`processor`, `processor_trans_id`) VALUES (:processor, :processor_trans_id)";
-      $prepare = $this->db->prepare($query);
-      $result  = $prepare->execute(['processor' => $processor, 'processor_trans_id' => $processor_trans_id,]);
-
-      $transaction_id = $this->db->lastInsertId();
-
-      if ($result) {
-        $result = $this->updateCart($cart_id);
-
-        if ($result) {
-          if ($this->isAlreadyCartOrder($cart_id, $this->db)) {
-            return $this->handleRequest($response, 409, 'Cart is already exist');
-          } else {
-            $query   = "INSERT INTO `order` (`subtotal`, `total`, `user_id`, `cart_id`, `transaction_id`) 
-                      VALUES(:subtotal, :total, :user_id, :cart_id, :transaction_id)";
-            $prepare = $this->db->prepare($query);
-            $result  = $prepare->execute([
-                                           'subtotal'       => $subtotal,
-                                           'total'          => $total,
-                                           'user_id'        => $user_id,
-                                           'cart_id'        => $cart_id,
-                                           'transaction_id' => $transaction_id,
-                                         ]);
-
-            $this->db->commit();
-            return $this->postSendResponse($response, $result, 'Data register');
-          }
-        }
-      }
-    } catch (\Throwable $e) { // use \Exception in PHP < 7.0
-      $this->db->rollBack();
-      throw $e;
+    if (!isset($quantity) && !isset($cart_id) && !isset($product_id)) {
+      return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
+    if ($this->isAlreadyProduct($this->db, $cart_id, $product_id)) {
+      return $this->handleRequest($response, 409, 'This product already exist');
+    } else if ($this->validateQuantityProduct($this->db, $product_id, $quantity)) {
+      return $this->handleRequest($response, 409, 'This quantity is mayor in the store');
+    } else {
+      $query   = "INSERT INTO cart_products (`quantity`, `cart_id`, `product_id`) VALUES (:quantity, :cart_id, :product_id)";
+      $prepare = $this->db->prepare($query);
+      $result  = $prepare->execute([
+                                     'quantity'   => $quantity,
+                                     'cart_id'    => $cart_id,
+                                     'product_id' => $product_id,
+                                   ]);
+      if ($result) {
+
+        try {
+          if (isset($processor)) {
+            switch ($processor) {
+              case 'Paypal':
+                $result = $this->postPaypal($this->db, $total, $processor, $payloadPaypal);
+                if ($result->success) {
+                  $processor_trans_id = $result->transaction->id;
+                } else {
+                  return $this->handleRequest($response, 400, "Error Message: " . $result->message);
+                }
+                break;
+              case 'Credit card':
+                if (isset($tokenStripe)) {
+                  $this->postStripe($this->db, $tokenStripe, $total);
+                } else {
+                  return $this->handleRequest($response, 400, 'Incorrect data stripe');
+                }
+                break;
+              case 'Amazon':
+                /*$this->getOrderPaypal($typePayment->orderId);*/
+                break;
+              default:
+                return $this->handleRequest($response, 400, 'Incorrect data');
+                break;
+            }
+          } else {
+            return $this->handleRequest($response, 400, 'Incorrect processor');
+          }
+
+          if (!isset($cart_id) AND !isset($subtotal) AND !isset($total) AND !isset($user_id) AND !isset($code)
+            AND !isset($processor) AND !isset($processor_trans_id)) {
+            return $this->handleRequest($response, 400, 'Incorrect data');
+          }
+
+          $query   = "INSERT INTO transaction (`processor`, `processor_trans_id`) VALUES (:processor, :processor_trans_id)";
+          $prepare = $this->db->prepare($query);
+          $result  = $prepare->execute(['processor' => $processor, 'processor_trans_id' => $processor_trans_id,]);
+
+          $transaction_id = $this->db->lastInsertId();
+
+          if ($result) {
+            $result = $this->updateCart($cart_id);
+
+            if ($result) {
+              if ($this->isAlreadyCartOrder($cart_id, $this->db)) {
+                return $this->handleRequest($response, 409, 'Cart is already exist');
+              } else {
+                $query   = "INSERT INTO `order` (`subtotal`, `total`, `user_id`, `cart_id`, `transaction_id`) 
+                      VALUES(:subtotal, :total, :user_id, :cart_id, :transaction_id)";
+                $prepare = $this->db->prepare($query);
+                $result  = $prepare->execute([
+                                               'subtotal'       => $subtotal,
+                                               'total'          => $total,
+                                               'user_id'        => $user_id,
+                                               'cart_id'        => $cart_id,
+                                               'transaction_id' => $transaction_id,
+                                             ]);
+
+                $this->db->commit();
+                return $this->postSendResponse($response, $result, 'Data register');
+              }
+            }
+          }
+        } catch (\Throwable $e) { // use \Exception in PHP < 7.0
+          $this->db->rollBack();
+          throw $e;
+        }
+      } else {
+        return $this->handleRequest($response, 500);
+      }
+    }
     return $this->handleRequest($response, 400);
   }
 

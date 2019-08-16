@@ -1,3 +1,31 @@
+POST http://gpm-backend/api/public/users/register
+Content-Type: application/json
+
+{
+  "email"      : "client14@gmail.com",
+  "password"   : "123456",
+  "role_id"    : "2",
+  "firebase_id": "mAUUmq30TOX9tgYRIRbR"
+}
+
+<> 2019-08-08T121404.500.html
+
+###
+
+GET http://gpm-backend/api/public/roles
+Accept: application/json
+
+<> 2019-08-08T120834.200.json
+
+###
+
+GET http://gpm-backend/api/public/roles
+Accept: application/json
+
+<> 2019-08-08T120803.200.json
+
+###
+
 GET http://gpm-backend/api/public/roles
 Accept: application/json
 
@@ -562,30 +590,6 @@ Accept: application/json
 Authorization: Bearer
 
 <> 2019-07-20T082835.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=testing&orderBy=prices
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T082730.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&orderBy=prices
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T082717.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tag=Orgánicos&orderBy=prices
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T082631.200.json
 
 ###
 

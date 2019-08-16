@@ -28,6 +28,14 @@ class CartSeeder extends AbstractSeed {
       [
         'status'      => 'current',
         'user_id'    => 2,
+      ],
+      [
+        'status'      => 'current',
+        'user_id'    => 3,
+      ],
+      [
+        'status'      => 'current',
+        'user_id'    => 4,
       ]
     ];
     $this->table('cart')->insert($data)->save();

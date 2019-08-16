@@ -72,6 +72,8 @@ class Appgpm extends AbstractMigration {
       ->addColumn('country_code', 'string', ['limit' => 255, 'null' => true])
       ->addColumn('postal_code', 'string', ['limit' => 255, 'null' => true])
       ->addColumn('phone', 'string', ['limit' => 255, 'null' => true])
+      ->addColumn('map_lng', 'decimal', ['precision' => 10])
+      ->addColumn('map_lat', 'decimal', ['precision' => 10])
       ->addColumn('status', 'string', ['limit' => 255, 'default' => 'in progress'])
       ->addColumn('email_paypal', 'string', ['limit' => 255, 'null' => true])
       ->addColumn('stripe_code', 'string', ['limit' => 255, 'null' => true])
@@ -97,6 +99,7 @@ class Appgpm extends AbstractMigration {
       ->addColumn('description_two', 'string')
       ->addColumn('regular_price', 'decimal', ['precision' => 10, 'scale' => 2])
       ->addColumn('quantity', 'integer')
+      ->addColumn('currency', 'string')
       ->addColumn('active', 'boolean', ['default' => true])
       ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
@@ -190,6 +193,10 @@ class Appgpm extends AbstractMigration {
       $this->table('order')->drop()->save();
     }
     $this->table('order')
+      ->addColumn('chat_id', 'string', ['limit' => 255])
+      ->addColumn('address', 'string', ['limit' => 255])
+      ->addColumn('map_lng', 'decimal', ['precision' => 10])
+      ->addColumn('map_lat', 'decimal', ['precision' => 10])
       ->addColumn('subtotal', 'decimal', ['precision' => 10, 'scale' => 2])
       ->addColumn('total', 'decimal', ['precision' => 10, 'scale' => 2])
       ->addColumn('status', 'enum', ['values' => ['Pending', 'Sending', 'Completed', 'Cancelled'], 'default' => 'Pending'])

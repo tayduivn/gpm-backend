@@ -140,7 +140,7 @@ class Utils {
   function getCartsProducts($db, $cart_id, $result, $index) {
     $query     = "SELECT 
                     cp.id AS cart_product_id, cp.quantity AS cart_quantity, cp.inserted_at, cp.updated_at, cp.cart_id, cp.product_id,
-                    p.id, sku, name AS product_name, p.description_short, p.description_one, p.description_two, 
+                    p.id, sku, name AS product_name, p.description_short, p.description_one, p.description_two, p.currency,
                     p.regular_price, p.quantity AS product_quantity, p.inserted_at AS product_inserted_ad, 
                     p.updated_at AS product_updated_at, p.user_id
                     FROM cart_products cp INNER JOIN product p on cp.product_id = p.id
@@ -188,6 +188,34 @@ class Utils {
     $statement = $db->prepare("SELECT * FROM `order` WHERE cart_id = :cartId");
     $statement->execute(['cartId' => $cart_id]);
     return !empty($statement->fetchAll());
+  }
+
+  /**
+   * @param $db
+   * @param $cart_id
+   * @param $product_id
+   * @return string
+   */
+  public function isAlreadyProduct($db, $cart_id, $product_id) {
+    $query     = "SELECT * FROM cart_products LEFT JOIN cart c on cart_products.cart_id = c.id
+                  WHERE cart_id = :cartId AND product_id = :product_id AND status = 'current'";
+    $statement = $db->prepare($query);
+    $statement->execute(['cartId' => $cart_id, 'product_id' => $product_id]);
+    return !empty($statement->fetchAll());
+  }
+
+  /**
+   * @param $db
+   * @param $productID
+   * @param $productQuantity
+   * @return bool
+   */
+  public function validateQuantityProduct($db, $productID, $productQuantity) {
+    $queryProduct = "SELECT quantity FROM product WHERE product.id = :id";
+    $prepare      = $db->prepare($queryProduct);
+    $prepare->execute(['id' => $productID]);
+    $result = $prepare->fetchObject();
+    return is_object($result) AND $productQuantity > (int)$result->quantity;
   }
 
   /**

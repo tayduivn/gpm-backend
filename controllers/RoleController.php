@@ -27,10 +27,10 @@ class RoleController extends HandleRequest {
     $order = $request->getQueryParam('order', $default = 'ASC');
 
     if ($id !== null) {
-      $statement = $this->db->prepare("SELECT * FROM role WHERE id = :id AND active != '0' ORDER BY " . $order);
+      $statement = $this->db->prepare("SELECT * FROM role WHERE id = :id AND role.name != 'Admin' AND active != '0' ORDER BY " . $order);
       $statement->execute(['id' => $id]);
     } else {
-      $statement = $this->db->prepare("SELECT * FROM role WHERE active != '0'");
+      $statement = $this->db->prepare("SELECT * FROM role WHERE active != '0' AND role.name != 'Admin'");
       $statement->execute();
     }
     return $this->getSendResponse($response, $statement);

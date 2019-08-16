@@ -54,9 +54,9 @@ class CartProductsController extends HandleRequest {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    if ($this->isAlreadyProduct($cart_id, $product_id)) {
+    if ($this->isAlreadyProduct($this->db, $cart_id, $product_id)) {
       return $this->handleRequest($response, 409, 'This product already exist');
-    } else if ($this->validateQuantityProduct($product_id, $quantity)) {
+    } else if ($this->validateQuantityProduct($this->db, $product_id, $quantity)) {
       return $this->handleRequest($response, 409, 'This quantity is mayor in the store');
     } else {
       $query   = "INSERT INTO cart_products (`quantity`, `cart_id`, `product_id`) 
@@ -72,19 +72,6 @@ class CartProductsController extends HandleRequest {
     return $this->postSendResponse($response, $result, 'Datos registrados');
   }
 
-  /**
-   * @param $cart_id
-   * @param $product_id
-   * @return string
-   */
-  public function isAlreadyProduct($cart_id, $product_id) {
-    $query     = "SELECT * FROM cart_products LEFT JOIN cart c on cart_products.cart_id = c.id
-                  WHERE cart_id = :cartId AND product_id = :product_id AND status = 'current'";
-    $statement = $this->db->prepare($query);
-    $statement->execute(['cartId' => $cart_id, 'product_id' => $product_id]);
-    return !empty($statement->fetchAll());
-  }
-
   public function updateQuantity(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
     $products     = $request_body['products'];
@@ -97,7 +84,7 @@ class CartProductsController extends HandleRequest {
     }
 
     foreach ($products as $index => $product) {
-      if ($this->validateQuantityProduct($product['product_id'], $product['quantity'])) {
+      if ($this->validateQuantityProduct($this->db, $product['product_id'], $product['quantity'])) {
         $success = false;
         break;
       } else {
@@ -111,19 +98,6 @@ class CartProductsController extends HandleRequest {
     } else {
       return $this->handleRequest($response, 409, 'The quantity is mayor in the store');
     }
-  }
-
-  /**
-   * @param $productID
-   * @param $productQuantity
-   * @return bool
-   */
-  public function validateQuantityProduct($productID, $productQuantity) {
-    $queryProduct = "SELECT quantity FROM product WHERE product.id = :id";
-    $prepare      = $this->db->prepare($queryProduct);
-    $prepare->execute(['id' => $productID]);
-    $result = $prepare->fetchObject();
-    return is_object($result) AND $productQuantity > (int)$result->quantity;
   }
 
   public function delete(Request $request, Response $response, $args) {

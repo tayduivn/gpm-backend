@@ -49,7 +49,7 @@ class ProductController extends HandleRequest {
 
     $query = sprintf(/** @lang text */
       "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-               product.description_two, product.regular_price, product.quantity, product.active, product.inserted_at, product.updated_at, product.user_id
+               product.description_two, product.regular_price, product.currency, product.quantity, product.active, product.inserted_at, product.updated_at, product.user_id
                FROM product %s %s %s
                %s %s %s %s %s
                GROUP BY product.id %s %s %s",
@@ -204,7 +204,7 @@ class ProductController extends HandleRequest {
       switch ($order) {
         case 'ASC':
           $query     = "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-                        product.description_two, product.quantity, product.active, 
+                        product.description_two, product.quantity, product.active, product.currency, 
                         product.inserted_at, product.updated_at, product.user_id, product.regular_price, 
                         pr.id AS review_id, pr.title, pr.stars, pr.active, pr.inserted_at, pr.updated_at, pr.user_id, 
                         pr.product_id, pr.message 
@@ -218,7 +218,7 @@ class ProductController extends HandleRequest {
 
         case 'RAND':
           $query     = "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-                        product.description_two, product.quantity, product.active, 
+                        product.description_two, product.quantity, product.active, product.currency, 
                         product.inserted_at, product.updated_at, product.user_id, product.regular_price, 
                         pr.id AS review_id, pr.title, pr.stars, pr.active, pr.inserted_at, pr.updated_at, pr.user_id, 
                         pr.product_id, pr.message 
@@ -232,7 +232,7 @@ class ProductController extends HandleRequest {
 
         default:
           $query     = "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-                        product.description_two, product.quantity, product.active, 
+                        product.description_two, product.quantity, product.active, product.currency, 
                         product.inserted_at, product.updated_at, product.user_id, product.regular_price, 
                         pr.id AS review_id, pr.title, pr.stars, pr.active, pr.inserted_at, pr.updated_at, pr.user_id, 
                         pr.product_id, pr.message 
@@ -296,7 +296,7 @@ class ProductController extends HandleRequest {
         switch ($order) {
           case 'ASC':
             $query     = "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-                          product.description_two, product.regular_price, product.quantity, 
+                          product.description_two, product.regular_price, product.quantity, product.currency, 
                           product.active, product.inserted_at, product.updated_at, product.user_id, 
                           pc.id AS category_id, pc.active, pc.inserted_at, pc.updated_at, pc.category_id, pc.product_id 
                           FROM product INNER JOIN product_category pc on product.id = pc.product_id
@@ -309,7 +309,7 @@ class ProductController extends HandleRequest {
 
           case 'RAND':
             $query     = "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-                          product.description_two, product.regular_price, product.quantity, 
+                          product.description_two, product.regular_price, product.quantity, product.currency, 
                           product.active, product.inserted_at, product.updated_at, product.user_id, 
                           pc.id AS category_id, pc.active, pc.inserted_at, pc.updated_at, pc.category_id, pc.product_id
                           FROM product INNER JOIN product_category pc on product.id = pc.product_id
@@ -322,7 +322,7 @@ class ProductController extends HandleRequest {
 
           default:
             $query     = "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-                          product.description_two, product.regular_price, product.quantity, 
+                          product.description_two, product.regular_price, product.quantity, product.currency, 
                           product.active, product.inserted_at, product.updated_at, product.user_id, 
                           pc.id AS category_id, pc.active, pc.inserted_at, pc.updated_at, pc.category_id, pc.product_id 
                           FROM product INNER JOIN product_category pc on product.id = pc.product_id
@@ -343,7 +343,7 @@ class ProductController extends HandleRequest {
         case 'ASC':
           $query     = "SELECT product.id, product.sku, product.name, product.description_short, 
                         product.description_one, product.description_two, 
-                        product.regular_price, product.quantity, product.active, 
+                        product.regular_price, product.quantity, product.currency, product.active, 
                         product.inserted_at, product.updated_at, product.user_id, 
                         pr.id AS review_id, pr.title, pr.message, pr.stars, pr.active, pr.inserted_at, pr.updated_at, 
                         pr.user_id, pr.product_id 
@@ -357,7 +357,7 @@ class ProductController extends HandleRequest {
         case 'RAND':
           $query     = "SELECT product.id, product.sku, product.name, product.description_short, 
                         product.description_one, product.description_two,
-                        product.regular_price, product.quantity, product.active, 
+                        product.regular_price, product.quantity, product.currency, product.active, 
                         product.inserted_at, product.updated_at, product.user_id, 
                         pr.id AS review_id, pr.title, pr.message, pr.stars, pr.active, pr.inserted_at, pr.updated_at, 
                         pr.user_id, pr.product_id 
@@ -371,7 +371,7 @@ class ProductController extends HandleRequest {
         default:
           $query     = "SELECT product.id, product.sku, product.name, product.description_short, 
                         product.description_one, product.description_two, 
-                        product.regular_price, product.quantity, product.active, 
+                        product.regular_price, product.quantity, product.currency, product.active, 
                         product.inserted_at, product.updated_at, product.user_id, 
                         pr.id AS review_id, pr.title, pr.message, pr.stars, pr.active, pr.inserted_at, pr.updated_at, 
                         pr.user_id, pr.product_id 
@@ -388,7 +388,7 @@ class ProductController extends HandleRequest {
       switch ($order) {
         case 'ASC':
           $query     = "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-                        product.description_two, product.quantity, product.active, 
+                        product.description_two, product.quantity, product.currency, product.active, 
                         product.inserted_at, product.updated_at, product.user_id, product.regular_price
                         FROM product
                         WHERE product.id = :id AND product.active != '0' 
@@ -399,7 +399,7 @@ class ProductController extends HandleRequest {
 
         case 'RAND':
           $query     = "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-                        product.description_two, product.quantity, product.active, 
+                        product.description_two, product.quantity, product.currency, product.active, 
                         product.inserted_at, product.updated_at, product.user_id, product.regular_price
                         FROM product
                         WHERE product.id = :id AND product.active != '0' 
@@ -410,7 +410,7 @@ class ProductController extends HandleRequest {
 
         default:
           $query     = "SELECT product.id, product.sku, product.name, product.description_short, product.description_one, 
-                        product.description_two, product.quantity, product.active, 
+                        product.description_two, product.quantity, product.currency, product.active, 
                         product.inserted_at, product.updated_at, product.user_id, product.regular_price
                         FROM product
                         WHERE product.id = :id AND product.active != '0' 
@@ -510,6 +510,7 @@ class ProductController extends HandleRequest {
     $description_one   = $request_body['description_one'];
     $description_two   = $request_body['description_two'];
     $regular_price     = $request_body['regular_price'];
+    $currency          = isset($request_body['currency']) ? $request_body['currency'] : 'USD';
     $quantity          = (int)$request_body['quantity'];
     $user_id           = $request_body['user_id'];
 
@@ -521,8 +522,8 @@ class ProductController extends HandleRequest {
     $sku = strtoupper(substr(str_replace(' ', '', $name), 0, 10));
 
     if ($this->existProductName($name)) {
-      $query   = "INSERT INTO product (sku, name, description_short, description_one, description_two, regular_price, quantity, user_id) 
-        VALUES (:sku, :name,  :description_short,  :description_one,  :description_two, :regular_price, :quantity, :user_id)";
+      $query   = "INSERT INTO product (sku, name, description_short, description_one, description_two, regular_price, quantity, currency, user_id) 
+        VALUES (:sku, :name,  :description_short,  :description_one,  :description_two, :regular_price, :quantity, :currency, :user_id)";
       $prepare = $this->db->prepare($query);
       $result  = $prepare->execute([
                                      'sku'               => $sku,
@@ -532,6 +533,7 @@ class ProductController extends HandleRequest {
                                      'description_two'   => $description_two,
                                      'regular_price'     => number_format($regular_price, 2),
                                      'quantity'          => $quantity,
+                                     'currency'          => $currency,
                                      'user_id'           => $user_id,
                                    ]);
     } else {
@@ -549,6 +551,7 @@ class ProductController extends HandleRequest {
     $description_one   = $request_body['description_one'];
     $description_two   = $request_body['description_two'];
     $regular_price     = $request_body['regular_price'];
+    $currency          = isset($request_body['currency']) ? $request_body['currency'] : 'USD';
     $quantity          = (int)$request_body['quantity'];
     $user_id           = $request_body['user_id'];
 
@@ -559,7 +562,7 @@ class ProductController extends HandleRequest {
     if ($this->existProductName($name, $id)) {
       $query   = "UPDATE product 
                   SET name = :name, description_short = :description_short, description_one = :description_one, 
-                  description_two = :description_two, regular_price = :regular_price, 
+                  description_two = :description_two, regular_price = :regular_price, currency = :currency, 
                   quantity = :quantity, user_id = :user_id
                   WHERE id = :id";
       $prepare = $this->db->prepare($query);
@@ -572,6 +575,7 @@ class ProductController extends HandleRequest {
                                     'description_two'   => $description_two,
                                     'regular_price'     => number_format($regular_price, 2),
                                     'quantity'          => $quantity,
+                                    'currency'          => $currency,
                                     'user_id'           => $user_id,
                                   ]);
     } else {

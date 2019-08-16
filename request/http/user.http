@@ -56,9 +56,10 @@ POST {{host}}/api/public/users/register
 Content-Type: application/json
 
 {
-  "email"      : "ivans1041@gmail.com",
-  "pass_repeat": "123456",
-  "password"   : "123456"
+  "email"      : "client14@gmail.com",
+  "password"   : "123456",
+  "role_id"    : "2",
+  "firebase_id": "mAUUmq30TOX9tgYRIRbR"
 }
 
 ###
