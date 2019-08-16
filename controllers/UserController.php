@@ -50,7 +50,7 @@ class UserController extends HandleRequest {
       $statement = $this->db->prepare("SELECT user.id AS user_id, user.email, user.first_name, user.last_name, user.password, 
                                         user.address, user.phone, user.active, user.role_id, user.photo, user.status, user.postal_code,
                                         user.address, user.city, user.country, user.country_code, user.state, user.firebase_id, 
-                                        user.email_paypal, user.stripe_code, user.inserted_at, user.updated_at, 
+                                        user.email_paypal, user.stripe_code, user.inserted_at, user.updated_at, user.map_lng, user.map_lat, 
                                         r.id, r.name, r.active, r.inserted_at, r.updated_at
                                         FROM user INNER JOIN role r on user.role_id = r.id 
                                         WHERE user.active != '0' AND r.name = :type");
@@ -59,7 +59,7 @@ class UserController extends HandleRequest {
       $statement = $this->db->prepare("SELECT user.id AS user_id, user.email, user.first_name, user.last_name, user.password, 
                                         user.address, user.phone, user.active, user.role_id, user.photo, user.status, user.postal_code,
                                         user.address, user.city, user.country, user.country_code, user.state, user.firebase_id, 
-                                        user.email_paypal, user.stripe_code, user.inserted_at, user.updated_at, 
+                                        user.email_paypal, user.stripe_code, user.inserted_at, user.updated_at, user.map_lng, user.map_lat,
                                         r.id, r.name, r.active, r.inserted_at, r.updated_at
                                         FROM user INNER JOIN role r on user.role_id = r.id 
                                         WHERE user.active != '0' AND user.id = :id");
@@ -68,7 +68,7 @@ class UserController extends HandleRequest {
       $statement = $this->db->prepare("SELECT user.id AS user_id, user.email, user.first_name, user.last_name, user.password, 
                                         user.address, user.phone, user.active, user.role_id, user.photo, user.status, user.postal_code,
                                         user.address, user.city, user.country, user.country_code, user.state, user.firebase_id, 
-                                        user.email_paypal, user.stripe_code, user.inserted_at, user.updated_at, 
+                                        user.email_paypal, user.stripe_code, user.inserted_at, user.updated_at, user.map_lng, user.map_lat,
                                         r.id, r.name, r.active, r.inserted_at, r.updated_at
                                         FROM user INNER JOIN role r on user.role_id = r.id 
                                         WHERE user.active != '0'");
@@ -107,6 +107,8 @@ class UserController extends HandleRequest {
     $firebase_id  = $request_body['firebase_id'];
     $password     = isset($request_body['password']) ? $request_body['password'] : '';
     $address      = isset($request_body['address']) ? $request_body['address'] : '';
+    $map_lat      = isset($request_body['map_lat']) ? $request_body['map_lat'] : '';
+    $map_lng      = isset($request_body['map_lng']) ? $request_body['map_lng'] : '';
     $status       = isset($request_body['status']) ? $request_body['status'] : '';
     $phone        = isset($request_body['phone']) ? $request_body['phone'] : '';
     $first_name   = isset($request_body['first_name']) ? $request_body['first_name'] : '';
@@ -127,28 +129,30 @@ class UserController extends HandleRequest {
     if ($this->validateUser($email)) {
       return $this->handleRequest($response, 409, "Email already exist");
     } else {
-      $query   = "INSERT INTO user (email, first_name, last_name, password, address, city, state, country, country_code, postal_code, phone, role_id, firebase_id, photo, status, email_paypal, stripe_code) 
-                  VALUES (:email, :first_name, :last_name, :password, :address, :city, :state, :country, :country_code, :postal_code, :phone, :role_id, :firebase_id, :photo, :status, :email_paypal, :stripe_code)";
+      $query   = "INSERT INTO user (email, first_name, last_name, password, address, map_lng, map_lat, city, state, country, country_code, postal_code, phone, role_id, firebase_id, photo, status, email_paypal, stripe_code) 
+                  VALUES (:email, :first_name, :last_name, :password, :address, :map_lng, :map_lat, :city, :state, :country, :country_code, :postal_code, :phone, :role_id, :firebase_id, :photo, :status, :email_paypal, :stripe_code)";
       $prepare = $this->db->prepare($query);
 
       $result = $prepare->execute([
-                                    'email'         => $email,
-                                    'password'      => password_hash($password, PASSWORD_BCRYPT),
-                                    'first_name'    => $first_name,
-                                    'last_name'     => $last_name,
-                                    'status'        => $status,
-                                    'address'       => $address,
-                                    'city'          => $city,
-                                    'state'         => $state,
-                                    'country'       => $country,
-                                    'country_code'  => $country_code,
+                                    'email'        => $email,
+                                    'password'     => password_hash($password, PASSWORD_BCRYPT),
+                                    'first_name'   => $first_name,
+                                    'last_name'    => $last_name,
+                                    'status'       => $status,
+                                    'address'      => $address,
+                                    'map_lng'      => $map_lng,
+                                    'map_lat'      => $map_lat,
+                                    'city'         => $city,
+                                    'state'        => $state,
+                                    'country'      => $country,
+                                    'country_code' => $country_code,
                                     'email_paypal' => $email_paypal,
                                     'stripe_code'  => $stripe_code,
-                                    'postal_code'   => $postal_code,
-                                    'phone'         => $phone,
-                                    'role_id'       => $role_id,
-                                    'firebase_id'   => $firebase_id,
-                                    'photo'         => $photo,
+                                    'postal_code'  => $postal_code,
+                                    'phone'        => $phone,
+                                    'role_id'      => $role_id,
+                                    'firebase_id'  => $firebase_id,
+                                    'photo'        => $photo,
                                   ]);
 
       if ($result) {
@@ -193,6 +197,8 @@ class UserController extends HandleRequest {
     $request_body = $request->getParsedBody();
     $id           = $request_body['id'];
     $address      = isset($request_body['address']) ? $request_body['address'] : '';
+    $map_lat      = isset($request_body['map_lat']) ? $request_body['map_lat'] : '';
+    $map_lng      = isset($request_body['map_lng']) ? $request_body['map_lng'] : '';
     $phone        = isset($request_body['phone']) ? $request_body['phone'] : '';
     $role_id      = $request_body['role_id'];
     $first_name   = isset($request_body['first_name']) ? $request_body['first_name'] : '';
@@ -209,6 +215,7 @@ class UserController extends HandleRequest {
     }
 
     $query   = "UPDATE user SET  first_name = :first_name, last_name = :last_name, address = :address, 
+                map_lng = :map_lng, map_lat = :map_lat, 
                 phone = :phone, role_id = :role_id, city = :city, state = :state, country = :country, 
                 country_code = :country_code, postal_code = :postal_code , status = :status 
                 WHERE id = :id";
@@ -218,6 +225,8 @@ class UserController extends HandleRequest {
                                    'first_name'   => $first_name,
                                    'last_name'    => $last_name,
                                    'address'      => $address,
+                                   'map_lng'      => $map_lng,
+                                   'map_lat'      => $map_lat,
                                    'city'         => $city,
                                    'status'       => $status,
                                    'state'        => $state,
