@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use PayPalCheckoutSdk\Orders\OrdersGetRequest;
 use Psr\Container\ContainerInterface as ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -28,7 +29,8 @@ class PaymentController extends HandleRequest {
     return $this->getSendResponse($response, $statement);
   }
 
-  public function update(Request $request, Response $response, $args) {
+  public
+  function update(Request $request, Response $response, $args) {
     $request_body           = $request->getParsedBody();
     $stripeSecretToken      = $request_body['stripe_secret_token'];
     $stripePublishableToken = $request_body['stripe_publishable_token'];

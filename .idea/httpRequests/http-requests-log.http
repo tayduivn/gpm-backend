@@ -1,3 +1,785 @@
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.37745132321935,
+  "map_lat"           : -34.599649349384904,
+  "order_id_paypal"   : "1KG39489F9664412V",
+  "processor"         : "Credit card",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "9",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25",
+  "chat_id"           : "nZasjnCG69jGBH0cdWjE",
+  "token_stripe"      : {
+    "id"       : "tok_1F9BDqCYq3mncs6kElNOHmGF",
+    "object"   : "token",
+    "card"     : {
+      "id"                 : "card_1F9BDqCYq3mncs6kdgFjfQHE",
+      "object"             : "card",
+      "address_city"       : null,
+      "address_country"    : null,
+      "address_line1"      : null,
+      "address_line1_check": null,
+      "address_line2"      : null,
+      "address_state"      : null,
+      "address_zip"        : null,
+      "address_zip_check"  : null,
+      "brand"              : "Visa",
+      "country"            : "US",
+      "cvc_check"          : "pass",
+      "dynamic_last4"      : null,
+      "exp_month"          : 2,
+      "exp_year"           : 2020,
+      "funding"            : "credit",
+      "last4"              : "4242",
+      "metadata"           : {},
+      "name"               : "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "186.185.37.52",
+    "created"  : 1566222514,
+    "email"    : "ivans21@gmail.com",
+    "livemode" : false,
+    "type"     : "card",
+    "used"     : false
+  }
+}
+
+<> 2019-08-19T095343.201.json
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.37745132321935,
+  "map_lat"           : -34.599649349384904,
+  "order_id_paypal"   : "1KG39489F9664412V",
+  "processor"         : "Credit card",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25",
+  "chat_id"           : "nZasjnCG69jGBH0cdWjE",
+  "token_stripe"      : {
+    "id"       : "tok_1F9BDqCYq3mncs6kElNOHmGF",
+    "object"   : "token",
+    "card"     : {
+      "id"                 : "card_1F9BDqCYq3mncs6kdgFjfQHE",
+      "object"             : "card",
+      "address_city"       : null,
+      "address_country"    : null,
+      "address_line1"      : null,
+      "address_line1_check": null,
+      "address_line2"      : null,
+      "address_state"      : null,
+      "address_zip"        : null,
+      "address_zip_check"  : null,
+      "brand"              : "Visa",
+      "country"            : "US",
+      "cvc_check"          : "pass",
+      "dynamic_last4"      : null,
+      "exp_month"          : 2,
+      "exp_year"           : 2020,
+      "funding"            : "credit",
+      "last4"              : "4242",
+      "metadata"           : {},
+      "name"               : "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "186.185.37.52",
+    "created"  : 1566222514,
+    "email"    : "ivans21@gmail.com",
+    "livemode" : false,
+    "type"     : "card",
+    "used"     : false
+  }
+}
+
+<> 2019-08-19T095313.500.html
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.37745132321935,
+  "map_lat"           : -34.599649349384904,
+  "order_id_paypal"   : "1KG39489F9664412V",
+  "processor"         : "Paypal",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "2",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25",
+  "chat_id"           : "15gHgOxNL7cnLVqxEIuV"
+}
+
+<> 2019-08-19T094609.201.json
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.37745132321935,
+  "map_lat"           : -34.599649349384904,
+  "order_id_paypal"   : "1KG39489F9664412V",
+  "processor"         : "Paypal",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25",
+  "chat_id"           : "15gHgOxNL7cnLVqxEIuV"
+}
+
+<> 2019-08-19T094520.500.html
+
+###
+
+GET http://gpm-backend/api/public/products?id=1
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-19T084107.200.json
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.378824614232244,
+  "map_lat"           : -34.59894283978271,
+  "order_id_paypal"   : "5MB00196MT4859143",
+  "processor"         : "Paypal",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "3",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-19T083507.500.html
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.378824614232244,
+  "map_lat"           : -34.59894283978271,
+  "order_id_paypal"   : "5MB00196MT4859143",
+  "processor"         : "Paypal",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "3",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-19T083358.409.json
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.378824614232244,
+  "map_lat"           : -34.59894283978271,
+  "order_id_paypal"   : "5MB00196MT4859143",
+  "processor"         : "Paypal",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "2",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-19T083340.409.json
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.378824614232244,
+  "map_lat"           : -34.59894283978271,
+  "order_id_paypal"   : "5MB00196MT4859143",
+  "processor"         : "Paypal",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-19T083314.409.json
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.378824614232244,
+  "map_lat"           : -34.59894283978271,
+  "order_id_paypal"   : "5MB00196MT4859143",
+  "processor"         : "Paypal",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-19T082159.409.json
+
+###
+
+POST http://gpm-backend/api/payments/paypal
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "order_id": "9NJ02073EN950130X"
+}
+
+<> 2019-08-19T075336.200.html
+
+###
+
+POST http://gpm-backend/api/payments/paypal
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "order_id": "9NJ02073EN950130X"
+}
+
+<> 2019-08-19T075216.500.html
+
+###
+
+POST http://gpm-backend/api/payments/paypal
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "order_id": "9NJ02073EN950130X"
+}
+
+<> 2019-08-19T075122.500.html
+
+###
+
+POST http://gpm-backend/api/payments/paypal
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "order_id": "9NJ02073EN950130X"
+}
+
+<> 2019-08-19T074332.500.html
+
+###
+
+POST http://gpm-backend/api/payments
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "order_id": "9NJ02073EN950130X"
+}
+
+<> 2019-08-19T074318.405.json
+
+###
+
+POST http://gpm-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-08-19T074313.200.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-18T121344.500.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-18T113022.500.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-18T112351.500.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-18T084423.500.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-18T084334.500.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-18T084259.500.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-18T084241.500.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-18T084143.500.json
+
+###
+
+POST http://gpm-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-08-18T084135.200.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-08-18T084122.401.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-17T052317.500.json
+
+###
+
+GET http://gpm-backend/api/payment?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-17T052241.405.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-17T052229.500.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-08-17T052226.401.json
+
+###
+
+POST http://gpm-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-08-17T052223.200.json
+
+###
+
+GET http://gpm-backend/api/payments?payment=Paypal
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-08-17T052216.401.json
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.3788071798603,
+  "map_lat"           : -34.59894283978271,
+  "token_stripe"      : {
+    "id"       : "tok_1F8DupAALSaIwJgkfGz80ILq",
+    "object"   : "token",
+    "card"     : {
+      "id"                 : "card_1F8DneAALSaIwJgkJ0hvakSE",
+      "object"             : "card",
+      "address_city"       : null,
+      "address_country"    : null,
+      "address_line1"      : null,
+      "address_line1_check": null,
+      "address_line2"      : null,
+      "address_state"      : null,
+      "address_zip"        : null,
+      "address_zip_check"  : null,
+      "brand"              : "Visa",
+      "country"            : "US",
+      "cvc_check"          : "pass",
+      "dynamic_last4"      : null,
+      "exp_month"          : 2,
+      "exp_year"           : 2020,
+      "funding"            : "credit",
+      "last4"              : "4242",
+      "metadata"           : {},
+      "name"               : "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "186.185.63.233",
+    "created"  : 1565994094,
+    "email"    : "ivans21@gmail.com",
+    "livemode" : false,
+    "type"     : "card",
+    "used"     : false
+  },
+  "payload_paypal"    : "",
+  "processor"         : "Credit card",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-16T063013.500.html
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.3788071798603,
+  "map_lat"           : -34.59894283978271,
+  "token_stripe"      : {
+    "id"       : "tok_1F8DneAALSaIwJgk2zrosKmb",
+    "object"   : "token",
+    "card"     : {
+      "id"                 : "card_1F8DneAALSaIwJgkJ0hvakSE",
+      "object"             : "card",
+      "address_city"       : null,
+      "address_country"    : null,
+      "address_line1"      : null,
+      "address_line1_check": null,
+      "address_line2"      : null,
+      "address_state"      : null,
+      "address_zip"        : null,
+      "address_zip_check"  : null,
+      "brand"              : "Visa",
+      "country"            : "US",
+      "cvc_check"          : "pass",
+      "dynamic_last4"      : null,
+      "exp_month"          : 2,
+      "exp_year"           : 2020,
+      "funding"            : "credit",
+      "last4"              : "4242",
+      "metadata"           : {},
+      "name"               : "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "186.185.63.233",
+    "created"  : 1565994094,
+    "email"    : "ivans21@gmail.com",
+    "livemode" : false,
+    "type"     : "card",
+    "used"     : false
+  },
+  "payload_paypal"    : "",
+  "processor"         : "Credit card",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-16T062358.500.html
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.3788071798603,
+  "map_lat"           : -34.59894283978271,
+  "token_stripe"      : {
+    "id"       : "tok_1F8DneAALSaIwJgk2zrosKmb",
+    "object"   : "token",
+    "card"     : {
+      "id"                 : "card_1F8DneAALSaIwJgkJ0hvakSE",
+      "object"             : "card",
+      "address_city"       : null,
+      "address_country"    : null,
+      "address_line1"      : null,
+      "address_line1_check": null,
+      "address_line2"      : null,
+      "address_state"      : null,
+      "address_zip"        : null,
+      "address_zip_check"  : null,
+      "brand"              : "Visa",
+      "country"            : "US",
+      "cvc_check"          : "pass",
+      "dynamic_last4"      : null,
+      "exp_month"          : 2,
+      "exp_year"           : 2020,
+      "funding"            : "credit",
+      "last4"              : "4242",
+      "metadata"           : {},
+      "name"               : "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "186.185.63.233",
+    "created"  : 1565994094,
+    "email"    : "ivans21@gmail.com",
+    "livemode" : false,
+    "type"     : "card",
+    "used"     : false
+  },
+  "payload_paypal"    : "",
+  "processor"         : "Credit card",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-16T062235.409.json
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.3788071798603,
+  "map_lat"           : -34.59894283978271,
+  "token_stripe"      : {
+    "id"       : "tok_1F8DhHAALSaIwJgkNHsXyHdL",
+    "object"   : "token",
+    "card"     : {
+      "id"                 : "card_1F8DhHAALSaIwJgktlDzfGjO",
+      "object"             : "card",
+      "address_city"       : null,
+      "address_country"    : null,
+      "address_line1"      : null,
+      "address_line1_check": null,
+      "address_line2"      : null,
+      "address_state"      : null,
+      "address_zip"        : null,
+      "address_zip_check"  : null,
+      "brand"              : "Visa",
+      "country"            : "US",
+      "cvc_check"          : "pass",
+      "dynamic_last4"      : null,
+      "exp_month"          : 2,
+      "exp_year"           : 2020,
+      "funding"            : "credit",
+      "last4"              : "4242",
+      "metadata"           : {},
+      "name"               : "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "186.185.63.233",
+    "created"  : 1565993699,
+    "email"    : "ivans21@gmail.com",
+    "livemode" : false,
+    "type"     : "card",
+    "used"     : false
+  },
+  "processor"         : "Credit card",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "user_id"           : "2",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-16T061824.409.json
+
+###
+
+POST http://gpm-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.3788071798603,
+  "map_lat"           : -34.59894283978271,
+  "token_stripe"      : {
+    "id"       : "tok_1F8DhHAALSaIwJgkNHsXyHdL",
+    "object"   : "token",
+    "card"     : {
+      "id"                 : "card_1F8DhHAALSaIwJgktlDzfGjO",
+      "object"             : "card",
+      "address_city"       : null,
+      "address_country"    : null,
+      "address_line1"      : null,
+      "address_line1_check": null,
+      "address_line2"      : null,
+      "address_state"      : null,
+      "address_zip"        : null,
+      "address_zip_check"  : null,
+      "brand"              : "Visa",
+      "country"            : "US",
+      "cvc_check"          : "pass",
+      "dynamic_last4"      : null,
+      "exp_month"          : 2,
+      "exp_year"           : 2020,
+      "funding"            : "credit",
+      "last4"              : "4242",
+      "metadata"           : {},
+      "name"               : "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "186.185.63.233",
+    "created"  : 1565993699,
+    "email"    : "ivans21@gmail.com",
+    "livemode" : false,
+    "type"     : "card",
+    "used"     : false
+  },
+  "processor"         : "Credit card",
+  "processor_trans_id": 1,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25"
+}
+
+<> 2019-08-16T061715.409.json
+
+###
+
+POST http://gpm-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-08-16T061709.200.json
+
+###
+
 POST http://gpm-backend/api/public/users/register
 Content-Type: application/json
 
@@ -155,441 +937,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpb
 }
 
 <> 2019-08-07T052807.409.json
-
-###
-
-POST http://gpm-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "id"        : "",
-  "quantity"  : 2,
-  "cart_id"   : 2,
-  "product_id": 1
-}
-
-<> 2019-08-07T052659.409.json
-
-###
-
-POST http://gpm-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-08-07T052653.200.json
-
-###
-
-PUT http://gpm-backend/api/users/password
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "id"      : "2",
-  "newPassword"   : "123456",
-  "password": "1234567"
-}
-
-<> 2019-08-07T041652.201.json
-
-###
-
-POST http://gpm-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "1234567"
-}
-
-<> 2019-08-07T041647.200.json
-
-###
-
-PUT http://gpm-backend/api/users/password
-Content-Type: application/json
-Authorization: Bearer
-
-{
-  "id"      : "2",
-  "newPassword"   : "123456",
-  "password": "1234567"
-}
-
-<> 2019-08-07T041641.401.json
-
-###
-
-PUT http://gpm-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "products": [
-    {
-      "cart_product_id": "11",
-      "product_id"     : "1",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "12",
-      "product_id"     : "2",
-      "quantity"       : 4
-    },
-    {
-      "cart_product_id": "13",
-      "product_id"     : "4",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "10",
-      "product_id"     : "5",
-      "quantity"       : 1
-    }
-  ]
-}
-
-<> 2019-07-21T101154.201.json
-
-###
-
-PUT http://gpm-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "products": [
-    {
-      "cart_product_id": "11",
-      "product_id"     : "1",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "12",
-      "product_id"     : "2",
-      "quantity"       : 2
-    },
-    {
-      "cart_product_id": "13",
-      "product_id"     : "4",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "10",
-      "product_id"     : "5",
-      "quantity"       : 1
-    }
-  ]
-}
-
-<> 2019-07-21T101117.201.json
-
-###
-
-PUT http://gpm-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "products": [
-    {
-      "cart_product_id": "11",
-      "product_id"     : "1",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "12",
-      "product_id"     : "2",
-      "quantity"       : 2
-    },
-    {
-      "cart_product_id": "13",
-      "product_id"     : "4",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "10",
-      "product_id"     : "5",
-      "quantity"       : 1
-    }
-  ]
-}
-
-<> 2019-07-21T101026.409.json
-
-###
-
-PUT http://gpm-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "products": [
-    {
-      "cart_product_id": "11",
-      "product_id"     : "1",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "12",
-      "product_id"     : "2",
-      "quantity"       : 2
-    },
-    {
-      "cart_product_id": "13",
-      "product_id"     : "4",
-      "quantity"       : 1
-    },
-    {
-      "cart_product_id": "10",
-      "product_id"     : "5",
-      "quantity"       : 1
-    }
-  ]
-}
-
-<> 2019-07-21T100734.409.json
-
-###
-
-GET http://gpm-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-07-21T094244.200.json
-
-###
-
-GET http://gpm-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-07-21T094216.200.json
-
-###
-
-GET http://gpm-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-07-21T085924.500.json
-
-###
-
-POST http://gpm-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-07-21T085920.200.json
-
-###
-
-GET http://gpm-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T085912.401.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T071607.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T071552.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T071530.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T071448.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T071403.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T071345.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T071246.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&productName=Granos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T071203.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T064438.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&rangeDate=2019-07-11|2019-07-27
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T063840.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&rangeDate=2019-07-11|2019-07-27
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T063603.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&rangeDate=2019-07-11|2019-07-27
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T063547.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=100-500
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T062613.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=1-100
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T062553.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=1-100
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T062241.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=1-100
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T062223.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=1-100
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T062204.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&quantity=prices
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T061952.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=artificiales
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T060043.200.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=artificiales
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T055843.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=artificiales
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T055816.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=artificiales
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T055742.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=artificiales
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-21T055715.500.json
-
-###
-
-GET http://gpm-backend/api/public/products/filter?tagName=Orgánicos&orderBy=prices
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-07-20T082835.200.json
 
 ###
 

@@ -21,53 +21,52 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "id": "",
-  "code": "",
-  "processor": "Credit card",
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.37745132321935,
+  "map_lat"           : -34.599649349384904,
+  "order_id_paypal"   : "1KG39489F9664412V",
+  "processor"         : "Credit card",
   "processor_trans_id": 1,
-  "cc_num": "",
-  "cc_type": "",
-  "start_date": "",
-  "end_date": "",
-  "token_stripe": {
-    "id": "tok_1EcZ5qAALSaIwJgkHk86xksX",
-    "object": "token",
-    "card": {
-      "id": "card_1EcZ5qAALSaIwJgko5B6eOwX",
-      "object": "card",
-      "address_city": null,
-      "address_country": null,
-      "address_line1": null,
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "3",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25",
+  "chat_id"           : "nZasjnCG69jGBH0cdWjE",
+  "token_stripe"      : {
+    "id"       : "tok_1F9BDqCYq3mncs6kElNOHmGF",
+    "object"   : "token",
+    "card"     : {
+      "id"                 : "card_1F9BDqCYq3mncs6kdgFjfQHE",
+      "object"             : "card",
+      "address_city"       : null,
+      "address_country"    : null,
+      "address_line1"      : null,
       "address_line1_check": null,
-      "address_line2": null,
-      "address_state": null,
-      "address_zip": null,
-      "address_zip_check": null,
-      "brand": "Visa",
-      "country": "US",
-      "cvc_check": "pass",
-      "dynamic_last4": null,
-      "exp_month": 12,
-      "exp_year": 2032,
-      "funding": "credit",
-      "last4": "4242",
-      "metadata": {},
-      "name": "ivans21@gmail.com",
+      "address_line2"      : null,
+      "address_state"      : null,
+      "address_zip"        : null,
+      "address_zip_check"  : null,
+      "brand"              : "Visa",
+      "country"            : "US",
+      "cvc_check"          : "pass",
+      "dynamic_last4"      : null,
+      "exp_month"          : 2,
+      "exp_year"           : 2020,
+      "funding"            : "credit",
+      "last4"              : "4242",
+      "metadata"           : {},
+      "name"               : "ivans21@gmail.com",
       "tokenization_method": null
     },
-    "client_ip": "186.185.135.95",
-    "created": 1558449450,
-    "email": "ivans21@gmail.com",
-    "livemode": false,
-    "type": "card",
-    "used": false
-  },
-  "payload_paypal": "",
-  "type_payment": {},
-  "cart_id": "2",
-  "user_id": "2",
-  "total": "250.25",
-  "subtotal": "250.25"
+    "client_ip": "186.185.37.52",
+    "created"  : 1566222514,
+    "email"    : "ivans21@gmail.com",
+    "livemode" : false,
+    "type"     : "card",
+    "used"     : false
+  }
 }
 
 ###
@@ -77,41 +76,52 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "id": "",
-  "code": 1,
-  "processor": "Paypal",
+  "address"           : "Buenos Aires, Argentina",
+  "map_lng"           : -58.37745132321935,
+  "map_lat"           : -34.599649349384904,
+  "order_id_paypal"   : "1KG39489F9664412V",
+  "processor"         : "Credit card",
   "processor_trans_id": 1,
-  "cc_num": "",
-  "cc_type": "",
-  "start_date": "",
-  "end_date": "",
-  "token_stripe": "",
-  "payload_paypal": {
-    "nonce": "bd14a4f9-f18a-065a-5ede-0b2d1fcf83fe",
-    "orderID": "EC-1RW27909E9072634C",
-    "payer_info": {
-      "email": "desarrollo2.theroom@gmail.com",
-      "first_name": "ivans",
-      "middle_name": "ivans",
-      "last_name": "del pino",
-      "payer_id": "KL5AZDV36NUFG",
-      "country_code": "US",
-      "shipping_address": {
-        "recipient_name": "Scruff McGruff",
-        "line1": "1234 Main St.",
-        "line2": "Unit 1",
-        "city": "Chicago",
-        "state": "IL",
-        "postal_code": "60652",
-        "country_code": "US"
-      }
-    }
-  },
-  "type_payment": {},
-  "cart_id": "1",
-  "user_id": "2",
-  "total": 2500,
-  "subtotal": 2500
+  "quantity"          : 1,
+  "product_id"        : "1",
+  "cart_id"           : "9",
+  "user_id"           : "3",
+  "total"             : "250.25",
+  "subtotal"          : "250.25",
+  "chat_id"           : "nZasjnCG69jGBH0cdWjE",
+  "token_stripe"      : {
+    "id"       : "tok_1F9BDqCYq3mncs6kElNOHmGF",
+    "object"   : "token",
+    "card"     : {
+      "id"                 : "card_1F9BDqCYq3mncs6kdgFjfQHE",
+      "object"             : "card",
+      "address_city"       : null,
+      "address_country"    : null,
+      "address_line1"      : null,
+      "address_line1_check": null,
+      "address_line2"      : null,
+      "address_state"      : null,
+      "address_zip"        : null,
+      "address_zip_check"  : null,
+      "brand"              : "Visa",
+      "country"            : "US",
+      "cvc_check"          : "pass",
+      "dynamic_last4"      : null,
+      "exp_month"          : 2,
+      "exp_year"           : 2020,
+      "funding"            : "credit",
+      "last4"              : "4242",
+      "metadata"           : {},
+      "name"               : "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "186.185.37.52",
+    "created"  : 1566222514,
+    "email"    : "ivans21@gmail.com",
+    "livemode" : false,
+    "type"     : "card",
+    "used"     : false
+  }
 }
 
 ###
@@ -121,17 +131,17 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "id": "",
-  "code": 1,
-  "processor": "Amazon",
+  "id"                : "",
+  "code"              : 1,
+  "processor"         : "Amazon",
   "processor_trans_id": 1,
-  "cc_num": "121",
-  "cc_type": "211",
-  "start_date": "2019-05-15",
-  "end_date": "2019-05-23",
-  "user_id": "",
-  "total": 2700,
-  "subtotal": 2700
+  "cc_num"            : "121",
+  "cc_type"           : "211",
+  "start_date"        : "2019-05-15",
+  "end_date"          : "2019-05-23",
+  "user_id"           : "",
+  "total"             : 2700,
+  "subtotal"          : 2700
 }
 
 ###
@@ -142,10 +152,10 @@ Authorization: Bearer {{auth_token}}
 
 {
   "paymentToken": "EC-1SS63624VS356304E",
-  "orderID": "EC-1SS63624VS356304E",
-  "payerID": "C5DBVRV6AYCQ8",
-  "paymentID": "PAY-9HM85195VA555131HLTQRHDY",
-  "intent": "authorize"
+  "orderID"     : "EC-1SS63624VS356304E",
+  "payerID"     : "C5DBVRV6AYCQ8",
+  "paymentID"   : "PAY-9HM85195VA555131HLTQRHDY",
+  "intent"      : "authorize"
 }
 
 ###

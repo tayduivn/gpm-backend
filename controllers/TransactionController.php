@@ -23,23 +23,12 @@ class TransactionController extends HandleRequest {
   }
 
   public function getAll(Request $request, Response $response, $args) {
-    $id      = $request->getQueryParam('id');
-    $order   = $request->getQueryParam('order', $default = 'ASC');
-    $payment = $request->getQueryParam('payment', $default = false);
+    $id    = $request->getQueryParam('id');
+    $order = $request->getQueryParam('order', $default = 'ASC');
 
     if ($id !== null) {
       $statement = $this->db->prepare("SELECT * FROM `transaction` WHERE id = :id AND active != '0' ORDER BY " . $order);
       $statement->execute(['id' => $id]);
-    } else if ($payment === 'Paypal') {
-      try {
-        $paypalClient = $this->gateWayPaypal($this->db)->clientToken()->generate();
-        $statement    = $this->db->prepare("SELECT * FROM payment");
-        $statement->execute();
-        $result = $statement->fetchAll();
-        return $this->handleRequest($response, 200, '', ['paypal_client' => $paypalClient, 'production_paypal' => $result[0]['production_paypal']]);
-      } catch (\Exception $e) {
-        return $this->handleRequest($response, 500);
-      }
     } else {
       $statement = $this->db->prepare("SELECT * FROM `transaction` WHERE active != '0'");
       $statement->execute();
@@ -55,9 +44,10 @@ class TransactionController extends HandleRequest {
     $quantity   = (int)$request_body['quantity'];
     $cart_id    = $request_body['cart_id'];
     $product_id = $request_body['product_id'];
+    $chat_id    = $request_body['chat_id'];
 
-    $tokenStripe   = $request_body['token_stripe'];
-    $payloadPaypal = $request_body['payload_paypal'];
+    $tokenStripe = isset($request_body['token_stripe']) ? $request_body['token_stripe'] : '';
+    $orderId     = isset($request_body['order_id_paypal']) ? $request_body['order_id_paypal'] : '';
 
     $code               = isset($request_body['code']) ? $request_body['code'] : '';
     $processor          = $request_body['processor'];
@@ -66,6 +56,9 @@ class TransactionController extends HandleRequest {
     $subtotal = $request_body['subtotal'];
     $total    = $request_body['total'];
     $user_id  = $request_body['user_id'];
+    $address  = $request_body['address'];
+    $map_lng  = $request_body['map_lng'];
+    $map_lat  = $request_body['map_lat'];
 
     if (!isset($quantity) && !isset($cart_id) && !isset($product_id)) {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
@@ -89,16 +82,17 @@ class TransactionController extends HandleRequest {
           if (isset($processor)) {
             switch ($processor) {
               case 'Paypal':
-                $result = $this->postPaypal($this->db, $total, $processor, $payloadPaypal);
-                if ($result->success) {
-                  $processor_trans_id = $result->transaction->id;
+                $result = $this->postPaypalOrder($orderId);
+                if ($result === 200) {
+                  $processor_trans_id = $orderId;
                 } else {
-                  return $this->handleRequest($response, 400, "Error Message: " . $result->message);
+                  return $this->handleRequest($response, 400, "Error paypal processor");
                 }
                 break;
               case 'Credit card':
                 if (isset($tokenStripe)) {
-                  $this->postStripe($this->db, $tokenStripe, $total);
+                  $this->postStripe($this->db, $tokenStripe, $total, 'usd');
+                  $processor_trans_id = $tokenStripe['card']['id'];
                 } else {
                   return $this->handleRequest($response, 400, 'Incorrect data stripe');
                 }
@@ -132,10 +126,14 @@ class TransactionController extends HandleRequest {
               if ($this->isAlreadyCartOrder($cart_id, $this->db)) {
                 return $this->handleRequest($response, 409, 'Cart is already exist');
               } else {
-                $query   = "INSERT INTO `order` (`subtotal`, `total`, `user_id`, `cart_id`, `transaction_id`) 
-                      VALUES(:subtotal, :total, :user_id, :cart_id, :transaction_id)";
+                $query   = "INSERT INTO `order` (`chat_id`, `address`, `map_lng`, `map_lat`, `subtotal`, `total`, `user_id`, `cart_id`, `transaction_id`) 
+                            VALUES(:chat_id, :address, :map_lng, :map_lat, :subtotal, :total, :user_id, :cart_id, :transaction_id)";
                 $prepare = $this->db->prepare($query);
                 $result  = $prepare->execute([
+                                               'chat_id'        => $chat_id,
+                                               'address'        => $address,
+                                               'map_lng'        => $map_lng,
+                                               'map_lat'        => $map_lat,
                                                'subtotal'       => $subtotal,
                                                'total'          => $total,
                                                'user_id'        => $user_id,

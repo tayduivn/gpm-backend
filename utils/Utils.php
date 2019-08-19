@@ -3,6 +3,11 @@
 namespace App\Utils;
 
 use Braintree_Gateway;
+use PayPalCheckoutSdk\Core\PayPalHttpClient;
+use PayPalCheckoutSdk\Core\SandboxEnvironment;
+use PayPalCheckoutSdk\Orders\OrdersGetRequest;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Http\UploadedFile;
 
 /**
@@ -219,22 +224,32 @@ class Utils {
   }
 
   /**
-   * @param $db
-   * @return Braintree_Gateway
+   * Returns PayPal HTTP client instance with environment that has access
+   * credentials context. Use this instance to invoke PayPal APIs, provided the
+   * credentials have access.
    */
-  public function gateWayPaypal($db) {
-    $statement = $db->prepare("SELECT * FROM payment");
-    $statement->execute();
-    $result = $statement->fetchAll();
-    return new Braintree_Gateway(['accessToken' => $result[0]['paypal_token'],]);
+  public function client() {
+    return new PayPalHttpClient(self::environment());
   }
 
   /**
-   * @param $db
-   * @param $tokenStripe
-   * @param $total
+   * Set up and return PayPal PHP SDK environment with PayPal access credentials.
+   * This sample uses SandboxEnvironment. In production, use LiveEnvironment.
    */
-  public function postStripe($db, $tokenStripe, $total) {
+  public function environment() {
+    $clientId     = getenv("CLIENT_ID") ?: "AeXmWVVQuA7uLDl_CYZjP_YMo053Fo5XQDEzCqvd441ipe6aLdb7HpLQ80y6DFL18tkYUMGFIsy5BiUf";
+    $clientSecret = getenv("CLIENT_SECRET") ?: "EMM25SR61N74ikDJemLdOxu45tvaNx9danczY4BSDkMDD-w3FRP2BtRCof1EVNLT3I448jbV_uLk3zjJ";
+    return new SandboxEnvironment($clientId, $clientSecret);
+  }
+
+  /**
+   * @param        $db
+   * @param        $tokenStripe
+   * @param        $total
+   * @param        $currency
+   * @param string $description
+   */
+  public function postStripe($db, $tokenStripe, $total, $currency, $description = 'GPM') {
     $statement = $db->prepare("SELECT * FROM payment");
     $statement->execute();
     $result = $statement->fetchAll();
@@ -247,45 +262,31 @@ class Utils {
 
     $charge = \Stripe\Charge::create([
                                        'customer'    => $customer->id,
-                                       'description' => 'Custom t-shirt',
+                                       'description' => $description,
                                        'amount'      => str_replace(".", "", $total),
-                                       'currency'    => 'usd',
+                                       'currency'    => $currency,
                                      ]);
   }
 
-  /**
-   * @param $db
-   * @param $total
-   * @param $processor
-   * @param $payloadPaypal
-   * @return mixed
-   */
-  public function postPaypal($db, $total, $processor, $payloadPaypal) {
-    $payer_info       = $payloadPaypal['payer_info'];
-    $shipping_address = $payer_info['shipping_address'];
-    $options          = [
-      "amount"             => $total,
-      'merchantAccountId'  => 'USD',
-      "paymentMethodNonce" => $payloadPaypal['nonce'],
-      "orderId"            => $payloadPaypal['orderID'],
-      "shipping"           => [
-        "firstName"         => isset($payer_info['first_name']) ? $payer_info['first_name'] : '',
-        "lastName"          => isset($payer_info['last_name']) ? $payer_info['last_name'] : '',
-        "company"           => isset($payer_info['company']) ? $payer_info['company'] : '',
-        "streetAddress"     => isset($shipping_address['line1']) ? $shipping_address['line1'] : '',
-        "extendedAddress"   => isset($shipping_address['line2']) ? $shipping_address['line2'] : '',
-        "locality"          => isset($shipping_address['city']) ? $shipping_address['city'] : '',
-        "region"            => isset($shipping_address['state']) ? $shipping_address['state'] : '',
-        "postalCode"        => isset($shipping_address['postal_code']) ? $shipping_address['postal_code'] : '',
-        "countryCodeAlpha2" => isset($shipping_address['country_code']) ? $shipping_address['country_code'] : '',
-      ],
-      "options"            => [
-        "paypal" => [
-          "customField" => "custom 1",
-          "description" => $processor
-        ],
-      ]
-    ];
-    return $this->gateWayPaypal($db)->transaction()->sale($options);
+  public function postPaypalOrder($orderId) {
+
+    // 3. Call PayPal to get the transaction details
+    $client   = $this->client();
+    $responsePaypal = $client->execute(new OrdersGetRequest($orderId));
+    /**
+     *Enable the following line to print complete response as JSON.
+     */
+    //print json_encode($responsePaypal->result);
+    $statusCode =  "Status Code: {$responsePaypal->statusCode}\n";
+    $status =  "Status: {$responsePaypal->result->status}\n";
+    $orderId =  "Order ID: {$responsePaypal->result->id}\n";
+    $intent =  "Intent: {$responsePaypal->result->intent}\n";
+    $links =  "Links:\n";
+    // 4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.
+    $statusCode =  "Gross Amount: {$responsePaypal->result->purchase_units[0]->amount->currency_code} {$responsePaypal->result->purchase_units[0]->amount->value}\n";
+
+    // To print the whole response body, uncomment the following line
+    // echo json_encode($response->result, JSON_PRETTY_PRINT);
+    return $responsePaypal->statusCode;
   }
 }
