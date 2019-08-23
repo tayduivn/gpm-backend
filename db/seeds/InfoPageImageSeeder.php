@@ -4,6 +4,12 @@ use Phinx\Seed\AbstractSeed;
 
 class InfoPageImageSeeder extends AbstractSeed {
 
+  public function getDependencies() {
+    return [
+      'InfoPageSeeder',
+    ];
+  }
+
   /**
    * Run Method.
    *

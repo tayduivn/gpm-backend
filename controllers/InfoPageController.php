@@ -23,29 +23,40 @@ class InfoPageController extends HandleRequest {
   }
 
   public function getAll(Request $request, Response $response, $args) {
-    $id    = $request->getQueryParam('id');
-    $order = $request->getQueryParam('order', $default = 'ASC');
+    $id = $request->getQueryParam('id');
 
     if ($id !== null) {
-      $statement = $this->db->prepare("SELECT * FROM role WHERE id = :id AND role.name != 'Admin' AND active != '0' ORDER BY " . $order);
+      $statement = $this->db->prepare("SELECT * FROM info_page WHERE id = :id");
       $statement->execute(['id' => $id]);
     } else {
-      $statement = $this->db->prepare("SELECT * FROM role WHERE active != '0' AND role.name != 'Admin'");
+      $statement = $this->db->prepare("SELECT * FROM info_page");
       $statement->execute();
     }
-    return $this->getSendResponse($response, $statement);
+
+    $result = $statement->fetchAll();
+
+    if (is_array($result)) {
+      foreach ($result as $index => $infoPage) {
+        $result = $this->getInfoImages($this->db, $infoPage, $result, $index);
+      }
+      return $this->handleRequest($response, 200, '', $result);
+    } else {
+      return $this->handleRequest($response, 204, '', []);
+    }
   }
 
   public function register(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
-    $name         = $request_body['name'];
+    $title        = $request_body['title'];
+    $content      = $request_body['content'];
+    $reference    = $request_body['reference'];
 
-    if (!isset($name)) {
+    if (!isset($title) and !isset($content) and !isset($reference)) {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $prepare = $this->db->prepare("INSERT INTO role (`name`) VALUES (:name)");
-    $result  = $prepare->execute(['name' => $name,]);
+    $prepare = $this->db->prepare("INSERT INTO info_page (`title`, `content`, `reference`) VALUES (:title, :content, :reference)");
+    $result  = $prepare->execute(['title' => $title, 'content' => $content, 'reference' => $reference,]);
 
     return $this->postSendResponse($response, $result, 'Datos registrados');
   }
@@ -53,14 +64,17 @@ class InfoPageController extends HandleRequest {
   public function update(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
     $id           = $request_body['id'];
-    $name         = $request_body['name'];
+    $title        = $request_body['title'];
+    $content      = $request_body['content'];
+    $reference    = $request_body['reference'];
 
-    if (!isset($name)) {
+    if (!isset($title) and !isset($content) and !isset($reference)) {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $prepare = $this->db->prepare("UPDATE role SET name = :name WHERE id = :id");
-    $result  = $prepare->execute(['id' => $id, 'name' => $name,]);
+    $query   = "UPDATE info_page SET title = :title, content = :content, reference = :reference WHERE id = :id";
+    $prepare = $this->db->prepare($query);
+    $result  = $prepare->execute(['id' => $id, 'title' => $title, 'content' => $content, 'reference' => $reference,]);
 
     return $this->postSendResponse($response, $result, 'Datos actualizados');
   }
@@ -73,11 +87,11 @@ class InfoPageController extends HandleRequest {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $statement = $this->db->prepare("SELECT * FROM role WHERE $id = :id AND active != '0'");
+    $statement = $this->db->prepare("SELECT * FROM info_page WHERE id = :id");
     $statement->execute(['id' => $id]);
     $result = $statement->fetch();
     if (is_array($result)) {
-      $prepare = $this->db->prepare("UPDATE role SET active = :active WHERE id = :id");
+      $prepare = $this->db->prepare("DELETE FROM info_page WHERE id = :id");
       $result  = $prepare->execute(['id' => $id, 'active' => 0]);
       return $this->postSendResponse($response, $result, 'Datos eliminados');
     } else {

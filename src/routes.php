@@ -59,6 +59,8 @@ $app->group('/api', function () use ($app) {
     $app->post('/users/register', 'App\Controller\UserController:register');
     $app->post('/emails', 'App\Controller\SingUpEmailController:register');
 
+    $app->get('/info/page', 'App\Controller\InfoPageController:getAll');
+
     $app->get('/products', 'App\Controller\ProductController:getAll');
     $app->get('/products/filter', 'App\Controller\ProductController:getFilter');
 
@@ -112,6 +114,14 @@ $app->group('/api', function () use ($app) {
   $app->post('/images/reg', 'App\Controller\ProductImageController:register');
   $app->post('/images/update', 'App\Controller\ProductImageController:update');
   $app->delete('/images', 'App\Controller\ProductImageController:delete');
+
+  $app->post('/info/page', 'App\Controller\InfoPageController:register');
+  $app->put('/info/page', 'App\Controller\InfoPageController:update');
+  $app->delete('/info/page', 'App\Controller\InfoPageController:delete');
+
+  $app->post('/info/images/reg', 'App\Controller\InfoPageImageController:register');
+  $app->post('/info/images/update', 'App\Controller\InfoPageImageController:update');
+  $app->delete('/info/images', 'App\Controller\InfoPageImageController:delete');
 
   $app->get('/sub/products', 'App\Controller\ProductSubController:getAll');
   $app->post('/sub/products/reg', 'App\Controller\ProductSubController:register');

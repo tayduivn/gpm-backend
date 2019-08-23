@@ -23,14 +23,13 @@ class InfoPageImageController extends HandleRequest {
   }
 
   public function getAll(Request $request, Response $response, $args) {
-    $id    = $request->getQueryParam('id');
-    $order = $request->getQueryParam('order', $default = 'ASC');
+    $id = $request->getQueryParam('id');
 
     if ($id !== null) {
-      $statement = $this->db->prepare("SELECT * FROM product_image WHERE id = :id AND active != '0' ORDER BY " . $order);
+      $statement = $this->db->prepare("SELECT * FROM info_page_image WHERE id = :id");
       $statement->execute(['id' => $id]);
     } else {
-      $statement = $this->db->prepare("SELECT * FROM product_image WHERE active != '0'");
+      $statement = $this->db->prepare("SELECT * FROM info_page_image");
       $statement->execute();
     }
     return $this->getSendResponse($response, $statement);
@@ -38,8 +37,7 @@ class InfoPageImageController extends HandleRequest {
 
   public function register(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
-    $product_id   = $request_body['product_id'];
-    $size         = $request_body['size'];
+    $info_page_id   = $request_body['info_page_id'];
 
     $uploadedFiles = $request->getUploadedFiles();
 
@@ -50,14 +48,13 @@ class InfoPageImageController extends HandleRequest {
       return $this->handleRequest($response, 400, 'No upload image');
     }
 
-    if (!isset($product_id)) {
+    if (!isset($info_page_id)) {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $prepare = $this->db->prepare("INSERT INTO product_image (`image`, `size`, `product_id`) VALUES (:image, :size, :product_id)");
+    $prepare = $this->db->prepare("INSERT INTO info_page_image (`image`, `info_page_id`) VALUES (:image, :info_page_id)");
     $result  = $prepare->execute([
-                                   'product_id' => $product_id,
-                                   'size'       => $size,
+                                   'info_page_id' => $info_page_id,
                                    'image'      => $this->getBaseURL() . "/src/uploads/" . $filename
                                  ]);
 
@@ -67,7 +64,6 @@ class InfoPageImageController extends HandleRequest {
   public function update(Request $request, Response $response, $args) {
     $request_body = $request->getParsedBody();
     $idimage      = $request_body['id'];
-    $size         = $request_body['size'];
 
     $uploadedFiles = $request->getUploadedFiles();
 
@@ -82,10 +78,9 @@ class InfoPageImageController extends HandleRequest {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $prepare = $this->db->prepare("UPDATE product_image SET image = :image, size = :size WHERE id = :idimage");
+    $prepare = $this->db->prepare("UPDATE info_page_image SET image = :image WHERE id = :idimage");
     $result  = $prepare->execute([
                                    'idimage' => $idimage,
-                                   'size'    => $size,
                                    'image'   => $this->getBaseURL() . "/src/uploads/" . $filename,
                                  ]);
 
@@ -100,11 +95,11 @@ class InfoPageImageController extends HandleRequest {
       return $this->handleRequest($response, 400, 'Missing fields idimages');
     }
 
-    $statement = $this->db->prepare("SELECT * FROM product_image WHERE id = :idimages AND active != '0'");
+    $statement = $this->db->prepare("SELECT * FROM info_page_image WHERE id = :idimages");
     $statement->execute(['idimages' => $idimages]);
     $result = $statement->fetch();
     if (is_array($result)) {
-      $prepare = $this->db->prepare("UPDATE product_image SET active = :active WHERE id = :idimages");
+      $prepare = $this->db->prepare("DELETE FROM info_page_image WHERE id = :idimages");
       $result  = $prepare->execute(['idimages' => $idimages, 'active' => 0]);
 
       return $this->postSendResponse($response, $result, 'Datos Eliminados');

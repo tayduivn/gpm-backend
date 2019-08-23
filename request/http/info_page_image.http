@@ -1,0 +1,46 @@
+POST {{host}}/api/info/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="info_page_id"
+Content-Type: text/plain
+
+5
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="not-found-image.png"
+Content-Type: image/jpeg
+
+< ./../image/not-found-image.png
+--WebAppBoundary--
+
+###
+
+POST {{host}}/api/info/images/update
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="id"
+Content-Type: text/plain
+
+4
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="not-found-image.png"
+Content-Type: image/jpeg
+
+< ./../image/not-found-image.png
+--WebAppBoundary--
+
+###
+
+DELETE {{host}}/api/transport/delete
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "idtransport": "3"
+}
+###

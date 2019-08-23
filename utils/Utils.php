@@ -2,12 +2,9 @@
 
 namespace App\Utils;
 
-use Braintree_Gateway;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Core\SandboxEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersGetRequest;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Http\UploadedFile;
 
 /**
@@ -224,6 +221,31 @@ class Utils {
   }
 
   /**
+   * @param       $db
+   * @param       $infoPage
+   * @param array $result
+   * @param       $index
+   * @return array
+   */
+  function getInfoImages($db, $infoPage, array $result, $index) {
+    $query     = "SELECT info_page_image.id AS id_image, image FROM info_page_image
+                    INNER JOIN info_page ip on info_page_image.info_page_id = ip.id
+                    WHERE info_page_image.info_page_id = :id";
+    $statement = $db->prepare($query);
+    $statement->execute(['id' => $infoPage['id']]);
+    $resultImage = $statement->fetchAll();
+
+    if (is_array($resultImage) and !empty($resultImage)) {
+      $result[$index]['images'] = $resultImage;
+    } else {
+      $result[$index]['images'] = [['id_image' => '0', 'image' => $this->getBaseURL() . '/src/uploads/no-image.png']];
+    }
+    return $result;
+  }
+
+  /* PAYMENTS */
+
+  /**
    * Returns PayPal HTTP client instance with environment that has access
    * credentials context. Use this instance to invoke PayPal APIs, provided the
    * credentials have access.
@@ -271,19 +293,19 @@ class Utils {
   public function postPaypalOrder($orderId) {
 
     // 3. Call PayPal to get the transaction details
-    $client   = $this->client();
+    $client         = $this->client();
     $responsePaypal = $client->execute(new OrdersGetRequest($orderId));
     /**
      *Enable the following line to print complete response as JSON.
      */
     //print json_encode($responsePaypal->result);
-    $statusCode =  "Status Code: {$responsePaypal->statusCode}\n";
-    $status =  "Status: {$responsePaypal->result->status}\n";
-    $orderId =  "Order ID: {$responsePaypal->result->id}\n";
-    $intent =  "Intent: {$responsePaypal->result->intent}\n";
-    $links =  "Links:\n";
+    $statusCode = "Status Code: {$responsePaypal->statusCode}\n";
+    $status     = "Status: {$responsePaypal->result->status}\n";
+    $orderId    = "Order ID: {$responsePaypal->result->id}\n";
+    $intent     = "Intent: {$responsePaypal->result->intent}\n";
+    $links      = "Links:\n";
     // 4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.
-    $statusCode =  "Gross Amount: {$responsePaypal->result->purchase_units[0]->amount->currency_code} {$responsePaypal->result->purchase_units[0]->amount->value}\n";
+    $statusCode = "Gross Amount: {$responsePaypal->result->purchase_units[0]->amount->currency_code} {$responsePaypal->result->purchase_units[0]->amount->value}\n";
 
     // To print the whole response body, uncomment the following line
     // echo json_encode($response->result, JSON_PRETTY_PRINT);

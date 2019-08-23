@@ -1,0 +1,31 @@
+GET {{host}}/api/public/info/page?id=1
+Accept: application/json
+
+###
+
+GET {{host}}/api/public/info/page
+Accept: application/json
+
+###
+
+POST {{host}}/api/info/page
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "title": "hi",
+  "content": "this",
+  "reference": "Home"
+}
+
+###
+
+DELETE {{host}}/api/info/page
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "1"
+}
+
+###
