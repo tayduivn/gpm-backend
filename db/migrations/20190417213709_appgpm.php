@@ -40,6 +40,8 @@ class Appgpm extends AbstractMigration {
     $this->tableProductTag();
     $this->tableSingUpEmail();
     $this->tablePayment();
+    $this->infoPage();
+    $this->infoPageImage();
   }
 
   public function tableRole() {
@@ -290,6 +292,32 @@ class Appgpm extends AbstractMigration {
       ->addColumn('production_paypal', 'boolean', ['default' => false])
       ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+      ->save();
+  }
+
+  public function infoPage() {
+    if ($this->hasTable('info_page')) {
+      $this->table('info_page')->drop()->save();
+    }
+    $this->table('info_page')
+      ->addColumn('title', 'string', ['limit' => 255])
+      ->addColumn('content', 'string', ['limit' => 255])
+      ->addColumn('reference', 'string', ['limit' => 255])
+      ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+      ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+      ->save();
+  }
+
+  public function infoPageImage() {
+    if ($this->hasTable('info_page_image')) {
+      $this->table('info_page_image')->drop()->save();
+    }
+    $this->table('info_page_image')
+      ->addColumn('image', 'string', ['limit' => 255])
+      ->addColumn('info_page_id', 'integer')
+      ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+      ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+      ->addForeignKey('info_page_id', 'info_page', 'id', ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
       ->save();
   }
 }
