@@ -23,23 +23,28 @@ class InfoPageController extends HandleRequest {
   }
 
   public function getAll(Request $request, Response $response, $args) {
-    $id = $request->getQueryParam('id');
+    $id   = $request->getQueryParam('id');
+    $page = $request->getQueryParam('page');
 
     if ($id !== null) {
-      $statement = $this->db->prepare("SELECT * FROM info_page WHERE id = :id");
+      $statement = $this->db->prepare("SELECT * FROM info_page WHERE id = :id AND active != '0'");
       $statement->execute(['id' => $id]);
+    } else if ($page !== null) {
+      $statement = $this->db->prepare("SELECT * FROM info_page WHERE active != '0' AND page = :page GROUP BY section");
+      $statement->execute(['page' => $page]);
     } else {
-      $statement = $this->db->prepare("SELECT * FROM info_page");
+      $statement = $this->db->prepare("SELECT * FROM info_page WHERE active != '0'");
       $statement->execute();
     }
 
     $result = $statement->fetchAll();
 
     if (is_array($result)) {
+      $body = array();
       foreach ($result as $index => $infoPage) {
-        $result = $this->getInfoImages($this->db, $infoPage, $result, $index);
+        $body = $this->getInfoPages($this->db, $infoPage, $body, $index);
       }
-      return $this->handleRequest($response, 200, '', $result);
+      return $this->handleRequest($response, 200, '', $body);
     } else {
       return $this->handleRequest($response, 204, '', []);
     }
@@ -49,14 +54,15 @@ class InfoPageController extends HandleRequest {
     $request_body = $request->getParsedBody();
     $title        = $request_body['title'];
     $content      = $request_body['content'];
-    $reference    = $request_body['reference'];
+    $page         = $request_body['page'];
+    $section      = $request_body['section'];
 
-    if (!isset($title) and !isset($content) and !isset($reference)) {
+    if (!isset($title) and !isset($content) and !isset($page) and !isset($section)) {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $prepare = $this->db->prepare("INSERT INTO info_page (`title`, `content`, `reference`) VALUES (:title, :content, :reference)");
-    $result  = $prepare->execute(['title' => $title, 'content' => $content, 'reference' => $reference,]);
+    $prepare = $this->db->prepare("INSERT INTO info_page (`title`, `content`, `page`, `section`) VALUES (:title, :content, :page, :section)");
+    $result  = $prepare->execute(['title' => $title, 'content' => $content, 'page' => $page, 'section' => $section,]);
 
     return $this->postSendResponse($response, $result, 'Datos registrados');
   }
@@ -66,15 +72,16 @@ class InfoPageController extends HandleRequest {
     $id           = $request_body['id'];
     $title        = $request_body['title'];
     $content      = $request_body['content'];
-    $reference    = $request_body['reference'];
+    $page         = $request_body['page'];
+    $section      = $request_body['section'];
 
-    if (!isset($title) and !isset($content) and !isset($reference)) {
+    if (!isset($title) and !isset($content) and !isset($page) and !isset($section)) {
       return $this->handleRequest($response, 400, 'Datos incorrectos');
     }
 
-    $query   = "UPDATE info_page SET title = :title, content = :content, reference = :reference WHERE id = :id";
+    $query   = "UPDATE info_page SET title = :title, content = :content, page = :page, section = :section WHERE id = :id";
     $prepare = $this->db->prepare($query);
-    $result  = $prepare->execute(['id' => $id, 'title' => $title, 'content' => $content, 'reference' => $reference,]);
+    $result  = $prepare->execute(['id' => $id, 'title' => $title, 'content' => $content, 'page' => $page, 'section' => $section,]);
 
     return $this->postSendResponse($response, $result, 'Datos actualizados');
   }
@@ -91,7 +98,7 @@ class InfoPageController extends HandleRequest {
     $statement->execute(['id' => $id]);
     $result = $statement->fetch();
     if (is_array($result)) {
-      $prepare = $this->db->prepare("DELETE FROM info_page WHERE id = :id");
+      $prepare = $this->db->prepare("UPDATE info_page SET active = :active WHERE id = :id");
       $result  = $prepare->execute(['id' => $id, 'active' => 0]);
       return $this->postSendResponse($response, $result, 'Datos eliminados');
     } else {

@@ -100,7 +100,7 @@ class InfoPageImageController extends HandleRequest {
     $result = $statement->fetch();
     if (is_array($result)) {
       $prepare = $this->db->prepare("DELETE FROM info_page_image WHERE id = :idimages");
-      $result  = $prepare->execute(['idimages' => $idimages, 'active' => 0]);
+      $result  = $prepare->execute(['idimages' => $idimages]);
 
       return $this->postSendResponse($response, $result, 'Datos Eliminados');
     } else {

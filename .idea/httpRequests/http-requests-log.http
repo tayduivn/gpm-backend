@@ -1,3 +1,147 @@
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-23T081101.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-23T080959.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-23T080743.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-23T080531.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-23T075943.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-23T075902.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-23T075458.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-23T075441.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-23T075354.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?id=1
+Accept: application/json
+
+<> 2019-08-23T075119.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?id=1
+Accept: application/json
+
+<> 2019-08-23T075021.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?id=1
+Accept: application/json
+
+<> 2019-08-23T074656.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?reference=Membership
+Accept: application/json
+
+<> 2019-08-23T053220.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?reference=Home
+Accept: application/json
+
+<> 2019-08-23T053207.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?reference=Home
+Accept: application/json
+
+<> 2019-08-23T053140.200.json
+
+###
+
+DELETE http://gpm-backend/api/info/images
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "id": "4"
+}
+
+<> 2019-08-23T051751.404.json
+
+###
+
+DELETE http://gpm-backend/api/info/images
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "id": "4"
+}
+
+<> 2019-08-23T051522.500.html
+
+###
+
+PUT http://gpm-backend/api/info/page
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+{
+  "id": "10",
+  "title": "hi 2",
+  "content": "this 2",
+  "reference": "Home 2"
+}
+
+<> 2019-08-23T040641.201.json
+
+###
+
 POST http://gpm-backend/api/info/images/update
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
@@ -535,403 +679,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
 
 <> 2019-08-18T084241.500.json
-
-###
-
-GET http://gpm-backend/api/payments?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-18T084143.500.json
-
-###
-
-POST http://gpm-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-08-18T084135.200.json
-
-###
-
-GET http://gpm-backend/api/payments?payment=Paypal
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-08-18T084122.401.json
-
-###
-
-GET http://gpm-backend/api/payments?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-17T052317.500.json
-
-###
-
-GET http://gpm-backend/api/payment?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-17T052241.405.json
-
-###
-
-GET http://gpm-backend/api/payments?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-17T052229.500.json
-
-###
-
-GET http://gpm-backend/api/payments?payment=Paypal
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-08-17T052226.401.json
-
-###
-
-POST http://gpm-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-08-17T052223.200.json
-
-###
-
-GET http://gpm-backend/api/payments?payment=Paypal
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-08-17T052216.401.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.3788071798603,
-  "map_lat"           : -34.59894283978271,
-  "token_stripe"      : {
-    "id"       : "tok_1F8DupAALSaIwJgkfGz80ILq",
-    "object"   : "token",
-    "card"     : {
-      "id"                 : "card_1F8DneAALSaIwJgkJ0hvakSE",
-      "object"             : "card",
-      "address_city"       : null,
-      "address_country"    : null,
-      "address_line1"      : null,
-      "address_line1_check": null,
-      "address_line2"      : null,
-      "address_state"      : null,
-      "address_zip"        : null,
-      "address_zip_check"  : null,
-      "brand"              : "Visa",
-      "country"            : "US",
-      "cvc_check"          : "pass",
-      "dynamic_last4"      : null,
-      "exp_month"          : 2,
-      "exp_year"           : 2020,
-      "funding"            : "credit",
-      "last4"              : "4242",
-      "metadata"           : {},
-      "name"               : "ivans21@gmail.com",
-      "tokenization_method": null
-    },
-    "client_ip": "186.185.63.233",
-    "created"  : 1565994094,
-    "email"    : "ivans21@gmail.com",
-    "livemode" : false,
-    "type"     : "card",
-    "used"     : false
-  },
-  "payload_paypal"    : "",
-  "processor"         : "Credit card",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-16T063013.500.html
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.3788071798603,
-  "map_lat"           : -34.59894283978271,
-  "token_stripe"      : {
-    "id"       : "tok_1F8DneAALSaIwJgk2zrosKmb",
-    "object"   : "token",
-    "card"     : {
-      "id"                 : "card_1F8DneAALSaIwJgkJ0hvakSE",
-      "object"             : "card",
-      "address_city"       : null,
-      "address_country"    : null,
-      "address_line1"      : null,
-      "address_line1_check": null,
-      "address_line2"      : null,
-      "address_state"      : null,
-      "address_zip"        : null,
-      "address_zip_check"  : null,
-      "brand"              : "Visa",
-      "country"            : "US",
-      "cvc_check"          : "pass",
-      "dynamic_last4"      : null,
-      "exp_month"          : 2,
-      "exp_year"           : 2020,
-      "funding"            : "credit",
-      "last4"              : "4242",
-      "metadata"           : {},
-      "name"               : "ivans21@gmail.com",
-      "tokenization_method": null
-    },
-    "client_ip": "186.185.63.233",
-    "created"  : 1565994094,
-    "email"    : "ivans21@gmail.com",
-    "livemode" : false,
-    "type"     : "card",
-    "used"     : false
-  },
-  "payload_paypal"    : "",
-  "processor"         : "Credit card",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-16T062358.500.html
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.3788071798603,
-  "map_lat"           : -34.59894283978271,
-  "token_stripe"      : {
-    "id"       : "tok_1F8DneAALSaIwJgk2zrosKmb",
-    "object"   : "token",
-    "card"     : {
-      "id"                 : "card_1F8DneAALSaIwJgkJ0hvakSE",
-      "object"             : "card",
-      "address_city"       : null,
-      "address_country"    : null,
-      "address_line1"      : null,
-      "address_line1_check": null,
-      "address_line2"      : null,
-      "address_state"      : null,
-      "address_zip"        : null,
-      "address_zip_check"  : null,
-      "brand"              : "Visa",
-      "country"            : "US",
-      "cvc_check"          : "pass",
-      "dynamic_last4"      : null,
-      "exp_month"          : 2,
-      "exp_year"           : 2020,
-      "funding"            : "credit",
-      "last4"              : "4242",
-      "metadata"           : {},
-      "name"               : "ivans21@gmail.com",
-      "tokenization_method": null
-    },
-    "client_ip": "186.185.63.233",
-    "created"  : 1565994094,
-    "email"    : "ivans21@gmail.com",
-    "livemode" : false,
-    "type"     : "card",
-    "used"     : false
-  },
-  "payload_paypal"    : "",
-  "processor"         : "Credit card",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-16T062235.409.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.3788071798603,
-  "map_lat"           : -34.59894283978271,
-  "token_stripe"      : {
-    "id"       : "tok_1F8DhHAALSaIwJgkNHsXyHdL",
-    "object"   : "token",
-    "card"     : {
-      "id"                 : "card_1F8DhHAALSaIwJgktlDzfGjO",
-      "object"             : "card",
-      "address_city"       : null,
-      "address_country"    : null,
-      "address_line1"      : null,
-      "address_line1_check": null,
-      "address_line2"      : null,
-      "address_state"      : null,
-      "address_zip"        : null,
-      "address_zip_check"  : null,
-      "brand"              : "Visa",
-      "country"            : "US",
-      "cvc_check"          : "pass",
-      "dynamic_last4"      : null,
-      "exp_month"          : 2,
-      "exp_year"           : 2020,
-      "funding"            : "credit",
-      "last4"              : "4242",
-      "metadata"           : {},
-      "name"               : "ivans21@gmail.com",
-      "tokenization_method": null
-    },
-    "client_ip": "186.185.63.233",
-    "created"  : 1565993699,
-    "email"    : "ivans21@gmail.com",
-    "livemode" : false,
-    "type"     : "card",
-    "used"     : false
-  },
-  "processor"         : "Credit card",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "3",
-  "user_id"           : "2",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-16T061824.409.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.3788071798603,
-  "map_lat"           : -34.59894283978271,
-  "token_stripe"      : {
-    "id"       : "tok_1F8DhHAALSaIwJgkNHsXyHdL",
-    "object"   : "token",
-    "card"     : {
-      "id"                 : "card_1F8DhHAALSaIwJgktlDzfGjO",
-      "object"             : "card",
-      "address_city"       : null,
-      "address_country"    : null,
-      "address_line1"      : null,
-      "address_line1_check": null,
-      "address_line2"      : null,
-      "address_state"      : null,
-      "address_zip"        : null,
-      "address_zip_check"  : null,
-      "brand"              : "Visa",
-      "country"            : "US",
-      "cvc_check"          : "pass",
-      "dynamic_last4"      : null,
-      "exp_month"          : 2,
-      "exp_year"           : 2020,
-      "funding"            : "credit",
-      "last4"              : "4242",
-      "metadata"           : {},
-      "name"               : "ivans21@gmail.com",
-      "tokenization_method": null
-    },
-    "client_ip": "186.185.63.233",
-    "created"  : 1565993699,
-    "email"    : "ivans21@gmail.com",
-    "livemode" : false,
-    "type"     : "card",
-    "used"     : false
-  },
-  "processor"         : "Credit card",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-16T061715.409.json
-
-###
-
-POST http://gpm-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-08-16T061709.200.json
-
-###
-
-POST http://gpm-backend/api/public/users/register
-Content-Type: application/json
-
-{
-  "email"      : "client14@gmail.com",
-  "password"   : "123456",
-  "role_id"    : "2",
-  "firebase_id": "mAUUmq30TOX9tgYRIRbR"
-}
-
-<> 2019-08-08T121404.500.html
-
-###
-
-GET http://gpm-backend/api/public/roles
-Accept: application/json
-
-<> 2019-08-08T120834.200.json
-
-###
-
-GET http://gpm-backend/api/public/roles
-Accept: application/json
-
-<> 2019-08-08T120803.200.json
 
 ###
 

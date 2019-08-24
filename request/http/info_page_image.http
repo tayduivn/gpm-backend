@@ -36,11 +36,11 @@ Content-Type: image/jpeg
 
 ###
 
-DELETE {{host}}/api/transport/delete
+DELETE {{host}}/api/info/images
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "idtransport": "3"
+  "id": "4"
 }
 ###

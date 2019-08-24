@@ -63,7 +63,7 @@ class Appgpm extends AbstractMigration {
     }
     $this->table('user')
       ->addColumn('email', 'string', ['limit' => 255])
-      ->addColumn('photo', 'string', ['limit' => 255, 'default' => 'https://image.flaticon.com/icons/png/512/55/55089.png']) /* Image in host */
+      ->addColumn('photo', 'string', ['limit' => 255, 'default' => 'https://image.flaticon.com/icons/png/512/55/55089.png'])/* Image in host */
       ->addColumn('first_name', 'string', ['limit' => 255])
       ->addColumn('last_name', 'string', ['limit' => 255])
       ->addColumn('password', 'string', ['limit' => 255])
@@ -300,9 +300,11 @@ class Appgpm extends AbstractMigration {
       $this->table('info_page')->drop()->save();
     }
     $this->table('info_page')
-      ->addColumn('title', 'string', ['limit' => 255])
-      ->addColumn('content', 'string', ['limit' => 255])
-      ->addColumn('reference', 'string', ['limit' => 255])
+      ->addColumn('active', 'boolean', ['default' => true])
+      ->addColumn('title', 'string', ['limit' => 255, 'null' => true])
+      ->addColumn('content', 'string', ['limit' => 255, 'null' => true])
+      ->addColumn('page', 'string', ['limit' => 255, 'null' => true])
+      ->addColumn('section', 'string', ['limit' => 255, 'null' => true])
       ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->save();
