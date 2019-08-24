@@ -40,11 +40,18 @@ class InfoPageController extends HandleRequest {
     $result = $statement->fetchAll();
 
     if (is_array($result)) {
-      $body = array();
-      foreach ($result as $index => $infoPage) {
-        $body = $this->getInfoPages($this->db, $infoPage, $body, $index);
+      if ($page !== null) {
+        $body = array();
+        foreach ($result as $index => $infoPage) {
+          $body = $this->getInfoPages($this->db, $infoPage, $body, $index);
+        }
+        $result = $body;
+      } else {
+        foreach ($result as $index => $infoPage) {
+          $result = $this->getInfoImages($this->db, $infoPage, $result, $index);
+        }
       }
-      return $this->handleRequest($response, 200, '', $body);
+      return $this->handleRequest($response, 200, '', $result);
     } else {
       return $this->handleRequest($response, 204, '', []);
     }

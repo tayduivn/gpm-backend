@@ -227,7 +227,30 @@ class Utils {
    * @param       $index
    * @return array
    */
-  function getInfoPages($db, $infoPage, array $result, $index) {
+  function getInfoImages($db, $infoPage, array $result, $index) {
+    $query     = "SELECT info_page_image.id AS id_image, image FROM info_page_image
+                    INNER JOIN info_page ip on info_page_image.info_page_id = ip.id
+                    WHERE info_page_image.info_page_id = :id";
+    $statement = $db->prepare($query);
+    $statement->execute(['id' => $infoPage['id']]);
+    $resultImage = $statement->fetchAll();
+
+    if (is_array($resultImage) and !empty($resultImage)) {
+      $result[$index]['images'] = $resultImage;
+    } else {
+      $result[$index]['images'] = [['id_image' => '0', 'image' => $this->getBaseURL() . '/src/uploads/no-image.png']];
+    }
+    return $result;
+  }
+
+  /**
+   * @param       $db
+   * @param       $infoPage
+   * @param       $result
+   * @param       $index
+   * @return array
+   */
+  function getInfoPages($db, $infoPage, $result, $index) {
     $query     = "SELECT info_page_image.id AS id_image, image FROM info_page_image 
                     INNER JOIN info_page ip on info_page_image.info_page_id = ip.id
                     WHERE info_page_image.info_page_id = :id";
