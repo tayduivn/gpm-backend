@@ -1,6 +1,34 @@
 GET http://gpm-backend/api/public/info/page?page=Home
 Accept: application/json
 
+<> 2019-08-24T105452.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-24T105002.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-24T104552.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page
+Accept: application/json
+
+<> 2019-08-24T104550.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=Home
+Accept: application/json
+
 <> 2019-08-24T063257.200.json
 
 ###
@@ -634,46 +662,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpb
 }
 
 <> 2019-08-19T074332.500.html
-
-###
-
-POST http://gpm-backend/api/payments
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "order_id": "9NJ02073EN950130X"
-}
-
-<> 2019-08-19T074318.405.json
-
-###
-
-POST http://gpm-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-08-19T074313.200.json
-
-###
-
-GET http://gpm-backend/api/payments?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-18T121344.500.json
-
-###
-
-GET http://gpm-backend/api/payments?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-18T113022.500.json
 
 ###
 

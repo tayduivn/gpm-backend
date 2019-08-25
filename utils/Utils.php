@@ -265,18 +265,18 @@ class Utils {
 
     if (is_array($resultPage)) {
       foreach ($resultPage as $i => $item) {
-        $result[$index][$infoPage['section']][$i]['id']          = $item['id'];
-        $result[$index][$infoPage['section']][$i]['title']       = $item['title'];
-        $result[$index][$infoPage['section']][$i]['content']     = $item['content'];
-        $result[$index][$infoPage['section']][$i]['page']        = $item['page'];
-        $result[$index][$infoPage['section']][$i]['section']     = $item['section'];
-        $result[$index][$infoPage['section']][$i]['inserted_at'] = $item['inserted_at'];
-        $result[$index][$infoPage['section']][$i]['updated_at']  = $item['updated_at'];
+        $result[$infoPage['section']][$i]['id']          = $item['id'];
+        $result[$infoPage['section']][$i]['title']       = $item['title'];
+        $result[$infoPage['section']][$i]['content']     = $item['content'];
+        $result[$infoPage['section']][$i]['page']        = $item['page'];
+        $result[$infoPage['section']][$i]['section']     = $item['section'];
+        $result[$infoPage['section']][$i]['inserted_at'] = $item['inserted_at'];
+        $result[$infoPage['section']][$i]['updated_at']  = $item['updated_at'];
 
         if (is_array($resultImage) and !empty($resultImage)) {
-          $result[$index][$infoPage['section']][$i]['images'] = $resultImage;
+          $result[$infoPage['section']][$i]['images'] = $resultImage;
         } else {
-          $result[$index][$infoPage['section']][$i]['images'] = [['id_image' => '0', 'image' => $this->getBaseURL() . '/src/uploads/no-image.png']];
+          $result[$infoPage['section']][$i]['images'] = [['id_image' => '0', 'image' => $this->getBaseURL() . '/src/uploads/no-image.png']];
         }
       }
     }
