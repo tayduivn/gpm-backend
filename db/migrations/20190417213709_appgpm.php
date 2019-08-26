@@ -40,6 +40,7 @@ class Appgpm extends AbstractMigration {
     $this->tableProductTag();
     $this->tableSingUpEmail();
     $this->tablePayment();
+    $this->globalConfig();
     $this->infoPage();
     $this->infoPageImage();
   }
@@ -290,6 +291,19 @@ class Appgpm extends AbstractMigration {
       ->addColumn('production_stripe', 'boolean', ['default' => false])
       ->addColumn('paypal_token', 'string', ['limit' => 255])
       ->addColumn('production_paypal', 'boolean', ['default' => false])
+      ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+      ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+      ->save();
+  }
+
+  public function globalConfig() {
+    if ($this->hasTable('global_config')) {
+      $this->table('global_config')->drop()->save();
+    }
+    $this->table('global_config')
+      ->addColumn('active', 'boolean', ['default' => true])
+      ->addColumn('membership', 'string', ['limit' => 255, 'null' => true])
+      ->addColumn('percentage', 'string', ['limit' => 255, 'null' => true])
       ->addColumn('inserted_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
       ->save();

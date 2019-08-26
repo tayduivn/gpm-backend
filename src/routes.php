@@ -61,6 +61,8 @@ $app->group('/api', function () use ($app) {
 
     $app->get('/info/page', 'App\Controller\InfoPageController:getAll');
 
+    $app->get('/global/config', 'App\Controller\GlobalConfigController:getAll');
+
     $app->get('/products', 'App\Controller\ProductController:getAll');
     $app->get('/products/filter', 'App\Controller\ProductController:getFilter');
 
@@ -118,6 +120,10 @@ $app->group('/api', function () use ($app) {
   $app->post('/info/page', 'App\Controller\InfoPageController:register');
   $app->put('/info/page', 'App\Controller\InfoPageController:update');
   $app->delete('/info/page', 'App\Controller\InfoPageController:delete');
+
+  $app->post('/global/config', 'App\Controller\GlobalConfigController:register');
+  $app->put('/global/config', 'App\Controller\GlobalConfigController:update');
+  $app->delete('/global/config', 'App\Controller\GlobalConfigController:delete');
 
   $app->post('/info/images/reg', 'App\Controller\InfoPageImageController:register');
   $app->post('/info/images/update', 'App\Controller\InfoPageImageController:update');
