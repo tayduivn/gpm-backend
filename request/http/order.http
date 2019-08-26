@@ -18,6 +18,11 @@ Accept: application/json
 Authorization: Bearer {{auth_token}}
 
 ###
+GET {{host}}/api/orders?type=Seller&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
 GET {{host}}/api/orders
 Accept: application/json
 Authorization: Bearer {{auth_token}}

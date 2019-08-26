@@ -1,3 +1,303 @@
+GET http://gpm-backend/api/orders?type=Seller&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T104006.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T103155.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Seller&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T103111.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Seller&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T103036.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T102919.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T102812.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T101416.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T101304.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Seller&my_email=client@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T101249.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T101238.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Seller&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T101007.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100924.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100914.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100857.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100850.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100833.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100828.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100818.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100756.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100745.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100738.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100728.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100641.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100610.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100600.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100427.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T100410.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T094530.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T094516.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T094505.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T094334.200.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T094257.500.json
+
+###
+
+GET http://gpm-backend/api/orders?type=Buyer&email=client3@gmail.com
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T094240.200.json
+
+###
+
+GET http://gpm-backend/api/orders?status=Pending
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T090135.200.json
+
+###
+
+GET http://gpm-backend/api/orders?status=Pending
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T090110.200.json
+
+###
+
+GET http://gpm-backend/api/orders?status=Pending
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-26T080139.200.json
+
+###
+
+POST http://gpm-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-08-26T080132.200.json
+
+###
+
 GET http://gpm-backend/api/public/info/page?page=Home
 Accept: application/json
 
@@ -86,582 +386,6 @@ GET http://gpm-backend/api/public/info/page?page=Home
 Accept: application/json
 
 <> 2019-08-23T080531.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?page=Home
-Accept: application/json
-
-<> 2019-08-23T075943.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?page=Home
-Accept: application/json
-
-<> 2019-08-23T075902.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?page=Home
-Accept: application/json
-
-<> 2019-08-23T075458.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?page=Home
-Accept: application/json
-
-<> 2019-08-23T075441.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?page=Home
-Accept: application/json
-
-<> 2019-08-23T075354.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?id=1
-Accept: application/json
-
-<> 2019-08-23T075119.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?id=1
-Accept: application/json
-
-<> 2019-08-23T075021.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?id=1
-Accept: application/json
-
-<> 2019-08-23T074656.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?reference=Membership
-Accept: application/json
-
-<> 2019-08-23T053220.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?reference=Home
-Accept: application/json
-
-<> 2019-08-23T053207.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?reference=Home
-Accept: application/json
-
-<> 2019-08-23T053140.200.json
-
-###
-
-DELETE http://gpm-backend/api/info/images
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "id": "4"
-}
-
-<> 2019-08-23T051751.404.json
-
-###
-
-DELETE http://gpm-backend/api/info/images
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "id": "4"
-}
-
-<> 2019-08-23T051522.500.html
-
-###
-
-PUT http://gpm-backend/api/info/page
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "id": "10",
-  "title": "hi 2",
-  "content": "this 2",
-  "reference": "Home 2"
-}
-
-<> 2019-08-23T040641.201.json
-
-###
-
-POST http://gpm-backend/api/info/images/update
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
---WebAppBoundary
-Content-Disposition: form-data; name="id"
-Content-Type: text/plain
-
-4
---WebAppBoundary
-Content-Disposition: form-data; name="info_page_id"
-Content-Type: text/plain
-
-6
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="not-found-image.png"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\gpm-backend\request\image\not-found-image.png
---WebAppBoundary--
-
-<> 2019-08-23T040157.201.json
-
-###
-
-POST http://gpm-backend/api/info/images/update
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
---WebAppBoundary
-Content-Disposition: form-data; name="info_page_id"
-Content-Type: text/plain
-
-6
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="not-found-image.png"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\gpm-backend\request\image\not-found-image.png
---WebAppBoundary--
-
-<> 2019-08-23T040135.400.json
-
-###
-
-POST http://gpm-backend/api/info/images/reg
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
---WebAppBoundary
-Content-Disposition: form-data; name="info_page_id"
-Content-Type: text/plain
-
-5
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="not-found-image.png"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\gpm-backend\request\image\not-found-image.png
---WebAppBoundary--
-
-<> 2019-08-23T040055.201.json
-
-###
-
-GET http://gpm-backend/api/public/info/page
-Accept: application/json
-
-<> 2019-08-23T035959.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page?id=1
-Accept: application/json
-
-<> 2019-08-23T035957.200.json
-
-###
-
-POST http://gpm-backend/api/info/page
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "title": "hi",
-  "content": "this",
-  "reference": "Home"
-}
-
-<> 2019-08-23T035951.201.json
-
-###
-
-POST http://gpm-backend/api/info/page
-Content-Type: application/json
-Authorization: Bearer
-
-{
-  "title": "hi",
-  "content": "this",
-  "reference": "Home"
-}
-
-<> 2019-08-23T035947.401.json
-
-###
-
-POST http://gpm-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email"   : "client@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-08-23T035943.200.json
-
-###
-
-GET http://gpm-backend/api/public/info/page
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-08-23T035753.200.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.37745132321935,
-  "map_lat"           : -34.599649349384904,
-  "order_id_paypal"   : "1KG39489F9664412V",
-  "processor"         : "Credit card",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "9",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25",
-  "chat_id"           : "nZasjnCG69jGBH0cdWjE",
-  "token_stripe"      : {
-    "id"       : "tok_1F9BDqCYq3mncs6kElNOHmGF",
-    "object"   : "token",
-    "card"     : {
-      "id"                 : "card_1F9BDqCYq3mncs6kdgFjfQHE",
-      "object"             : "card",
-      "address_city"       : null,
-      "address_country"    : null,
-      "address_line1"      : null,
-      "address_line1_check": null,
-      "address_line2"      : null,
-      "address_state"      : null,
-      "address_zip"        : null,
-      "address_zip_check"  : null,
-      "brand"              : "Visa",
-      "country"            : "US",
-      "cvc_check"          : "pass",
-      "dynamic_last4"      : null,
-      "exp_month"          : 2,
-      "exp_year"           : 2020,
-      "funding"            : "credit",
-      "last4"              : "4242",
-      "metadata"           : {},
-      "name"               : "ivans21@gmail.com",
-      "tokenization_method": null
-    },
-    "client_ip": "186.185.37.52",
-    "created"  : 1566222514,
-    "email"    : "ivans21@gmail.com",
-    "livemode" : false,
-    "type"     : "card",
-    "used"     : false
-  }
-}
-
-<> 2019-08-19T095343.201.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.37745132321935,
-  "map_lat"           : -34.599649349384904,
-  "order_id_paypal"   : "1KG39489F9664412V",
-  "processor"         : "Credit card",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25",
-  "chat_id"           : "nZasjnCG69jGBH0cdWjE",
-  "token_stripe"      : {
-    "id"       : "tok_1F9BDqCYq3mncs6kElNOHmGF",
-    "object"   : "token",
-    "card"     : {
-      "id"                 : "card_1F9BDqCYq3mncs6kdgFjfQHE",
-      "object"             : "card",
-      "address_city"       : null,
-      "address_country"    : null,
-      "address_line1"      : null,
-      "address_line1_check": null,
-      "address_line2"      : null,
-      "address_state"      : null,
-      "address_zip"        : null,
-      "address_zip_check"  : null,
-      "brand"              : "Visa",
-      "country"            : "US",
-      "cvc_check"          : "pass",
-      "dynamic_last4"      : null,
-      "exp_month"          : 2,
-      "exp_year"           : 2020,
-      "funding"            : "credit",
-      "last4"              : "4242",
-      "metadata"           : {},
-      "name"               : "ivans21@gmail.com",
-      "tokenization_method": null
-    },
-    "client_ip": "186.185.37.52",
-    "created"  : 1566222514,
-    "email"    : "ivans21@gmail.com",
-    "livemode" : false,
-    "type"     : "card",
-    "used"     : false
-  }
-}
-
-<> 2019-08-19T095313.500.html
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.37745132321935,
-  "map_lat"           : -34.599649349384904,
-  "order_id_paypal"   : "1KG39489F9664412V",
-  "processor"         : "Paypal",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "2",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25",
-  "chat_id"           : "15gHgOxNL7cnLVqxEIuV"
-}
-
-<> 2019-08-19T094609.201.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.37745132321935,
-  "map_lat"           : -34.599649349384904,
-  "order_id_paypal"   : "1KG39489F9664412V",
-  "processor"         : "Paypal",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25",
-  "chat_id"           : "15gHgOxNL7cnLVqxEIuV"
-}
-
-<> 2019-08-19T094520.500.html
-
-###
-
-GET http://gpm-backend/api/public/products?id=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-19T084107.200.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.378824614232244,
-  "map_lat"           : -34.59894283978271,
-  "order_id_paypal"   : "5MB00196MT4859143",
-  "processor"         : "Paypal",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "3",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-19T083507.500.html
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.378824614232244,
-  "map_lat"           : -34.59894283978271,
-  "order_id_paypal"   : "5MB00196MT4859143",
-  "processor"         : "Paypal",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "3",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-19T083358.409.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.378824614232244,
-  "map_lat"           : -34.59894283978271,
-  "order_id_paypal"   : "5MB00196MT4859143",
-  "processor"         : "Paypal",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "2",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-19T083340.409.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.378824614232244,
-  "map_lat"           : -34.59894283978271,
-  "order_id_paypal"   : "5MB00196MT4859143",
-  "processor"         : "Paypal",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-19T083314.409.json
-
-###
-
-POST http://gpm-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "address"           : "Buenos Aires, Argentina",
-  "map_lng"           : -58.378824614232244,
-  "map_lat"           : -34.59894283978271,
-  "order_id_paypal"   : "5MB00196MT4859143",
-  "processor"         : "Paypal",
-  "processor_trans_id": 1,
-  "quantity"          : 1,
-  "product_id"        : "1",
-  "cart_id"           : "3",
-  "user_id"           : "3",
-  "total"             : "250.25",
-  "subtotal"          : "250.25"
-}
-
-<> 2019-08-19T082159.409.json
-
-###
-
-POST http://gpm-backend/api/payments/paypal
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "order_id": "9NJ02073EN950130X"
-}
-
-<> 2019-08-19T075336.200.html
-
-###
-
-POST http://gpm-backend/api/payments/paypal
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "order_id": "9NJ02073EN950130X"
-}
-
-<> 2019-08-19T075216.500.html
-
-###
-
-POST http://gpm-backend/api/payments/paypal
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "order_id": "9NJ02073EN950130X"
-}
-
-<> 2019-08-19T075122.500.html
-
-###
-
-POST http://gpm-backend/api/payments/paypal
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-{
-  "order_id": "9NJ02073EN950130X"
-}
-
-<> 2019-08-19T074332.500.html
 
 ###
 

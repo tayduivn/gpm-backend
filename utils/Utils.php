@@ -222,6 +222,53 @@ class Utils {
 
   /**
    * @param       $db
+   * @param       $order
+   * @param array $result
+   * @param       $index
+   * @param       $email
+   * @param       $type
+   * @return array
+   */
+  public function getUserByProductSeller($db, $order, array $result, $index, $email, $type) {
+    $query     = "SELECT id, email, photo, first_name, last_name, password, address, city, state, country, country_code, 
+                postal_code, phone, map_lng, map_lat, status, email_paypal, stripe_code, active, role_id, firebase_id, 
+                inserted_at, updated_at 
+                FROM user WHERE user.id = :id";
+    $statement = $db->prepare($query);
+    $statement->execute(['id' => $order['user_id_seller']]);
+    $resultUser = $statement->fetchObject();
+
+    if (is_object($resultUser) and !empty($resultUser)) {
+      $result[$index]['user_seller'] = $resultUser;
+    }
+    return $result;
+  }
+
+  /**
+   * @param       $db
+   * @param       $order
+   * @param array $result
+   * @param       $index
+   * @param       $email
+   * @param       $type
+   * @return array
+   */
+  public function getUserByProductBuyer($db, $order, array $result, $index, $email, $type) {
+    $query     = "SELECT id, email, photo, first_name, last_name, password, address, city, state, country, country_code, 
+                postal_code, phone, map_lng, map_lat, status, email_paypal, stripe_code, active, role_id, firebase_id, 
+                inserted_at, updated_at 
+                FROM user WHERE user.id = :id";
+    $statement = $db->prepare($query);
+    $statement->execute(['id' => $order['user_id_buyer']]);
+    $resultUser = $statement->fetchObject();
+    if (is_object($resultUser) and !empty($resultUser)) {
+      $result[$index]['user_buyer'] = $resultUser;
+    }
+    return $result;
+  }
+
+  /**
+   * @param       $db
    * @param       $infoPage
    * @param array $result
    * @param       $index

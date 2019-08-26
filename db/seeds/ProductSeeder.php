@@ -28,7 +28,7 @@ class ProductSeeder extends AbstractSeed {
         'regular_price'     => 250.25,
         'currency'          => 'USD',
         'quantity'          => 50,
-        'user_id'           => '2',
+        'user_id'           => '4',
       ],
       [
         'name'              => 'Granos Dos',
@@ -38,7 +38,7 @@ class ProductSeeder extends AbstractSeed {
         'regular_price'     => 350.25,
         'currency'          => 'USD',
         'quantity'          => 20,
-        'user_id'           => '2',
+        'user_id'           => '4',
       ],
       [
         'name'              => 'Granos Tres',
