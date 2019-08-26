@@ -40,7 +40,7 @@ class UserSeeder extends AbstractSeed {
         'country_code' => "US",
         'postal_code' => "60652",
         'phone' => "145645644",
-        'role_id' => "2",
+        'role_id' => "4",
         'firebase_id' => "fni7RiDeulm1win9uZIR",
       ],
       [

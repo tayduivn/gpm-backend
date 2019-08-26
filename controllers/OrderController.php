@@ -24,9 +24,10 @@ class OrderController extends HandleRequest {
 
   public function getAll(Request $request, Response $response, $args) {
     $id     = $request->getQueryParam('id');
-    $order  = $request->getQueryParam('order', $default = 'ASC');
     $userId = $request->getQueryParam('userId');
     $cartId = $request->getQueryParam('cartId');
+    $type   = $request->getQueryParam('type');
+    $my_email   = $request->getQueryParam('my_email');
     $status = $request->getQueryParam('status', $default = 'Pending');
 
     if ($id !== null) {
@@ -70,6 +71,17 @@ class OrderController extends HandleRequest {
       } else {
         return $this->handleRequest($response, 204, '', []);
       }
+    } else if ($type !== null and $my_email !== null) {
+      $query     = "SELECT `order`.id AS order_id, `order`.chat_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
+                    `order`.address, `order`.map_lng, `order`.map_lat, 
+                    `order`.inserted_at AS order_inserted_at, `order`.updated_at AS order_updated_at, `order`.user_id, `order`.cart_id, 
+                    u.id, u.email, u.first_name, u.last_name, u.password, u.address, u.phone, u.active, 
+                    u.city, u.country, u.state, u.country_code, u.postal_code, u.state, u.photo,
+                    u.role_id, u.inserted_at, u.updated_at 
+                    FROM `order` INNER JOIN user u on `order`.user_id = u.id
+                    WHERE `order`.active != '0' AND `order`.status = :status";
+      $statement = $this->db->prepare($query);
+      $statement->execute(['status' => $status]);
     } else {
       $query     = "SELECT `order`.id AS order_id, `order`.chat_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
                     `order`.address, `order`.map_lng, `order`.map_lat, 

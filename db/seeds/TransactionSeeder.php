@@ -17,6 +17,10 @@ class TransactionSeeder extends AbstractSeed {
       [
         'processor'          => 'Paypal',
         'processor_trans_id' => '002',
+      ],
+      [
+        'processor'          => 'Stripe',
+        'processor_trans_id' => '003',
       ]
     ];
     $this->table('transaction')->insert($data)->save();

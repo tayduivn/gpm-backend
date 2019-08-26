@@ -30,8 +30,8 @@ class CartSeeder extends AbstractSeed {
         'user_id'    => 2,
       ],
       [
-        'status'      => 'current',
-        'user_id'    => 3,
+        'status'      => 'checkout',
+        'user_id'    => 4,
       ],
       [
         'status'      => 'current',

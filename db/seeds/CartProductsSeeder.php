@@ -29,8 +29,18 @@ class CartProductsSeeder extends AbstractSeed {
       ],
       [
         'quantity'   => 3,
-        'cart_id'    => 1,
+        'cart_id'    => 2,
         'product_id' => 2,
+      ],
+      [
+        'quantity'   => 2,
+        'cart_id'    => 3,
+        'product_id' => 3,
+      ],
+      [
+        'quantity'   => 3,
+        'cart_id'    => 4,
+        'product_id' => 4,
       ]
     ];
     $this->table('cart_products')->insert($data)->save();
