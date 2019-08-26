@@ -225,11 +225,9 @@ class Utils {
    * @param       $order
    * @param array $result
    * @param       $index
-   * @param       $email
-   * @param       $type
    * @return array
    */
-  public function getUserByProductSeller($db, $order, array $result, $index, $email, $type) {
+  public function getUserByProductSeller($db, $order, array $result, $index) {
     $query     = "SELECT id, email, photo, first_name, last_name, password, address, city, state, country, country_code, 
                 postal_code, phone, map_lng, map_lat, status, email_paypal, stripe_code, active, role_id, firebase_id, 
                 inserted_at, updated_at 
@@ -249,11 +247,9 @@ class Utils {
    * @param       $order
    * @param array $result
    * @param       $index
-   * @param       $email
-   * @param       $type
    * @return array
    */
-  public function getUserByProductBuyer($db, $order, array $result, $index, $email, $type) {
+  public function getUserByProductBuyer($db, $order, array $result, $index) {
     $query     = "SELECT id, email, photo, first_name, last_name, password, address, city, state, country, country_code, 
                 postal_code, phone, map_lng, map_lat, status, email_paypal, stripe_code, active, role_id, firebase_id, 
                 inserted_at, updated_at 

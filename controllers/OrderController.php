@@ -26,7 +26,7 @@ class OrderController extends HandleRequest {
     $id       = $request->getQueryParam('id');
     $userId   = $request->getQueryParam('userId');
     $cartId   = $request->getQueryParam('cartId');
-    $type     = $request->getQueryParam('type', $default = 'Buyer/Seller');
+    $type     = $request->getQueryParam('type');
     $my_email = $request->getQueryParam('my_email');
     $status   = $request->getQueryParam('status', $default = 'Pending');
 
@@ -71,7 +71,7 @@ class OrderController extends HandleRequest {
       } else {
         return $this->handleRequest($response, 204, '', []);
       }
-    } else if ($status and $my_email !== null) {
+    } else if ($my_email !== null and $type !== null) {
       $query     = "SELECT `order`.id AS order_id, `order`.chat_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
                     `order`.address, `order`.map_lng, `order`.map_lat, 
                     `order`.inserted_at AS order_inserted_at, `order`.updated_at AS order_updated_at, `order`.user_id, `order`.cart_id, 
@@ -84,18 +84,38 @@ class OrderController extends HandleRequest {
       $statement = $this->db->prepare($query);
       $statement->execute(['status' => $status]);
       $result = $statement->fetchAll();
-      foreach ($result as $index => $order) {
-        $result = $this->getUserByProductSeller($this->db, $order, $result, $index, $type, $my_email);
-        if (($type === 'Seller' || $type === 'Buyer/Seller') && $result[$index]['user_seller']->email !== $my_email) {
+      $index  = 0;
+      foreach ($result as $order) {
+        $result = $this->getUserByProductSeller($this->db, $order, $result, $index);
+        if (($type === 'Seller') && $result[$index]['user_seller']->email !== $my_email) {
           array_splice($result, $index, 1);
+          continue;
         } else {
-          $result = $this->getUserByProductBuyer($this->db, $order, $result, $index, $type, $my_email);
-          if (($type === 'Buyer' || $type === 'Buyer/Seller') && $result[$index]['user_buyer']->email !== $my_email) {
+          $result = $this->getUserByProductBuyer($this->db, $order, $result, $index);
+          if (($type === 'Buyer') && $result[$index]['user_buyer']->email !== $my_email) {
             array_splice($result, $index, 1);
+            continue;
           }
         }
+        if ($result[$index]['user_seller']->email === $my_email) {
+          $result[$index]['type'] = 'Seller';
+        } else if ($result[$index]['user_buyer']->email === $my_email) {
+          $result[$index]['type'] = 'Buyer';
+        }
+        $index++;
       }
       return $this->handleRequest($response, 200, '', $result);
+    } else if ($status) {
+      $query     = "SELECT `order`.id AS order_id, `order`.chat_id, `order`.subtotal, `order`.total, `order`.status, `order`.active, 
+                    `order`.address, `order`.map_lng, `order`.map_lat, 
+                    `order`.inserted_at AS order_inserted_at, `order`.updated_at AS order_updated_at, `order`.user_id, `order`.cart_id, 
+                    u.id, u.email, u.first_name, u.last_name, u.password, u.address, u.phone, u.active, 
+                    u.city, u.country, u.state, u.country_code, u.postal_code, u.state, u.photo,
+                    u.role_id, u.inserted_at, u.updated_at 
+                    FROM `order` INNER JOIN user u on `order`.user_id = u.id
+                    WHERE `order`.active != '0' AND `order`.status = :status";
+      $statement = $this->db->prepare($query);
+      $statement->execute(['status' => $status]);
     } else {
       $statement = $this->db->prepare("SELECT * FROM `order` WHERE `order`.active != '0'");
       $statement->execute();
@@ -104,15 +124,16 @@ class OrderController extends HandleRequest {
   }
 
   public function register(Request $request, Response $response, $args) {
-    $request_body = $request->getParsedBody();
-    $chat_id      = $request_body['chat_id'];
-    $subtotal     = $request_body['subtotal'];
-    $total        = $request_body['total'];
-    $user_id      = $request_body['user_id'];
-    $cart_id      = $request_body['cart_id'];
-    $address      = $request_body['address'];
-    $map_lng      = $request_body['map_lng'];
-    $map_lat      = $request_body['map_lat'];
+    $request_body   = $request->getParsedBody();
+    $chat_id        = $request_body['chat_id'];
+    $subtotal       = $request_body['subtotal'];
+    $total          = $request_body['total'];
+    $user_id        = $request_body['user_id'];
+    $cart_id        = $request_body['cart_id'];
+    $address        = $request_body['address'];
+    $map_lng        = $request_body['map_lng'];
+    $map_lat        = $request_body['map_lat'];
+    $transaction_id = $request_body['transaction_id'];
 
     if (!isset($subtotal) && !isset($total) && !isset($user_id) && !isset($cart_id)) {
       return $this->handleRequest($response, 400, 'Data incorrect');
@@ -121,18 +142,19 @@ class OrderController extends HandleRequest {
     if ($this->isAlreadyCartOrder($cart_id, $this->db)) {
       return $this->handleRequest($response, 409, 'Cart is already cart');
     } else {
-      $query   = "INSERT INTO `order` (`chat_id`, `address`, `map_lng`, `map_lat`, `subtotal`, `total`, `user_id`, `cart_id`) 
-                    VALUES(:chat_id, :address, :map_lng, :map_lat, :subtotal, :total, :user_id, :cart_id)";
+      $query   = "INSERT INTO `order` (`chat_id`, `address`, `map_lng`, `map_lat`, `subtotal`, `total`, `user_id`, `cart_id`, `transaction_id`) 
+                    VALUES(:chat_id, :address, :map_lng, :map_lat, :subtotal, :total, :user_id, :cart_id, :transaction_id)";
       $prepare = $this->db->prepare($query);
       $result  = $prepare->execute([
-                                     'address'  => $address,
-                                     'map_lng'  => $map_lng,
-                                     'map_lat'  => $map_lat,
-                                     'chat_id'  => $chat_id,
-                                     'subtotal' => $subtotal,
-                                     'total'    => $total,
-                                     'user_id'  => $user_id,
-                                     'cart_id'  => $cart_id,
+                                     'address'        => $address,
+                                     'map_lng'        => $map_lng,
+                                     'map_lat'        => $map_lat,
+                                     'chat_id'        => $chat_id,
+                                     'subtotal'       => $subtotal,
+                                     'total'          => $total,
+                                     'user_id'        => $user_id,
+                                     'cart_id'        => $cart_id,
+                                     'transaction_id' => $transaction_id,
                                    ]);
     }
 

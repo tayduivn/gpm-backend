@@ -18,7 +18,7 @@ Accept: application/json
 Authorization: Bearer {{auth_token}}
 
 ###
-GET {{host}}/api/orders?type=Seller&my_email=client3@gmail.com
+GET {{host}}/api/orders?type=Seller&my_email=client@gmail.com
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
@@ -33,10 +33,15 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
+  "address": "Hello",
+  "map_lat": "13123",
+  "map_lng": "123",
+  "chat_id": "2200",
   "subtotal": "2200",
   "total": "2500",
   "user_id": "1",
-  "cart_id": "3"
+  "cart_id": "4",
+  "transaction_id": "1"
 }
 
 ###
