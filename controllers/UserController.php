@@ -203,7 +203,7 @@ class UserController extends HandleRequest {
     $role_id      = $request_body['role_id'];
     $first_name   = isset($request_body['first_name']) ? $request_body['first_name'] : '';
     $last_name    = isset($request_body['last_name']) ? $request_body['last_name'] : '';
-    $status       = isset($request_body['status']) ? $request_body['status'] : '';
+    $status       = isset($request_body['status']) ? $request_body['status'] : 'waiting';
     $city         = isset($request_body['city']) ? $request_body['city'] : '';
     $state        = isset($request_body['state']) ? $request_body['state'] : '';
     $country      = isset($request_body['country']) ? $request_body['country'] : '';

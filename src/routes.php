@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * routes to the images
+ */
 $app->get('/src/uploads/{image}', function ($request, $response, $args) use ($app) {
   $file = __DIR__ . "/uploads/" . $args['image'];
   if (!file_exists($file)) {
@@ -14,6 +17,12 @@ $app->get('/src/uploads/{image}', function ($request, $response, $args) use ($ap
   return $response->withHeader('Content-Type', FILEINFO_MIME_TYPE);
 });
 
+/**
+ * routes: /public endpoint not require token by the client
+ * routes: /endpoints list endpoints
+ * routes: /verify connection
+ * the rest of endpoints require token
+ */
 $app->group('/api', function () use ($app) {
   $app->group('/public', function () use ($app) {
 
@@ -31,17 +40,16 @@ $app->group('/api', function () use ($app) {
     });
     $app->get('/base', function ($request, $response, $args) use ($app) {
       $servername = "localhost";
-      $username = "appgpm_ivans";
-      $password = "Y?Up7*?eCAtH";
-      $db = "appgpm_gpm";
+      $username   = "appgpm_ivans";
+      $password   = "Y?Up7*?eCAtH";
+      $db         = "appgpm_gpm";
 
       try {
         $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $routes = "Connected successfully";
-      }
-      catch(PDOException $e) {
+      } catch (PDOException $e) {
         $routes = "Connection failed: " . $e->getMessage();
       }
 

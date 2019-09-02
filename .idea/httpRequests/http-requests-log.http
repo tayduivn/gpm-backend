@@ -1,3 +1,66 @@
+GET https://backend.appgpm.com/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
+
+<> 2019-08-28T123140.200.json
+
+###
+
+POST https://backend.appgpm.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-08-28T123130.200.json
+
+###
+
+GET https://backend.appgpm.com/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-28T112702.200.json
+
+###
+
+GET https://backend.appgpm.com/api/public/info/page?page=Home
+Accept: application/json
+
+###
+
+GET https://backend.appgpm.com/api/public/info/page?page=Home
+Accept: application/json
+
+###
+
+GET https://backend.appgpm.com/api/public/info/page?page=Home
+Accept: application/json
+
+<> 2019-08-28T111820.500.json
+
+###
+
+POST https://backend.appgpm.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email"   : "client@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-08-28T034650.200.json
+
+###
+
+GET http://gpm-backend/api/public/info/page?page=About
+Accept: application/json
+
+<> 2019-08-27T105825.200.json
+
+###
+
 GET http://gpm-backend/api/orders?type=Seller&my_email=client@gmail.com
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
@@ -399,70 +462,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
 
 <> 2019-08-26T100756.200.json
-
-###
-
-GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-26T100745.200.json
-
-###
-
-GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-26T100738.200.json
-
-###
-
-GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-26T100728.200.json
-
-###
-
-GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-26T100641.200.json
-
-###
-
-GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-26T100610.200.json
-
-###
-
-GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-26T100600.200.json
-
-###
-
-GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-26T100427.200.json
-
-###
-
-GET http://gpm-backend/api/orders?type=Buyer&my_email=client3@gmail.com
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImNsaWVudEBnbWFpbC5jb20ifQ.QEYM2ulTY9_sQOrBD6-iz_Za8VMEuVKGwjyu4s_LsOU
-
-<> 2019-08-26T100410.200.json
 
 ###
 
